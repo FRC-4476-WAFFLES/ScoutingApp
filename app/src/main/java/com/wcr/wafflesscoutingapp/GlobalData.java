@@ -3,8 +3,8 @@ package com.wcr.wafflesscoutingapp;
 import android.app.Application;
 
 public class GlobalData extends Application {
-    private String scout_name_first;
-    private String scout_name_second;
+    private String scout_name_first = "";
+    private String scout_name_last = "";
     private int game_index;
 
     public String get_Scout_name_first() {
@@ -15,12 +15,12 @@ public class GlobalData extends Application {
         this.scout_name_first = scout_name_first;
     }
 
-    public String get_Scout_name_second() {
-        return scout_name_second;
+    public String get_Scout_name_last() {
+        return scout_name_last;
     }
 
-    public void set_Scout_name_second(String scout_name_second) {
-        this.scout_name_second = scout_name_second;
+    public void set_Scout_name_last(String scout_name_last) {
+        this.scout_name_last = scout_name_last;
     }
 
     public int get_Game_index() {

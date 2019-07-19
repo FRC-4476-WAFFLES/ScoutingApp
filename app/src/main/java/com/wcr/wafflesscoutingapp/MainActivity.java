@@ -2,14 +2,12 @@ package com.wcr.wafflesscoutingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.core.graphics.ColorUtils;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CalendarView;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainGrid = (GridLayout)findViewById(R.id.mainGrid);
         CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
-        TextView textView2020 = (TextView)findViewById(R.id.textView2020);
+        TextView textView2020 = (TextView)findViewById(R.id.textView0);
         textView2020.setTypeface(CooperBlack);
-        TextView textView2019 = (TextView)findViewById(R.id.textView2019);
+        TextView textView2019 = (TextView)findViewById(R.id.textView1);
         textView2019.setTypeface(CooperBlack);
-        TextView textView2018 = (TextView)findViewById(R.id.textView2018);
+        TextView textView2018 = (TextView)findViewById(R.id.textView2);
         textView2018.setTypeface(CooperBlack);
-        TextView textView2017 = (TextView)findViewById(R.id.textView2017);
+        TextView textView2017 = (TextView)findViewById(R.id.textView3);
         textView2017.setTypeface(CooperBlack);
         TextView textGrid = (TextView)findViewById(R.id.textGrid);
         textGrid.setTypeface(CooperBlack);

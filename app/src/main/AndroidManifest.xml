@@ -16,7 +16,7 @@
         android:name=".GlobalData"
         android:theme="@style/AppTheme">
         <activity android:name=".ScoutData"></activity>
-        <activity android:name=".DeepSpace" />
+        <activity android:name=".GameId0" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

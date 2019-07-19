@@ -71,14 +71,14 @@
                     android:src="@drawable/infinite_recharge220x220" />
 
                 <TextView
-                    android:id="@+id/textView2020"
+                    android:id="@+id/textView0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2020"
+                    android:text="@string/Index_0_Year"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -109,10 +109,10 @@
                     android:src="@drawable/deep_space220x220" />
 
                 <TextView
-                    android:id="@+id/textView2019"
+                    android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2019"
+                    android:text="@string/Index_1_Year"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -148,10 +148,10 @@
                     android:src="@drawable/power_up220x220" />
 
                 <TextView
-                    android:id="@+id/textView2018"
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2018"
+                    android:text="@string/Index_2_Year"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -186,10 +186,10 @@
                     android:src="@drawable/steamworks220x220" />
 
                 <TextView
-                    android:id="@+id/textView2017"
+                    android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2017"
+                    android:text="@string/Index_3_Year"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
