@@ -39,6 +39,15 @@ public class ScoutData extends AppCompatActivity {
                     Intent startIntent = new Intent(getApplicationContext(), GameId0.class);
                     //show how to pass information to another activity
                     startActivity(startIntent);
+                }else if(index == 1){
+                    Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
+                    startActivity(startIntent);
+                }else if(index == 2){
+                    Intent startIntent = new Intent(getApplicationContext(), GameId2.class);
+                    startActivity(startIntent);
+                }else if(index == 3){
+                    Intent startIntent = new Intent(getApplicationContext(), GameId3.class);
+                    startActivity(startIntent);
                 }
             }
         });
