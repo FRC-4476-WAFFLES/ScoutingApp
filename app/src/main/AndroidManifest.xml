@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".GlobalData"
@@ -15,11 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameId3"></activity>
-        <activity android:name=".GameId1" />
-        <activity android:name=".GameId2" />
+        <activity android:name=".GameId1.GameId1Before"></activity>
+        <activity android:name=".GameId0.GameId0Before" />
+        <activity android:name=".GameId3.GameId3" />
+        <activity android:name=".GameId1.GameId1" />
+        <activity android:name=".GameId2.GameId2" />
         <activity android:name=".ScoutData" />
-        <activity android:name=".GameId0" />
+        <activity android:name=".GameId0.GameId0" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

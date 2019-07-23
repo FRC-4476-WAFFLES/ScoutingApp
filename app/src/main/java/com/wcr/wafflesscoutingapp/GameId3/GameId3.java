@@ -1,8 +1,10 @@
-package com.wcr.wafflesscoutingapp;
+package com.wcr.wafflesscoutingapp.GameId3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.wcr.wafflesscoutingapp.R;
 
 public class GameId3 extends AppCompatActivity {
 

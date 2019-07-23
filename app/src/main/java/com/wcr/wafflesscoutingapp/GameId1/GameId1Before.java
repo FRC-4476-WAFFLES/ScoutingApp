@@ -1,14 +1,16 @@
-package com.wcr.wafflesscoutingapp;
+package com.wcr.wafflesscoutingapp.GameId1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class GameId2 extends AppCompatActivity {
+import com.wcr.wafflesscoutingapp.R;
+
+public class GameId1Before extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_id_2);
+        setContentView(R.layout.activity_game_id1_before);
     }
 }

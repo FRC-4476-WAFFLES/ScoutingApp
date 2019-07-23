@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wcr.wafflesscoutingapp.GameId0.GameId0;
+import com.wcr.wafflesscoutingapp.GameId1.GameId1;
+import com.wcr.wafflesscoutingapp.GameId2.GameId2;
+import com.wcr.wafflesscoutingapp.GameId3.GameId3;
+
 public class ScoutData extends AppCompatActivity {
     Typeface CooperBlack;
 
@@ -35,6 +40,7 @@ public class ScoutData extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int index = app_data.get_Game_index();
+                app_data.setGame_state(getString(R.string.pregame));
                 if(index == 0){
                     Intent startIntent = new Intent(getApplicationContext(), GameId0.class);
                     //show how to pass information to another activity
