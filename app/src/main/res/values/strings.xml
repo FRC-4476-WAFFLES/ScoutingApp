@@ -22,4 +22,12 @@
     <string name="midgame_2_title">Tele-Op</string>
     <string name="postgame_title">End Game</string>
     <string name="submit_title">Submit Match Data</string>
+
+    <string-array name="events_array">
+        <item>Durham Colege</item>
+        <item>idk waterloo or smthn</item>
+        <item>DCMP</item>
+        <item>Worlds</item>
+        <item>Off season?</item>
+    </string-array>
 </resources>
