@@ -6,4 +6,6 @@
     <color name="wafflesYellow">#f0ea48</color>
     <color name="blue">#0066B3</color>
     <color name="red">#ED3524</color>
+    <color name="ballOrange">#FF8C00</color>
+    <color name="grey">#b6b8b6</color>
 </resources>

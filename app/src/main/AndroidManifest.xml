@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameId1.GameId1Before"></activity>
+        <activity android:name=".GameId1.GameId1Autonomous"></activity>
+        <activity android:name=".GameId1.GameId1Before" />
         <activity android:name=".GameId0.GameId0Before" />
         <activity android:name=".GameId3.GameId3" />
         <activity android:name=".GameId1.GameId1" />

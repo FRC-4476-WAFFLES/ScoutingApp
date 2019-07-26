@@ -14,14 +14,21 @@
     <string name="Index_3_Year">2017</string>
 
     <string name="pregame">1</string>
-    <string name="midgame">2</string>
-    <string name="postgame">3</string>
+    <string name="sandstorm">2</string>
+    <string name="teleop">3</string>
+    <string name="endgame">3</string>
 
     <string name="pregame_title">Before the Match</string>
     <string name="midgame_1_title">Sandstorm</string>
     <string name="midgame_2_title">Tele-Op</string>
     <string name="postgame_title">End Game</string>
     <string name="submit_title">Submit Match Data</string>
+
+    //1: pregame
+    //2: sandstorm
+    //3: teleoperated
+    //4: endgame
+
 
     <string-array name="events_array">
         <item>Durham Colege</item>
@@ -30,4 +37,7 @@
         <item>Worlds</item>
         <item>Off season?</item>
     </string-array>
+
+    <!--dimensions-->
+    <dimen name="btnSize">80dp</dimen>
 </resources>

@@ -11,11 +11,14 @@ public class GlobalData extends Application {
     //2: id2
     //3: id3
     private String game_state;
-
     //1: pregame
-    //2: mid game
-    //3 post game
+    //2: sandstorm
+    //3: teleoperated
+    //4: endgame
     private String event;
+
+    String[] matchData = new String[15];
+
 
     public String get_Scout_name_first() {
         return scout_name_first;
@@ -54,5 +57,12 @@ public class GlobalData extends Application {
 
     public void setEvent(String event) {
         this.event = event;
+    }
+
+    public void setMatchDataId(int id, String content){
+        matchData[id] = content;
+    }
+    public String getMatchDataId(int id){
+        return matchData[id];
     }
 }
