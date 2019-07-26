@@ -2,7 +2,11 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <device id="pixel" />
+        <device id="Nexus 5X" />
+        <device id="Nexus 6" />
+      </config>
     </shared>
   </component>
   <component name="AvailableLibraryUpdateStorage">
@@ -57,22 +61,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f981b04c-2414-4cf3-a6c5-6df8c16289b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Autonomous.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GlobalData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GlobalData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,25 +94,16 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+              <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/ScoutData.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="78" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-242">
-              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+            <state relative-caret-position="238">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -120,17 +112,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GlobalData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-4">
-              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding>
-                <element signature="e#1149#1150#0" expanded="true" />
-                <element signature="e#1177#1178#0" expanded="true" />
-                <element signature="e#1219#1220#0" expanded="true" />
-                <element signature="e#1253#1254#0" expanded="true" />
-                <element signature="e#1382#1383#0" expanded="true" />
-                <element signature="e#1420#1421#0" expanded="true" />
-                <element signature="e#1463#1464#0" expanded="true" />
-                <element signature="e#1498#1499#0" expanded="true" />
-              </folding>
+              <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -138,53 +120,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="100" column="74" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
+            <state relative-caret-position="425">
+              <caret line="141" column="74" selection-start-line="141" selection-start-column="74" selection-end-line="141" selection-end-column="74" />
               <folding>
-                <element signature="e#1337#1527#0" expanded="true" />
-                <element signature="e#1526#1527#0" expanded="true" />
-                <element signature="e#1649#1839#0" expanded="true" />
-                <element signature="e#1838#1839#0" expanded="true" />
-                <element signature="e#1964#2154#0" expanded="true" />
-                <element signature="e#2153#2154#0" expanded="true" />
-                <element signature="e#2275#2466#0" expanded="true" />
-                <element signature="e#2465#2466#0" expanded="true" />
-                <element signature="e#2585#2776#0" expanded="true" />
-                <element signature="e#2775#2776#0" expanded="true" />
-                <element signature="e#2895#3086#0" expanded="true" />
-                <element signature="e#3085#3086#0" expanded="true" />
-                <element signature="e#2810#3192#0" expanded="true" />
-                <element signature="e#3004#3033#0" expanded="true" />
-                <element signature="e#3191#3192#0" expanded="true" />
+                <element signature="e#3714#4145#0" expanded="true" />
+                <element signature="e#4144#4145#0" expanded="true" />
+                <element signature="e#4187#4619#0" expanded="true" />
+                <element signature="e#4618#4619#0" expanded="true" />
+                <element signature="e#5253#5838#0" expanded="true" />
+                <element signature="e#5837#5838#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="387" column="40" lean-forward="true" selection-start-line="387" selection-start-column="40" selection-end-line="387" selection-end-column="40" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="252" column="50" lean-forward="true" selection-start-line="252" selection-start-column="50" selection-end-line="252" selection-end-column="50" />
-              <folding>
-                <element signature="e#8675#8691#0" expanded="true" />
-                <element signature="e#9090#9106#0" expanded="true" />
-                <element signature="e#9653#9669#0" expanded="true" />
-                <element signature="e#10065#10081#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -195,11 +142,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            <state relative-caret-position="289">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
           <provider editor-type-id="android-manifest" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -223,7 +179,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId0.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId0Before.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId0/GameId0Before.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId0/GameId0.java" />
@@ -231,11 +186,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_scout_data.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/ScoutData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Autonomous.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GlobalData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java" />
       </list>
     </option>
@@ -254,9 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -291,6 +245,12 @@
               <item name="ScoutingApp" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ScoutingApp" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
@@ -307,6 +267,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,27 +388,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1216" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.25159913" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.25053304" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4989339" weight="0.32963988" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49733475" weight="0.32963988" />
       <window_info anchor="bottom" id="Logcat" order="1" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4989339" weight="0.32779318" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5010661" side_tool="true" weight="0.32779318" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4978678" weight="0.32779318" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50586355" side_tool="true" visible="true" weight="0.2059095" />
       <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Build" order="8" sideWeight="0.49307036" visible="true" weight="0.2059095" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49413645" visible="true" weight="0.2059095" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.3297587" />
-      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.49946696" weight="0.32963988" />
+      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.4989339" weight="0.32963988" />
       <window_info anchor="right" id="Preview" order="0" weight="0.3219616" />
       <window_info anchor="right" id="Device File Explorer" order="1" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -464,9 +428,6 @@
           <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -526,9 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0f5c158723156527b152624c9dba705/jars/classes.jar!/androidx/constraintlayout/widget/ConstraintLayout.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_scout_data.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="421">
@@ -537,23 +495,35 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0f5c158723156527b152624c9dba705/jars/classes.jar!/androidx/constraintlayout/widget/ConstraintLayout.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/view/LayoutInflater.class">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="43" selection-start-column="43" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#4094#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        <state relative-caret-position="102">
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="33" selection-start-line="33" selection-end-line="201" />
           <folding>
@@ -564,98 +534,92 @@
           </folding>
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="e#944#967#0" expanded="true" />
+            <element signature="e#1457#2305#0" />
+            <element signature="e#2315#2965#0" />
+            <element signature="e#1217#1761#0" />
+            <element signature="e#2104#9936#0" />
+            <element signature="e#9941#11438#0" />
+            <element signature="e#10110#10654#0" />
+            <element signature="e#10667#11414#0" />
+            <element signature="e#10980#15227#0" />
+            <element signature="e#17500#17914#0" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="72" selection-start-line="72" selection-end-line="72" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Autonomous.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_autonomous.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="252" column="50" lean-forward="true" selection-start-line="252" selection-start-column="50" selection-end-line="252" selection-end-column="50" />
-          <folding>
-            <element signature="e#8675#8691#0" expanded="true" />
-            <element signature="e#9090#9106#0" expanded="true" />
-            <element signature="e#9653#9669#0" expanded="true" />
-            <element signature="e#10065#10081#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/ScoutData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="78" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GlobalData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1177#1178#0" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
-            <element signature="e#1253#1254#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1498#1499#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="353">
+          <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_game_id1_before.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="387" column="40" lean-forward="true" selection-start-line="387" selection-start-column="40" selection-end-line="387" selection-end-column="40" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GlobalData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="100" column="74" selection-start-line="100" selection-start-column="74" selection-end-line="100" selection-end-column="74" />
+        <state relative-caret-position="425">
+          <caret line="141" column="74" selection-start-line="141" selection-start-column="74" selection-end-line="141" selection-end-column="74" />
           <folding>
-            <element signature="e#1337#1527#0" expanded="true" />
-            <element signature="e#1526#1527#0" expanded="true" />
-            <element signature="e#1649#1839#0" expanded="true" />
-            <element signature="e#1838#1839#0" expanded="true" />
-            <element signature="e#1964#2154#0" expanded="true" />
-            <element signature="e#2153#2154#0" expanded="true" />
-            <element signature="e#2275#2466#0" expanded="true" />
-            <element signature="e#2465#2466#0" expanded="true" />
-            <element signature="e#2585#2776#0" expanded="true" />
-            <element signature="e#2775#2776#0" expanded="true" />
-            <element signature="e#2895#3086#0" expanded="true" />
-            <element signature="e#3085#3086#0" expanded="true" />
-            <element signature="e#2810#3192#0" expanded="true" />
-            <element signature="e#3004#3033#0" expanded="true" />
-            <element signature="e#3191#3192#0" expanded="true" />
+            <element signature="e#3714#4145#0" expanded="true" />
+            <element signature="e#4144#4145#0" expanded="true" />
+            <element signature="e#4187#4619#0" expanded="true" />
+            <element signature="e#4618#4619#0" expanded="true" />
+            <element signature="e#5253#5838#0" expanded="true" />
+            <element signature="e#5837#5838#0" expanded="true" />
           </folding>
         </state>
       </provider>

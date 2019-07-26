@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/waffle_background1280x1920_400dpi"
+    android:background="@drawable/waffle_background1280x1920_96dpi"
     tools:context=".GameId1.GameId1Autonomous">
 
     <TextView

@@ -19,6 +19,9 @@ public class GameId1 extends AppCompatActivity {
         if(app_data.getGame_state().equals(getString(R.string.pregame))){
             Intent startIntent = new Intent(getApplicationContext(), GameId1Before.class);
             startActivity(startIntent);
+        }else if(app_data.getGame_state().equals(getString(R.string.sandstorm))){
+            Intent startIntent = new Intent(getApplicationContext(), GameId1Autonomous.class);
+            startActivity(startIntent);
         }
     }
 }

@@ -10,12 +10,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wcr.wafflesscoutingapp.GlobalData;
+import com.wcr.wafflesscoutingapp.MainActivity;
 import com.wcr.wafflesscoutingapp.R;
 
 public class GameId1Before extends AppCompatActivity {
     Typeface CooperBlack;
+    String DriverStation = "";
+    String StartOnLevel2 = "";
+    String StartingPosition = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +39,13 @@ public class GameId1Before extends AppCompatActivity {
         final EditText matchNumberEditText = (EditText)findViewById(R.id.matchNumberEditText);
 
         //Driver Station buttons
+        DriverStation = "";
         final Button blue1Button = (Button)findViewById(R.id.blue1Button);
         blue1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DSLocBtn(0);
-                String DriverStation = "Blue1";
+                DriverStation = "Blue1";
             }
         });
         final Button blue2Button = (Button)findViewById(R.id.blue2Button);
@@ -46,7 +53,7 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DSLocBtn(1);
-                String DriverStation = "Blue 2";
+                DriverStation = "Blue 2";
             }
         });
         final Button blue3Button = (Button)findViewById(R.id.blue3Button);
@@ -54,7 +61,7 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DSLocBtn(2);
-                String DriverStation = "Blue 3";
+                DriverStation = "Blue 3";
             }
         });
         final Button red1Button = (Button)findViewById(R.id.red1Button);
@@ -62,7 +69,7 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DSLocBtn(3);
-                String DriverStation = "Red 1";
+                DriverStation = "Red 1";
             }
         });
         final Button red2Button = (Button)findViewById(R.id.red2Button);
@@ -70,7 +77,7 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DSLocBtn(4);
-                String DriverStation = "Red 2";
+                DriverStation = "Red 2";
             }
         });
         final Button red3Button = (Button)findViewById(R.id.red3Button);
@@ -78,12 +85,12 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DSLocBtn(5);
-                String DriverStation = "Red 3";
+                DriverStation = "Red 3";
             }
         });
 
         // level 2 check box
-        String StartOnLevel2 = "False";
+        StartOnLevel2 = "False";
         final CheckBox lvl2 = (CheckBox) findViewById(R.id.startPosCheckBox);
         if(lvl2.isChecked()) {
             StartOnLevel2 = "True";
@@ -91,14 +98,35 @@ public class GameId1Before extends AppCompatActivity {
 
         //Starting position
         final Button leftButton = (Button)findViewById(R.id.leftButton);
+        final Button centerButton = (Button)findViewById(R.id.centerButton);
+        final Button rightButton = (Button)findViewById(R.id.rightButton);
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                centerButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                rightButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                leftButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+                StartingPosition = "left";
             }
         });
-        final Button centerButton = (Button)findViewById(R.id.centerButton);
-        final Button rightButton = (Button)findViewById(R.id.rightButton);
+        rightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                centerButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                leftButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                rightButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+                StartingPosition = "right";
+            }
+        });
+        centerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rightButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                leftButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                centerButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+                StartingPosition = "center";
+            }
+        });
 
 
 
@@ -107,10 +135,16 @@ public class GameId1Before extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String TeamNumber = teamNumberEditText.getText().toString();
+                String MatchNumber = matchNumberEditText.getText().toString();
                 //make sure to check all fields are filled
-                app_data.setGame_state(getString(R.string.sandstorm));
-                Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
-                startActivity(startIntent);
+                if(DriverStation != "" && StartOnLevel2 != "" && StartingPosition != "" && TeamNumber != "" && MatchNumber != "") {
+                    app_data.setGame_state(getString(R.string.sandstorm));
+                    Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
+                    startActivity(startIntent);
+                }else{
+                    Toast.makeText(GameId1Before.this, "please make sure all fields are filled...", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
