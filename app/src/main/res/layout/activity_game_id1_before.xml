@@ -22,7 +22,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/pregame_title"
-            android:textSize="38dp"
+            android:textSize="34dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"

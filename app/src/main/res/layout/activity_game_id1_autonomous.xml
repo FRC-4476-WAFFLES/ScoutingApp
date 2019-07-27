@@ -7,268 +7,280 @@
     android:background="@drawable/waffle_background1280x1920_96dpi"
     tools:context=".GameId1.GameId1Autonomous">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/midgame_1_title"
-        android:textColor="@android:color/black"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <CheckBox
-        android:id="@+id/crossedHabLineCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/white"
-        android:text="Crossed Hab Line?"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
-
-
-
-    <Button
-        android:id="@+id/continueToTeleopButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="Continue"
-        android:background="@color/wafflesYellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <!--Rocket Ship Level 3-->
-    <TextView
-        android:id="@+id/Rocket3TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Rocket Ship Level 3"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/crossedHabLineCheckBox" />
-
     <LinearLayout
-        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/Rocket3TextView">
-
-        <Button
-            android:id="@+id/Rocket3HatchButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/wafflesYellow"
-            android:text="Hatch" />
-
-        <Button
-            android:id="@+id/Rocket3CargoButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/ballOrange"
-            android:text="Cargo" />
-    </LinearLayout>
-    <!--Rocket Ship Level 2-->
-    <TextView
-        android:id="@+id/Rocket2TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Rocket Ship Level 2"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/Rocket2TextView">
-
-        <Button
-            android:id="@+id/Rocket2HatchButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/wafflesYellow"
-            android:text="Hatch" />
-
-        <Button
-            android:id="@+id/Rocket2CargoButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/ballOrange"
-            android:text="Cargo" />
-    </LinearLayout>
-
-    <!--Rocket Ship Level 1-->
-    <TextView
-        android:id="@+id/Rocket1TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Rocket Ship Level 1"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/Rocket1TextView">
-
-        <Button
-            android:id="@+id/Rocket1HatchButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/wafflesYellow"
-            android:text="Hatch" />
-
-        <Button
-            android:id="@+id/Rocket1CargoButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/ballOrange"
-            android:text="Cargo" />
-    </LinearLayout>
-
-    <!--Cargo ship-->
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/CaroShipFrontTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.08"
             android:layout_marginStart="8dp"
-            android:layout_weight="0.5"
+            android:layout_marginEnd="8dp"
+            android:text="@string/midgame_1_title"
+            android:textColor="@android:color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/crossedHabLineCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/white"
+            android:text="Crossed Hab Line?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+        <!--Rocket Ship Level 3-->
+        <TextView
+            android:id="@+id/Rocket3TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Rocket Ship Level 3"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crossedHabLineCheckBox" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            app:layout_constraintTop_toBottomOf="@+id/Rocket3TextView">
+
+            <Button
+                android:id="@+id/Rocket3HatchButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/wafflesYellow"
+                android:text="Hatch" />
+
+            <Button
+                android:id="@+id/Rocket3CargoButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/ballOrange"
+                android:text="Cargo" />
+        </LinearLayout>
+        <!--Rocket Ship Level 2-->
+        <TextView
+            android:id="@+id/Rocket2TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Cargo Ship (front)"
+            android:text="Rocket Ship Level 2"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            app:layout_constraintTop_toBottomOf="@+id/Rocket2TextView">
+
+            <Button
+                android:id="@+id/Rocket2HatchButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/wafflesYellow"
+                android:text="Hatch" />
+
+            <Button
+                android:id="@+id/Rocket2CargoButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/ballOrange"
+                android:text="Cargo" />
+        </LinearLayout>
+
+        <!--Rocket Ship Level 1-->
         <TextView
-            android:id="@+id/CaroShipSideTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/Rocket1TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_weight="0.5"
-            android:text="Cargo Ship (side)"
+            android:text="Rocket Ship Level 1"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-    </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            app:layout_constraintTop_toBottomOf="@+id/Rocket1TextView">
+
+            <Button
+                android:id="@+id/Rocket1HatchButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/wafflesYellow"
+                android:text="Hatch" />
+
+            <Button
+                android:id="@+id/Rocket1CargoButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/ballOrange"
+                android:text="Cargo" />
+        </LinearLayout>
+
+        <!--Cargo ship-->
+
+        <LinearLayout
+            android:id="@+id/linearLayout9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <TextView
+                android:id="@+id/CaroShipFrontTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="0.5"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Cargo Ship (front)"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+            <TextView
+                android:id="@+id/CaroShipSideTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="0.5"
+                android:text="Cargo Ship (side)"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+
+            <Button
+                android:id="@+id/hatchFrontButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/wafflesYellow"
+                android:text="Hatch" />
+
+            <Button
+                android:id="@+id/hatchSideButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/wafflesYellow"
+                android:text="Hatch" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.12"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+            <Button
+                android:id="@+id/cargoFrontButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/ballOrange"
+                android:text="Cargo" />
+
+            <Button
+                android:id="@+id/cargoSideButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btnSize"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="0.50"
+                android:background="@color/ballOrange"
+                android:text="Cargo" />
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/hatchFrontButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
+            android:id="@+id/continueToTeleopButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.07"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
             android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
+            android:layout_marginBottom="0dp"
+            android:text="Continue"
             android:background="@color/wafflesYellow"
-            android:text="Hatch" />
-
-        <Button
-            android:id="@+id/hatchSideButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/wafflesYellow"
-            android:text="Hatch" />
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
-
-        <Button
-            android:id="@+id/cargoFrontButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/ballOrange"
-            android:text="Cargo" />
-
-        <Button
-            android:id="@+id/cargoSideButton"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/btnSize"
-            android:layout_marginEnd="0dp"
-            android:layout_weight="0.50"
-            android:background="@color/ballOrange"
-            android:text="Cargo" />
-
-    </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
