@@ -22,6 +22,9 @@ public class GameId1 extends AppCompatActivity {
         }else if(app_data.getGame_state().equals(getString(R.string.sandstorm))){
             Intent startIntent = new Intent(getApplicationContext(), GameId1Autonomous.class);
             startActivity(startIntent);
+        }else if(app_data.getGame_state().equals(getString(R.string.teleop))){
+            Intent startIntent = new Intent(getApplicationContext(), GameId1Teleop.class);
+            startActivity(startIntent);
         }
     }
 }

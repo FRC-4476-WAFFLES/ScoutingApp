@@ -59,7 +59,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/wafflesYellow"
-                android:text="Hatch" />
+                android:text="Hatch: 0" />
 
             <Button
                 android:id="@+id/Rocket3CargoButton"
@@ -68,7 +68,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/ballOrange"
-                android:text="Cargo" />
+                android:text="Cargo: 0" />
         </LinearLayout>
 
         <!--Rocket Ship Level 2-->
@@ -104,7 +104,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/wafflesYellow"
-                android:text="Hatch" />
+                android:text="Hatch: 0" />
 
             <Button
                 android:id="@+id/Rocket2CargoButton"
@@ -113,7 +113,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/ballOrange"
-                android:text="Cargo" />
+                android:text="Cargo: 0" />
         </LinearLayout>
 
         <!--Rocket Ship Level 1-->
@@ -149,7 +149,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/wafflesYellow"
-                android:text="Hatch" />
+                android:text="Hatch: 0" />
 
             <Button
                 android:id="@+id/Rocket1CargoButton"
@@ -158,7 +158,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/ballOrange"
-                android:text="Cargo" />
+                android:text="Cargo: 0" />
         </LinearLayout>
 
         <!--Cargo Ship-->
@@ -191,7 +191,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/wafflesYellow"
-                android:text="Hatch" />
+                android:text="Hatch: 0" />
 
             <Button
                 android:id="@+id/CargoShipCargoButton"
@@ -200,7 +200,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/ballOrange"
-                android:text="Cargo" />
+                android:text="Cargo: 0" />
         </LinearLayout>
 
         <!--Failures -->
@@ -232,7 +232,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/wafflesYellow"
-                android:text="Hatch" />
+                android:text="Hatch: 0" />
 
             <Button
                 android:id="@+id/FailuresCargoButton"
@@ -241,7 +241,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/ballOrange"
-                android:text="Cargo" />
+                android:text="Cargo: 0" />
         </LinearLayout>
 
         <LinearLayout
@@ -250,20 +250,22 @@
             android:layout_weight="0.07">
 
             <Button
+                android:id="@+id/eraseButton"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:background="@color/grey"
-                android:layout_height="match_parent"
                 android:text="Erase"
-                android:textColor="@android:color/black"/>
+                android:textColor="@android:color/black" />
 
             <Button
+                android:id="@+id/continueButton"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
                 android:layout_height="match_parent"
-                android:text="Continue"
+                android:layout_weight="0.5"
                 android:background="@color/wafflesYellow"
-                android:textColor="@android:color/black"/>
+                android:text="Continue"
+                android:textColor="@android:color/black" />
         </LinearLayout>
 
 
