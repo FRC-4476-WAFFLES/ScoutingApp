@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/waffle_background1280x1920_96dpi"
-    tools:context=".GameId1.GameId1Autonomous">
-
+    tools:context=".GameId1.GameId1Teleop">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_weight="0.08"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/midgame_1_title"
+            android:text="@string/midgame_2_title"
             android:textColor="@android:color/black"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -26,20 +26,6 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <CheckBox
-            android:id="@+id/crossedHabLineCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/white"
-            android:text="Crossed Hab Line?"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
         <!--Rocket Ship Level 3-->
         <TextView
@@ -84,6 +70,7 @@
                 android:background="@color/ballOrange"
                 android:text="Cargo" />
         </LinearLayout>
+
         <!--Rocket Ship Level 2-->
         <TextView
             android:id="@+id/Rocket2TextView"
@@ -174,55 +161,29 @@
                 android:text="Cargo" />
         </LinearLayout>
 
-        <!--Cargo ship-->
+        <!--Cargo Ship-->
 
-        <LinearLayout
-            android:id="@+id/linearLayout9"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/CargoShipTextView"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.05"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-            <TextView
-                android:id="@+id/CaroShipFrontTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="0.5"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="Cargo Ship (front)"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-
-            <TextView
-                android:id="@+id/CaroShipSideTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="0.5"
-                android:text="Cargo Ship (side)"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
-        </LinearLayout>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center"
+            android:text="Cargo Ship"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.12"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+            android:layout_weight="0.12">
 
             <Button
-                android:id="@+id/hatchFrontButton"
+                android:id="@+id/CargoShipHatchButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/btnSize"
                 android:layout_marginStart="0dp"
@@ -233,57 +194,79 @@
                 android:text="Hatch" />
 
             <Button
-                android:id="@+id/hatchSideButton"
+                android:id="@+id/CargoShipCargoButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/btnSize"
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
-                android:background="@color/wafflesYellow"
-                android:text="Hatch" />
-
+                android:background="@color/ballOrange"
+                android:text="Cargo" />
         </LinearLayout>
+
+        <!--Failures -->
+        <TextView
+            android:id="@+id/FailuresTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center"
+            android:text="Failures"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/linearLayout7"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.12"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+            android:layout_weight="0.12">
 
             <Button
-                android:id="@+id/cargoFrontButton"
+                android:id="@+id/FailuresHatchButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/btnSize"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
-                android:background="@color/ballOrange"
-                android:text="Cargo" />
+                android:background="@color/wafflesYellow"
+                android:text="Hatch" />
 
             <Button
-                android:id="@+id/cargoSideButton"
+                android:id="@+id/FailuresCargoButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/btnSize"
                 android:layout_marginEnd="0dp"
                 android:layout_weight="0.50"
                 android:background="@color/ballOrange"
                 android:text="Cargo" />
-
         </LinearLayout>
 
-        <Button
-            android:id="@+id/continueToTeleopButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.07"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            android:text="Continue"
-            android:background="@color/wafflesYellow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_weight="0.07">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:background="@color/grey"
+                android:layout_height="match_parent"
+                android:text="Erase"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="match_parent"
+                android:text="Continue"
+                android:background="@color/wafflesYellow"
+                android:textColor="@android:color/black"/>
+        </LinearLayout>
+
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
