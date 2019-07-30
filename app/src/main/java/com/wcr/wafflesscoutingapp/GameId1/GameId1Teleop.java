@@ -2,6 +2,7 @@ package com.wcr.wafflesscoutingapp.GameId1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -18,12 +19,12 @@ public class GameId1Teleop extends AppCompatActivity {
     int Rocket2HatchCount = 0;
     int Rocket1HatchCount = 0;
     int CargoShipHatchCount = 0;
-    int FailureHatchCount = 0;
+    int FailuresHatchCount = 0;
     int Rocket3CargoCount = 0;
     int Rocket2CargoCount = 0;
     int Rocket1CargoCount = 0;
     int CargoShipCargoCount = 0;
-    int FailureCargoCount = 0;
+    int FailuresCargoCount = 0;
 
 
 
@@ -171,6 +172,39 @@ public class GameId1Teleop extends AppCompatActivity {
             });
         }
 
+        //Failures
+        {
+            final Button FailuresHatchButton = (Button)findViewById(R.id.FailuresHatchButton);
+            FailuresHatchButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(Erase){
+                        FailuresHatchCount = FailuresHatchCount - 1;
+                        FailuresHatchButton.setText("HATCH: " + FailuresHatchCount);
+                    }else{
+                        FailuresHatchCount = FailuresHatchCount + 1;
+                        FailuresHatchButton.setText("HATCH: " + FailuresHatchCount);
+                    }
+                }
+            });
+        }
+
+        {
+            final Button FailuresCargoButton = (Button)findViewById(R.id.FailuresCargoButton);
+            FailuresCargoButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(Erase){
+                        FailuresCargoCount = FailuresCargoCount - 1;
+                        FailuresCargoButton.setText("CARGO: " + FailuresCargoCount);
+                    }else{
+                        FailuresCargoCount = FailuresCargoCount + 1;
+                        FailuresCargoButton.setText("CARGO: " + FailuresCargoCount);
+                    }
+                }
+            });
+        }
+
         //Erase Button
         final Button eraseButton = (Button)findViewById(R.id.eraseButton);
         eraseButton.setOnClickListener(new View.OnClickListener() {
@@ -186,6 +220,7 @@ public class GameId1Teleop extends AppCompatActivity {
             }
         });
 
+
         //Continue Button
         final Button continueButton = (Button)findViewById(R.id.continueButton);
         continueButton.setOnClickListener(new View.OnClickListener() {
@@ -193,6 +228,9 @@ public class GameId1Teleop extends AppCompatActivity {
             public void onClick(View view) {
                 //Maybe check for errors
                 //make sure to pass on information
+                app_data.setGame_state(getString(R.string.endgame));
+                Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
+                startActivity(startIntent);
             }
         });
     }
