@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameId1.GameId1Teleop"></activity>
+        <activity android:name=".GameId1.GameId1Endgame"></activity>
+        <activity android:name=".GameId1.GameId1Teleop" />
         <activity android:name=".GameId1.GameId1Autonomous" />
         <activity android:name=".GameId1.GameId1Before" />
         <activity android:name=".GameId0.GameId0Before" />
