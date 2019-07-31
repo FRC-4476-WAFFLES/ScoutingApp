@@ -205,12 +205,13 @@
             android:textSize="20sp"/>
 
         <EditText
+            android:id="@+id/commentsEditText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.25"
             android:background="@android:color/white"
             android:gravity="top|left"
-            android:hint="(suggestions: gameplay style(DEFENSIVE,HATCH?CARGO,WHAT LVL, fouls[how many fouls was it repeated], robot died, fell over,etc.) ARE HELPFUL"/>
+            android:hint="(suggestions: gameplay style(DEFENSIVE,HATCH?CARGO,WHAT LVL, fouls[how many fouls was it repeated], robot died, fell over,etc.) ARE HELPFUL" />
 
         <Button
             android:id="@+id/continueButton"

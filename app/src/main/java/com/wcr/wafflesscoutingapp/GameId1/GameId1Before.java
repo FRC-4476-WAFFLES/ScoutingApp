@@ -138,7 +138,7 @@ public class GameId1Before extends AppCompatActivity {
                 String TeamNumber = teamNumberEditText.getText().toString();
                 String MatchNumber = matchNumberEditText.getText().toString();
                 //make sure to check all fields are filled
-                if(DriverStation != "" && StartOnLevel2 != "" && StartingPosition != "" && TeamNumber != "" && MatchNumber != "") {
+                if(!DriverStation.equals("") && !StartOnLevel2.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("")) {
                     app_data.setGame_state(getString(R.string.sandstorm));
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                     startActivity(startIntent);
