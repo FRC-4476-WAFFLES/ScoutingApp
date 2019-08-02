@@ -25,6 +25,7 @@ public class GameId1Teleop extends AppCompatActivity {
     int Rocket1CargoCount = 0;
     int CargoShipCargoCount = 0;
     int FailuresCargoCount = 0;
+    //TODO: make buttons save data on press
 
 
 
@@ -226,6 +227,7 @@ public class GameId1Teleop extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: make sure to save the data
                 //Maybe check for errors
                 //make sure to pass on information
                 app_data.setGame_state(getString(R.string.endgame));

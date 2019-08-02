@@ -1,6 +1,10 @@
 package com.wcr.wafflesscoutingapp;
 
 import android.app.Application;
+import android.os.Environment;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class GlobalData extends Application {
     private String scout_name_first = "";
@@ -17,6 +21,7 @@ public class GlobalData extends Application {
     //4: endgame
     private String event;
 
+    //TODO: make the map from array index to match information. maybe Constants?
     String[] matchData = new String[15];
 
 
@@ -61,8 +66,46 @@ public class GlobalData extends Application {
 
     public void setMatchDataId(int id, String content){
         matchData[id] = content;
+        save_to_csv();
     }
     public String getMatchDataId(int id){
         return matchData[id];
+    }
+
+    private void save_to_csv(){
+        //assemble string
+        String dir = "";
+        if(game_index == 0){
+            dir = getString(R.string.Index_0_Year);
+        }else if(game_index == 1){
+            dir = getString(R.string.Index_1_Year);
+        }else if(game_index == 2){
+            dir = getString(R.string.Index_2_Year);
+        }else{
+            dir = getString(R.string.Index_3_Year);
+        }
+        dir = dir + event;
+
+        //TODO: make sure these list indexes are correct
+        String filename = matchData[1] + "_" + matchData[1] + ".csv";
+
+
+        File directoryDownload = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File logDir = new File (directoryDownload, "WafflesScoutingAppData/" + dir); //Creates a new folder in DOCUMENTS directory
+        logDir.mkdirs();
+        File file = new File(logDir, filename);
+
+        FileOutputStream outputStream = null;
+        try {
+            outputStream = new FileOutputStream(file, true);
+            //outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            for (int i = 0; i < matchData.length; i += 1) {
+                outputStream.write((matchData[i] + ",").getBytes());
+
+            }
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

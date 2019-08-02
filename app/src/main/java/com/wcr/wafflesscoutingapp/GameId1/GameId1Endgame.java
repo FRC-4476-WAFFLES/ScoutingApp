@@ -25,6 +25,7 @@ public class GameId1Endgame extends AppCompatActivity {
     String AllianceFouls = "";
     String ScoutComments = "";
     boolean ClimbSet = false;
+    //TODO: make buttons save data on press
 
 
 
@@ -146,6 +147,7 @@ public class GameId1Endgame extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: make sure to save the data
                 AllianceScore = allianceScoreEditText.getText().toString();
                 AllianceFouls = allianceFoulsEditText.getText().toString();
                 ScoutComments = commentsEditText.getText().toString();

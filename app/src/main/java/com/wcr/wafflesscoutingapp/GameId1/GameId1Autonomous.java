@@ -28,6 +28,7 @@ public class GameId1Autonomous extends AppCompatActivity {
     String CargoShipFrontCargo = "";
     String CargoShipSideHatch = "";
     String CargoShipSideCargo = "";
+    //TODO: make buttons save data on press
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,6 +248,7 @@ public class GameId1Autonomous extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: make sure to save the data
                 //make sure to pass on the data.
                 app_data.setGame_state(getString(R.string.teleop));
                 Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
