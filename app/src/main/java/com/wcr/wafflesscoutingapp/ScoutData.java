@@ -66,6 +66,7 @@ public class ScoutData extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int index = app_data.get_Game_index();
+                //TODO: also save to match data array
                 app_data.setGame_state(getString(R.string.pregame));
                 app_data.set_Scout_name_first(ScoutFirstName.getText().toString());
                 app_data.set_Scout_name_last(ScoutLastName.getText().toString());

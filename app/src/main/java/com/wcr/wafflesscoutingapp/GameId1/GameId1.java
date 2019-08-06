@@ -28,6 +28,9 @@ public class GameId1 extends AppCompatActivity {
         }else if(app_data.getGame_state().equals(getString(R.string.endgame))){
             Intent startIntent = new Intent(getApplicationContext(), GameId1Endgame.class);
             startActivity(startIntent);
+        }else if(app_data.getGame_state().equals(getString(R.string.transmit))){
+            Intent startIntent = new Intent(getApplicationContext(), GameId1Transmit.class);
+            startActivity(startIntent);
         }
     }
 }

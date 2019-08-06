@@ -21,6 +21,8 @@ public class GlobalData extends Application {
     //4: endgame
     private String event;
 
+    public String current_file;
+
     //TODO: make the map from array index to match information. maybe Constants?
     String[] matchData = new String[15];
 
@@ -55,6 +57,7 @@ public class GlobalData extends Application {
 
     public void setGame_state(String game_state) {
         this.game_state = game_state;
+        save_to_csv();
     }
     public String getEvent() {
         return event;
@@ -84,14 +87,15 @@ public class GlobalData extends Application {
         }else{
             dir = getString(R.string.Index_3_Year);
         }
-        dir = dir + event;
+        dir = dir + "/" +  event;
 
         //TODO: make sure these list indexes are correct
         String filename = matchData[1] + "_" + matchData[1] + ".csv";
 
+        current_file = "WafflesScoutingAppData/" + dir + "/" + filename;
 
         File directoryDownload = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        File logDir = new File (directoryDownload, "WafflesScoutingAppData/" + dir); //Creates a new folder in DOCUMENTS directory
+        File logDir = new File (directoryDownload, "/WafflesScoutingAppData/" + dir); //Creates a new folder in DOCUMENTS directory
         logDir.mkdirs();
         File file = new File(logDir, filename);
 

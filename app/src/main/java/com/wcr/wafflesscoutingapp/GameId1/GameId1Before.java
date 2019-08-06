@@ -46,7 +46,7 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DSLocBtn(0);
-                DriverStation = "Blue1";
+                DriverStation = "Blue 1";
             }
         });
         final Button blue2Button = (Button)findViewById(R.id.blue2Button);
@@ -91,10 +91,10 @@ public class GameId1Before extends AppCompatActivity {
         });
 
         // level 2 check box
-        StartOnLevel2 = "False";
+        StartOnLevel2 = "1";
         final CheckBox lvl2 = (CheckBox) findViewById(R.id.startPosCheckBox);
         if(lvl2.isChecked()) {
-            StartOnLevel2 = "True";
+            StartOnLevel2 = "2";
         }
 
         //Starting position
@@ -107,7 +107,7 @@ public class GameId1Before extends AppCompatActivity {
                 centerButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 rightButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 leftButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                StartingPosition = "left";
+                StartingPosition = "l";
             }
         });
         rightButton.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +116,7 @@ public class GameId1Before extends AppCompatActivity {
                 centerButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 leftButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 rightButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                StartingPosition = "right";
+                StartingPosition = "r";
             }
         });
         centerButton.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +125,7 @@ public class GameId1Before extends AppCompatActivity {
                 rightButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 leftButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 centerButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                StartingPosition = "center";
+                StartingPosition = "c";
             }
         });
 
@@ -139,6 +139,18 @@ public class GameId1Before extends AppCompatActivity {
                 //TODO: make sure to save the data
                 String TeamNumber = teamNumberEditText.getText().toString();
                 String MatchNumber = matchNumberEditText.getText().toString();
+
+                //assign data to array
+                app_data.setMatchDataId(0, TeamNumber);
+                app_data.setMatchDataId(1, MatchNumber);
+                if(DriverStation.charAt(0) == 'B'){
+                    app_data.setMatchDataId(2, "b");
+                }else if(DriverStation.charAt(0) == 'R'){
+                    app_data.setMatchDataId(2, "r");
+                }
+                app_data.setMatchDataId(3, StartingPosition);
+                app_data.setMatchDataId(4, StartOnLevel2);
+
                 //make sure to check all fields are filled
                 if(!DriverStation.equals("") && !StartOnLevel2.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("")) {
                     app_data.setGame_state(getString(R.string.sandstorm));
