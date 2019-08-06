@@ -17,13 +17,13 @@ import com.wcr.wafflesscoutingapp.ScoutData;
 
 public class GameId1Endgame extends AppCompatActivity {
     Typeface CooperBlack;
-    String ClimbLvl1 = "";
-    String ClimbLvl2 = "";
-    String ClimbLvl3 = "";
-    String DidNotTry = "Yes";
-    String AllianceScore = "";
-    String AllianceFouls = "";
-    String ScoutComments = "";
+    String ClimbLvl1 = "0";
+    String ClimbLvl2 = "0";
+    String ClimbLvl3 = "0";
+    String DidNotTry = "0";
+    String AllianceScore = "0";
+    String AllianceFouls = "0";
+    String ScoutComments = "0";
     boolean ClimbSet = false;
     //TODO: make buttons save data on press
 
@@ -128,7 +128,7 @@ public class GameId1Endgame extends AppCompatActivity {
             didNotTryButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DidNotTry = "Yes";
+                    DidNotTry = "1";
                     ClimbSet = true;
                     ClimbBtn(6);
                 }
@@ -149,8 +149,47 @@ public class GameId1Endgame extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: make sure to save the data
                 AllianceScore = allianceScoreEditText.getText().toString();
+                app_data.setMatchDataId(41, AllianceScore);
                 AllianceFouls = allianceFoulsEditText.getText().toString();
+                app_data.setMatchDataId(42, AllianceFouls);
                 ScoutComments = commentsEditText.getText().toString();
+                app_data.setMatchDataId(43, ScoutComments);
+
+                if(ClimbLvl1.equals("Yes")){
+                    app_data.setMatchDataId(34, "1");
+                    app_data.setMatchDataId(35, "0");
+                }else if(ClimbLvl1.equals("Fail")){
+                    app_data.setMatchDataId(34, "0");
+                    app_data.setMatchDataId(35, "1");
+                }else{
+                    app_data.setMatchDataId(34, "0");
+                    app_data.setMatchDataId(35, "0");
+                }
+
+                if(ClimbLvl2.equals("Yes")){
+                    app_data.setMatchDataId(36, "1");
+                    app_data.setMatchDataId(37, "0");
+                }else if(ClimbLvl2.equals("Fail")){
+                    app_data.setMatchDataId(36, "0");
+                    app_data.setMatchDataId(37, "1");
+                }else{
+                    app_data.setMatchDataId(36, "0");
+                    app_data.setMatchDataId(37, "0");
+                }
+
+                if(ClimbLvl3.equals("Yes")){
+                    app_data.setMatchDataId(38, "1");
+                    app_data.setMatchDataId(39, "0");
+                }else if(ClimbLvl3.equals("Fail")){
+                    app_data.setMatchDataId(38, "0");
+                    app_data.setMatchDataId(39, "1");
+                }else{
+                    app_data.setMatchDataId(38, "0");
+                    app_data.setMatchDataId(39, "0");
+                }
+
+                app_data.setMatchDataId(40, DidNotTry);
+
                 //make sure to check all fields are filled
                 if(!AllianceScore.equals("") && !AllianceFouls.equals("") && !ScoutComments.equals("")) {
                     app_data.setGame_state(getString(R.string.transmit));
@@ -187,21 +226,21 @@ public class GameId1Endgame extends AppCompatActivity {
         }
 
         if(id == 1 ||id == 2){
-            ClimbLvl2 = "";
-            ClimbLvl3 = "";
-            DidNotTry = "";
+            ClimbLvl2 = "0";
+            ClimbLvl3 = "0";
+            DidNotTry = "0";
         }else if(id == 3 ||id == 4){
-            ClimbLvl1 = "";
-            ClimbLvl3 = "";
-            DidNotTry = "";
+            ClimbLvl1 = "0";
+            ClimbLvl3 = "0";
+            DidNotTry = "0";
         }else if(id == 5 ||id == 6){
-            ClimbLvl1 = "";
-            ClimbLvl2 = "";
-            DidNotTry = "";
+            ClimbLvl1 = "0";
+            ClimbLvl2 = "0";
+            DidNotTry = "0";
         }else{
-            ClimbLvl1 = "";
-            ClimbLvl2 = "";
-            ClimbLvl3 = "";
+            ClimbLvl1 = "0";
+            ClimbLvl2 = "0";
+            ClimbLvl3 = "0";
         }
 
     }

@@ -143,6 +143,7 @@ public class GameId1Before extends AppCompatActivity {
                 //assign data to array
                 app_data.setMatchDataId(0, TeamNumber);
                 app_data.setMatchDataId(1, MatchNumber);
+                app_data.setMatchDataId(44, app_data.get_Scout_name_first() + "." + app_data.get_Scout_name_last());
                 if(DriverStation.charAt(0) == 'B'){
                     app_data.setMatchDataId(2, "b");
                 }else if(DriverStation.charAt(0) == 'R'){
@@ -150,6 +151,7 @@ public class GameId1Before extends AppCompatActivity {
                 }
                 app_data.setMatchDataId(3, StartingPosition);
                 app_data.setMatchDataId(4, StartOnLevel2);
+
 
                 //make sure to check all fields are filled
                 if(!DriverStation.equals("") && !StartOnLevel2.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("")) {

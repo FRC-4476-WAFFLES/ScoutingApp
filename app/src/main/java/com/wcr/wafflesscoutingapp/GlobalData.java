@@ -23,8 +23,8 @@ public class GlobalData extends Application {
 
     public String current_file;
 
-    //TODO: make the map from array index to match information. maybe Constants?
-    String[] matchData = new String[15];
+    //map of indexes in in LEGEND.ods
+    String[] matchData = new String[45];
 
 
     public String get_Scout_name_first() {
@@ -57,7 +57,6 @@ public class GlobalData extends Application {
 
     public void setGame_state(String game_state) {
         this.game_state = game_state;
-        save_to_csv();
     }
     public String getEvent() {
         return event;
@@ -69,10 +68,19 @@ public class GlobalData extends Application {
 
     public void setMatchDataId(int id, String content){
         matchData[id] = content;
-        save_to_csv();
+        if(matchData[1] != null && matchData[0] != null){
+            save_to_csv();
+        }
+
     }
     public String getMatchDataId(int id){
         return matchData[id];
+    }
+
+    private void reset_all_match_data(){
+        game_state = "0";
+        current_file = "";
+        matchData = new String[45];
     }
 
     private void save_to_csv(){
@@ -87,10 +95,18 @@ public class GlobalData extends Application {
         }else{
             dir = getString(R.string.Index_3_Year);
         }
-        dir = dir + "/" +  event;
+        dir = dir + "/" +  getEvent();
 
         //TODO: make sure these list indexes are correct
-        String filename = matchData[1] + "_" + matchData[1] + ".csv";
+        String team_number = "9999";
+        String match_number = "9999";
+        if(matchData[1] != null){
+            match_number = matchData[1];
+        }
+        if (matchData[0] != null) {
+            team_number = matchData[0];
+        }
+        String filename = match_number + "_" + team_number + ".csv";
 
         current_file = "WafflesScoutingAppData/" + dir + "/" + filename;
 
