@@ -230,17 +230,17 @@ public class GameId1Teleop extends AppCompatActivity {
                 //TODO: make sure to save the data
                 //Maybe check for errors
                 //make sure to pass on information
-                app_data.setMatchDataId(24, Rocket1HatchCount + "");
-                app_data.setMatchDataId(25, Rocket2HatchCount + "");
-                app_data.setMatchDataId(26, Rocket3HatchCount + "");
-                app_data.setMatchDataId(27, CargoShipHatchCount + "");
-                app_data.setMatchDataId(28, FailuresHatchCount + "");
+                app_data.setMatchDataId(24, Rocket1HatchCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(25, Rocket2HatchCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(26, Rocket3HatchCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(27, CargoShipHatchCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(28, FailuresHatchCount + "", GameId1Teleop.this);
 
-                app_data.setMatchDataId(29, Rocket1CargoCount + "");
-                app_data.setMatchDataId(30, Rocket2CargoCount + "");
-                app_data.setMatchDataId(31, Rocket3CargoCount + "");
-                app_data.setMatchDataId(32, CargoShipCargoCount + "");
-                app_data.setMatchDataId(33, FailuresCargoCount + "");
+                app_data.setMatchDataId(29, Rocket1CargoCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(30, Rocket2CargoCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(31, Rocket3CargoCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(32, CargoShipCargoCount + "", GameId1Teleop.this);
+                app_data.setMatchDataId(33, FailuresCargoCount + "", GameId1Teleop.this);
 
                 app_data.setGame_state(getString(R.string.endgame));
                 Intent startIntent = new Intent(getApplicationContext(), GameId1.class);

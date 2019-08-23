@@ -149,46 +149,46 @@ public class GameId1Endgame extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: make sure to save the data
                 AllianceScore = allianceScoreEditText.getText().toString();
-                app_data.setMatchDataId(41, AllianceScore);
+                app_data.setMatchDataId(41, AllianceScore, GameId1Endgame.this);
                 AllianceFouls = allianceFoulsEditText.getText().toString();
-                app_data.setMatchDataId(42, AllianceFouls);
+                app_data.setMatchDataId(42, AllianceFouls, GameId1Endgame.this);
                 ScoutComments = commentsEditText.getText().toString();
-                app_data.setMatchDataId(43, ScoutComments);
+                app_data.setMatchDataId(43, ScoutComments, GameId1Endgame.this);
 
                 if(ClimbLvl1.equals("Yes")){
-                    app_data.setMatchDataId(34, "1");
-                    app_data.setMatchDataId(35, "0");
+                    app_data.setMatchDataId(34, "1", GameId1Endgame.this);
+                    app_data.setMatchDataId(35, "0", GameId1Endgame.this);
                 }else if(ClimbLvl1.equals("Fail")){
-                    app_data.setMatchDataId(34, "0");
-                    app_data.setMatchDataId(35, "1");
+                    app_data.setMatchDataId(34, "0", GameId1Endgame.this);
+                    app_data.setMatchDataId(35, "1", GameId1Endgame.this);
                 }else{
-                    app_data.setMatchDataId(34, "0");
-                    app_data.setMatchDataId(35, "0");
+                    app_data.setMatchDataId(34, "0", GameId1Endgame.this);
+                    app_data.setMatchDataId(35, "0", GameId1Endgame.this);
                 }
 
                 if(ClimbLvl2.equals("Yes")){
-                    app_data.setMatchDataId(36, "1");
-                    app_data.setMatchDataId(37, "0");
+                    app_data.setMatchDataId(36, "1", GameId1Endgame.this);
+                    app_data.setMatchDataId(37, "0", GameId1Endgame.this);
                 }else if(ClimbLvl2.equals("Fail")){
-                    app_data.setMatchDataId(36, "0");
-                    app_data.setMatchDataId(37, "1");
+                    app_data.setMatchDataId(36, "0", GameId1Endgame.this);
+                    app_data.setMatchDataId(37, "1", GameId1Endgame.this);
                 }else{
-                    app_data.setMatchDataId(36, "0");
-                    app_data.setMatchDataId(37, "0");
+                    app_data.setMatchDataId(36, "0", GameId1Endgame.this);
+                    app_data.setMatchDataId(37, "0", GameId1Endgame.this);
                 }
 
                 if(ClimbLvl3.equals("Yes")){
-                    app_data.setMatchDataId(38, "1");
-                    app_data.setMatchDataId(39, "0");
+                    app_data.setMatchDataId(38, "1", GameId1Endgame.this);
+                    app_data.setMatchDataId(39, "0", GameId1Endgame.this);
                 }else if(ClimbLvl3.equals("Fail")){
-                    app_data.setMatchDataId(38, "0");
-                    app_data.setMatchDataId(39, "1");
+                    app_data.setMatchDataId(38, "0", GameId1Endgame.this);
+                    app_data.setMatchDataId(39, "1", GameId1Endgame.this);
                 }else{
-                    app_data.setMatchDataId(38, "0");
-                    app_data.setMatchDataId(39, "0");
+                    app_data.setMatchDataId(38, "0", GameId1Endgame.this);
+                    app_data.setMatchDataId(39, "0", GameId1Endgame.this);
                 }
 
-                app_data.setMatchDataId(40, DidNotTry);
+                app_data.setMatchDataId(40, DidNotTry, GameId1Endgame.this);
 
                 //make sure to check all fields are filled
                 if(!AllianceScore.equals("") && !AllianceFouls.equals("") && !ScoutComments.equals("")) {

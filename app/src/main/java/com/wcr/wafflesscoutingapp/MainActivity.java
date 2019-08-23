@@ -2,18 +2,30 @@ package com.wcr.wafflesscoutingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
-    // importing fonts: https://www.youtube.com/watch?v=fB17m3kX-go
+    private static final String TAG = "MainActivity";
+    // importing fonts: https://www.youtube.com/watch?v=fB17m3kX-go\
+    public static final int writeExternal = 1;
+    public static final int readExternal = 2;
+    public static final int coarseLocation = 3;
+
     Typeface CooperBlack;
     GridLayout mainGrid;
 
@@ -21,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mainGrid = (GridLayout)findViewById(R.id.mainGrid);
         CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
         TextView textView2020 = (TextView)findViewById(R.id.textView0);
@@ -35,25 +48,9 @@ public class MainActivity extends AppCompatActivity {
         textGrid.setTypeface(CooperBlack);
         //Set Event
         setSingleEvent(mainGrid);
-//        setToggleEvent(mainGrid);
+
     }
-//    private void setToggleEvent(GridLayout mainGrid){
-//        //Loop all child items of Main Grid
-//        for(int i = 0; i<mainGrid.getChildCount(); i++){
-//            final CardView cardView = (CardView)mainGrid.getChildAt(i);
-//            cardView.setOnClickListener(new View.OnClickListener(){
-//                @Override
-//                public void onClick(View view){
-//                    if(cardView.getCardBackgroundColor().getDefaultColor() == -1) {
-//                        cardView.setBackgroundColor(Color.parseColor("#FF6F00"));
-//                    }else{
-//                        cardView.setCardBackgroundColor(Color.parseColor("FFFFFF"));
-//                    }
-//
-//                }
-//            });
-//        }
-//    }
+
 
     private void setSingleEvent(GridLayout mainGrid) {
         final GlobalData app_data = (GlobalData) getApplicationContext();
@@ -82,4 +79,38 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        switch (requestCode) {
+            case writeExternal: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+                    return;
+                } else {
+                    Toast.makeText(MainActivity.this, "The app has to save items to the external storage", Toast.LENGTH_SHORT).show();
+                }
+            }
+            case readExternal: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+                    return;
+                } else {
+                    Toast.makeText(MainActivity.this, "The app has to read items from the external storage", Toast.LENGTH_SHORT).show();
+                }
+            }
+            case coarseLocation: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+                    return;
+                } else {
+                    Toast.makeText(MainActivity.this, "The app has to access coarse location for bluetooth", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+    }
 }

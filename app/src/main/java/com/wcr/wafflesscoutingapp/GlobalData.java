@@ -1,12 +1,28 @@
 package com.wcr.wafflesscoutingapp;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Application;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Environment;
+import android.util.Log;
+import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.wcr.wafflesscoutingapp.GameId1.GameId1Before;
+
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class GlobalData extends Application {
+    private static final String TAG = "GlobalData";
     private String scout_name_first = "";
     private String scout_name_last = "";
     private int game_index;
@@ -22,6 +38,9 @@ public class GlobalData extends Application {
     private String event;
 
     public String current_file;
+
+    public String content_text;
+
 
     //map of indexes in in LEGEND.ods
     String[] matchData = new String[45];
@@ -66,10 +85,10 @@ public class GlobalData extends Application {
         this.event = event;
     }
 
-    public void setMatchDataId(int id, String content){
+    public void setMatchDataId(int id, String content, Activity a){
         matchData[id] = content;
         if(matchData[1] != null && matchData[0] != null){
-            save_to_csv();
+            save_to_csv(a);
         }
 
     }
@@ -83,49 +102,90 @@ public class GlobalData extends Application {
         matchData = new String[45];
     }
 
-    private void save_to_csv(){
-        //assemble string
-        String dir = "";
-        if(game_index == 0){
-            dir = getString(R.string.Index_0_Year);
-        }else if(game_index == 1){
-            dir = getString(R.string.Index_1_Year);
-        }else if(game_index == 2){
-            dir = getString(R.string.Index_2_Year);
-        }else{
-            dir = getString(R.string.Index_3_Year);
-        }
-        dir = dir + "/" +  getEvent();
+    private void save_to_csv(Activity a) {
+        if(isWriteExternalStorageGranted()) {
+            current_file = "WafflesScoutingAppData/tmp_save.csv";
 
-        //TODO: make sure these list indexes are correct
-        String team_number = "9999";
-        String match_number = "9999";
-        if(matchData[1] != null){
-            match_number = matchData[1];
-        }
-        if (matchData[0] != null) {
-            team_number = matchData[0];
-        }
-        String filename = match_number + "_" + team_number + ".csv";
+            String content = "";
 
-        current_file = "WafflesScoutingAppData/" + dir + "/" + filename;
-
-        File directoryDownload = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        File logDir = new File (directoryDownload, "/WafflesScoutingAppData/" + dir); //Creates a new folder in DOCUMENTS directory
-        logDir.mkdirs();
-        File file = new File(logDir, filename);
-
-        FileOutputStream outputStream = null;
-        try {
-            outputStream = new FileOutputStream(file, true);
-            //outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
             for (int i = 0; i < matchData.length; i += 1) {
-                outputStream.write((matchData[i] + ",").getBytes());
-
+                if (matchData[i] == null) {
+                    content = content + "0" + ",";
+                } else {
+                    content = content + matchData[i] + ",";
+                }
             }
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            content_text = content;
+
+            //        FileOutputStream fos = null;
+            //
+            //        try {
+            //            fos = openFileOutput(filename, MODE_PRIVATE);
+            //            fos.write(content.getBytes());
+            //            Toast.makeText(this, "saved to " + getFilesDir() + "/" + filename, Toast.LENGTH_LONG).show();
+            //        } catch (FileNotFoundException e) {
+            //            e.printStackTrace();
+            //        } catch (IOException e) {
+            //            e.printStackTrace();
+            //        }finally {
+            //            if(fos != null){
+            //                try {
+            //                    fos.close();
+            //                } catch (IOException e) {
+            //                    e.printStackTrace();
+            //                }
+            //            }
+            //        }
+
+            String state;
+            state = Environment.getExternalStorageState();
+
+            if (Environment.MEDIA_MOUNTED.equals(state)) {
+                File Root = Environment.getExternalStorageDirectory();
+                File Dir = new File(Root.getAbsoluteFile() + "/WafflesScoutingAppData");
+
+                if (!Dir.exists()) {
+                    Dir.mkdir();
+                }
+                File file = new File(Dir, "tmp_save.csv");
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(file);
+                    fos.write(content.getBytes());
+                    fos.close();
+                    Toast.makeText(this, "saved to " + file, Toast.LENGTH_LONG).show();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            } else {
+                Toast.makeText(this, "Cannot write to External Storage", Toast.LENGTH_LONG).show();
+            }
+        }else{
+            Toast.makeText(this, "Cannot write to External Storage", Toast.LENGTH_LONG).show();
+            ActivityCompat.requestPermissions(a, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+
+    }
+
+    public  boolean isWriteExternalStorageGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Write Permission is granted");
+                return true;
+            } else {
+//                ActivityCompat.requestPermissions(new Activity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                Log.v(TAG,"Write Permission is revoked");
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Write Permission is granted");
+            return true;
         }
     }
 }

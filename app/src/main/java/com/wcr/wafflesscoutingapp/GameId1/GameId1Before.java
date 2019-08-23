@@ -141,16 +141,16 @@ public class GameId1Before extends AppCompatActivity {
                 String MatchNumber = matchNumberEditText.getText().toString();
 
                 //assign data to array
-                app_data.setMatchDataId(0, TeamNumber);
-                app_data.setMatchDataId(1, MatchNumber);
-                app_data.setMatchDataId(44, app_data.get_Scout_name_first() + "." + app_data.get_Scout_name_last());
+                app_data.setMatchDataId(0, TeamNumber, GameId1Before.this);
+                app_data.setMatchDataId(1, MatchNumber, GameId1Before.this);
+                app_data.setMatchDataId(44, app_data.get_Scout_name_first() + "." + app_data.get_Scout_name_last(), GameId1Before.this);
                 if(DriverStation.charAt(0) == 'B'){
-                    app_data.setMatchDataId(2, "b");
+                    app_data.setMatchDataId(2, "b", GameId1Before.this);
                 }else if(DriverStation.charAt(0) == 'R'){
-                    app_data.setMatchDataId(2, "r");
+                    app_data.setMatchDataId(2, "r", GameId1Before.this);
                 }
-                app_data.setMatchDataId(3, StartingPosition);
-                app_data.setMatchDataId(4, StartOnLevel2);
+                app_data.setMatchDataId(3, StartingPosition, GameId1Before.this);
+                app_data.setMatchDataId(4, StartOnLevel2, GameId1Before.this);
 
 
                 //make sure to check all fields are filled
