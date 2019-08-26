@@ -34,6 +34,7 @@ public class BluetoothConnectionService {
     public BluetoothConnectionService(Context mContext) {
         this.wbtAdapter = BluetoothAdapter.getDefaultAdapter();
         this.mContext = mContext;
+        start();
     }
 
     private class AcceptThread extends Thread{
@@ -235,11 +236,12 @@ public class BluetoothConnectionService {
     out: the bytes to write
      */
     public void write(byte[] out){
-        ConnectedThread r;//temporary
-        //synchronise a copy of the connected thread
-        Log.d(TAG, "write: Write Called");
-        r = mWConnectedThread;
-        //perform write unsynchronised
-        r.write(out);
+        // Create temporary object
+        ConnectedThread r;
+
+        // Synchronize a copy of the ConnectedThread
+        Log.d(TAG, "write: Write Called.");
+        //perform the write
+        mWConnectedThread.write(out);
     }
 }

@@ -216,8 +216,9 @@ public class GameId1Transmit extends AppCompatActivity implements AdapterView.On
             public void onClick(View view) {
 //                sendFile(app_data.current_file);
                 byte[] bytes = app_data.content_text.getBytes(Charset.defaultCharset());
+                connectToPC();
                 startConnection();
-                mBluetoothConnection.write(bytes);
+                mBluetoothConnection.write(bytes);//null pointer exception
             }
         });
 
@@ -344,6 +345,30 @@ public class GameId1Transmit extends AppCompatActivity implements AdapterView.On
             }
         }else{
             Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
+        }
+    }
+
+    private void connectToPC(){
+        for (int i = 0; i < mBTDevices.size(); i += 1) {
+            String deviceName = mBTDevices.get(i).getName();
+            String deviceAddress = mBTDevices.get(i).getAddress();
+            if(deviceAddress.toLowerCase().equals("9c:da:3e:b9:2e:e4")){
+
+
+                Log.d(TAG, "connectToPC: deviceName = " + deviceName);
+                Log.d(TAG, "connectToPC: deviceAddress = " + deviceAddress);
+
+                //create the bond.
+                //NOTE: Requires API 17+? I think this is JellyBean
+                if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
+                    Log.d(TAG, "Trying to pair with " + deviceName);
+                    mBTDevices.get(i).createBond();
+
+                    mBTDevice = mBTDevices.get(i);
+                    mBluetoothConnection = new BluetoothConnectionService(GameId1Transmit.this);
+                }
+            }
+
         }
     }
 
