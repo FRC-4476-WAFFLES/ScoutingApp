@@ -23,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wcr.wafflesscoutingapp.BluetoothConnectionService;
 import com.wcr.wafflesscoutingapp.DeviceListAdapter;
@@ -34,6 +35,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Set;
@@ -210,15 +212,36 @@ public class GameId1Transmit extends AppCompatActivity implements AdapterView.On
         btnEnableDisable_Discoverable();
         btnDiscover();
 
+        Button startConnection = (Button)findViewById(R.id.startConnectionButton);
+        startConnection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                connectToPC();
+                startConnection();
+            }
+        });
+
         Button submitButton = (Button)findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                sendFile(app_data.current_file);
-                byte[] bytes = app_data.content_text.getBytes(Charset.defaultCharset());
-                connectToPC();
-                startConnection();
-                mBluetoothConnection.write(bytes);//null pointer exception
+                byte[] bytes;
+                try {
+                    bytes = app_data.content_text.getBytes(Charset.defaultCharset());
+                }catch (NullPointerException e){
+                    bytes = "hello my fellow americans".getBytes(Charset.defaultCharset());
+                    String content = app_data.genContentString();
+                    bytes = content.getBytes(Charset.defaultCharset());
+                    Toast.makeText(GameId1Transmit.this, "resolving issue with matchdata string", Toast.LENGTH_SHORT).show();
+                }
+                try{
+                    mBluetoothConnection.write(bytes);
+                }catch (NullPointerException e){
+                    Toast.makeText(GameId1Transmit.this, "DATA NOT SUBMITTED, MAKE SURE TO CONNECT TO THE LAPTOP", Toast.LENGTH_LONG).show();
+                }
+                //null pointer exception
+                Toast.makeText(GameId1Transmit.this, "Match Data Has Been Submitted without Issue", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -231,6 +254,10 @@ public class GameId1Transmit extends AppCompatActivity implements AdapterView.On
                 Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                 //finalization
                 btnEnableDisable_Discoverable();
+
+                //clean up the match data
+                app_data.reset_all_match_data();
+
                 startActivity(startIntent);
             }
         });

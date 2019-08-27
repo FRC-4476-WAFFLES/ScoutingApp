@@ -96,7 +96,7 @@ public class GlobalData extends Application {
         return matchData[id];
     }
 
-    private void reset_all_match_data(){
+    public void reset_all_match_data(){
         game_state = "0";
         current_file = "";
         matchData = new String[45];
@@ -106,36 +106,7 @@ public class GlobalData extends Application {
         if(isWriteExternalStorageGranted()) {
             current_file = "WafflesScoutingAppData/tmp_save.csv";
 
-            String content = "";
-
-            for (int i = 0; i < matchData.length; i += 1) {
-                if (matchData[i] == null) {
-                    content = content + "0" + ",";
-                } else {
-                    content = content + matchData[i] + ",";
-                }
-            }
-            content_text = content;
-
-            //        FileOutputStream fos = null;
-            //
-            //        try {
-            //            fos = openFileOutput(filename, MODE_PRIVATE);
-            //            fos.write(content.getBytes());
-            //            Toast.makeText(this, "saved to " + getFilesDir() + "/" + filename, Toast.LENGTH_LONG).show();
-            //        } catch (FileNotFoundException e) {
-            //            e.printStackTrace();
-            //        } catch (IOException e) {
-            //            e.printStackTrace();
-            //        }finally {
-            //            if(fos != null){
-            //                try {
-            //                    fos.close();
-            //                } catch (IOException e) {
-            //                    e.printStackTrace();
-            //                }
-            //            }
-            //        }
+            String content = genContentString();
 
             String state;
             state = Environment.getExternalStorageState();
@@ -187,5 +158,18 @@ public class GlobalData extends Application {
             Log.v(TAG,"Write Permission is granted");
             return true;
         }
+    }
+
+    public String genContentString(){
+        String content = "";
+        for (int i = 0; i < matchData.length; i += 1) {
+            if (matchData[i] == null) {
+                content = content + "0" + ",";
+            } else {
+                content = content + matchData[i] + ",";
+            }
+        }
+        content_text = content;
+        return content;
     }
 }
