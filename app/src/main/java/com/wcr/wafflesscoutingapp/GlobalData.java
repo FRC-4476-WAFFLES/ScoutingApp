@@ -3,10 +3,13 @@ package com.wcr.wafflesscoutingapp;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -14,17 +17,21 @@ import androidx.core.content.ContextCompat;
 
 import com.wcr.wafflesscoutingapp.GameId1.GameId1Before;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GlobalData extends Application {
     private static final String TAG = "GlobalData";
-    private String scout_name_first = "";
-    private String scout_name_last = "";
     private int game_index;
     //0: id0
     //1: id1
@@ -41,26 +48,11 @@ public class GlobalData extends Application {
 
     public String content_text;
 
+    private String[] app_config = new String[4];
+
 
     //map of indexes in in LEGEND.ods
     String[] matchData = new String[45];
-
-
-    public String get_Scout_name_first() {
-        return scout_name_first;
-    }
-
-    public void set_Scout_name_first(String scout_name_first) {
-        this.scout_name_first = scout_name_first;
-    }
-
-    public String get_Scout_name_last() {
-        return scout_name_last;
-    }
-
-    public void set_Scout_name_last(String scout_name_last) {
-        this.scout_name_last = scout_name_last;
-    }
 
     public int get_Game_index() {
         return game_index;
@@ -124,7 +116,7 @@ public class GlobalData extends Application {
                     fos = new FileOutputStream(file);
                     fos.write(content.getBytes());
                     fos.close();
-                    Toast.makeText(this, "saved to " + file, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "saved to " + file, Toast.LENGTH_SHORT).show();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -160,6 +152,24 @@ public class GlobalData extends Application {
         }
     }
 
+    public  boolean isReadExternalStorageGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Write Permission is granted");
+                return true;
+            } else {
+//                ActivityCompat.requestPermissions(new Activity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                Log.v(TAG,"Write Permission is revoked");
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Write Permission is granted");
+            return true;
+        }
+    }
+
     public String genContentString(){
         String content = "";
         for (int i = 0; i < matchData.length; i += 1) {
@@ -172,4 +182,84 @@ public class GlobalData extends Application {
         content_text = content;
         return content;
     }
+
+    public String getApp_config(int id) {
+        return app_config[id];
+    }
+
+    public void setApp_config(Activity a, int id, String new_val) {
+        this.app_config[id] = new_val;
+
+        if(isWriteExternalStorageGranted()) {
+            //predeclarations
+            String content = "";
+            String state;
+            FileOutputStream fos = null;
+
+            //convert array to string to save to file
+            for (int i = 0; i < app_config.length; i += 1) {
+                if (app_config[i] == null) {
+                    content = content + "0" + "\n";
+                } else {
+                    content = content + app_config[i] + "\n";
+                }
+            }
+
+            //checking state of storage
+            state = Environment.getExternalStorageState();
+
+            if (Environment.MEDIA_MOUNTED.equals(state)) {
+                File Root = Environment.getExternalStorageDirectory();
+                File Dir = new File(Root.getAbsoluteFile() + "/WafflesScoutingAppData");
+
+                if (!Dir.exists()) {
+                    Dir.mkdir();
+                }
+                File file = new File(Dir, "config.txt");
+
+                try {
+                    fos = new FileOutputStream(file);
+                    fos.write(content.getBytes());
+                    fos.close();
+//                    Toast.makeText(this, "saved to " + file, Toast.LENGTH_SHORT).show();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            } else {
+                Toast.makeText(this, "Cannot write to External Storage", Toast.LENGTH_LONG).show();
+            }
+        }else{
+            Toast.makeText(this, "Cannot write to External Storage", Toast.LENGTH_LONG).show();
+            ActivityCompat.requestPermissions(a, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+    }
+
+    public void load_config(Context c){
+        if(isReadExternalStorageGranted()) {
+            //file input stream stuff
+            List<String> lines = new ArrayList<>();
+            File Root = Environment.getExternalStorageDirectory();
+            File Dir = new File(Root.getAbsoluteFile() + "/WafflesScoutingAppData");
+            File file = new File(Dir, "config.txt");
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+
+
+                while ((line = reader.readLine()) != null) {
+                    lines.add(line);
+                }
+                app_config = lines.toArray(new String[lines.size()]);
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(c, "borked.", Toast.LENGTH_LONG);
+            }
+        }
+    }
+
+
 }

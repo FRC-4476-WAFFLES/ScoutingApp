@@ -143,7 +143,7 @@ public class GameId1Before extends AppCompatActivity {
                 //assign data to array
                 app_data.setMatchDataId(0, TeamNumber, GameId1Before.this);
                 app_data.setMatchDataId(1, MatchNumber, GameId1Before.this);
-                app_data.setMatchDataId(44, app_data.get_Scout_name_first() + "." + app_data.get_Scout_name_last(), GameId1Before.this);
+                app_data.setMatchDataId(44, app_data.getApp_config(0) + "." + app_data.getApp_config(1), GameId1Before.this);
                 if(DriverStation.charAt(0) == 'B'){
                     app_data.setMatchDataId(2, "b", GameId1Before.this);
                 }else if(DriverStation.charAt(0) == 'R'){

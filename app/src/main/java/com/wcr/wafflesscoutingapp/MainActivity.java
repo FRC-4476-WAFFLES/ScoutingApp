@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
@@ -46,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         textView2017.setTypeface(CooperBlack);
         TextView textGrid = (TextView)findViewById(R.id.textGrid);
         textGrid.setTypeface(CooperBlack);
+        //config
+        final GlobalData app_data = (GlobalData)getApplicationContext();
+        app_data.load_config(this);
+        app_data.setApp_config(this, 3, Settings.Secure.getString(getContentResolver(), "bluetooth_name"));
+
+        //permissions
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1234);
+
         //Set Event
         setSingleEvent(mainGrid);
 
@@ -86,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         switch (requestCode) {
-            case writeExternal: {
+            case 1: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
                     return;
@@ -94,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "The app has to save items to the external storage", Toast.LENGTH_SHORT).show();
                 }
             }
-            case readExternal: {
+            case 2: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
                     return;
@@ -102,12 +111,20 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "The app has to read items from the external storage", Toast.LENGTH_SHORT).show();
                 }
             }
-            case coarseLocation: {
+            case 3: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
                     return;
                 } else {
                     Toast.makeText(MainActivity.this, "The app has to access coarse location for bluetooth", Toast.LENGTH_SHORT).show();
+                }
+            }
+            case 4: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
+                    return;
+                } else {
+                    Toast.makeText(MainActivity.this, "The app has to access fine location for bluetooth", Toast.LENGTH_SHORT).show();
                 }
             }
         }

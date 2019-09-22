@@ -2,6 +2,7 @@ package com.wcr.wafflesscoutingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -30,13 +31,14 @@ public class ScoutData extends AppCompatActivity {
         final GlobalData app_data = (GlobalData)getApplicationContext();
         final EditText ScoutFirstName = (EditText)findViewById(R.id.scoutFirstNameEditText);
         final EditText ScoutLastName = (EditText)findViewById(R.id.scoutLastNameEditText);
+        final Activity scout_data = this;
         TextView ScoutDataTitle = (TextView)findViewById(R.id.scoutDataTitleTextView);
         ScoutDataTitle.setTypeface(CooperBlack);
-        if(app_data.get_Scout_name_first() != ""){
-            ScoutFirstName.setText(app_data.get_Scout_name_first());
+        if(app_data.getApp_config(0) != ""){//firstname
+            ScoutFirstName.setText(app_data.getApp_config(0));
         }
-        if(app_data.get_Scout_name_last() != ""){
-            ScoutLastName.setText(app_data.get_Scout_name_last());
+        if(app_data.getApp_config(1) != ""){//lastname
+            ScoutLastName.setText(app_data.getApp_config(1));
         }
 
         //event
@@ -48,10 +50,12 @@ public class ScoutData extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        ArrayAdapter myAdap = (ArrayAdapter) spinner.getAdapter(); //cast to an ArrayAdapter
+        spinner.setSelection(myAdap.getPosition(app_data.getApp_config(2)));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                app_data.setEvent(String.valueOf(spinner.getSelectedItem()));
+                app_data.setApp_config(scout_data, 2, String.valueOf(spinner.getSelectedItem()));
             }
 
             @Override
@@ -68,9 +72,9 @@ public class ScoutData extends AppCompatActivity {
                 int index = app_data.get_Game_index();
                 //TODO: also save to match data array
                 app_data.setGame_state(getString(R.string.pregame));
-                app_data.set_Scout_name_first(ScoutFirstName.getText().toString());
-                app_data.set_Scout_name_last(ScoutLastName.getText().toString());
-                app_data.setEvent(String.valueOf(spinner.getSelectedItem()));
+                app_data.setApp_config(scout_data, 0, ScoutFirstName.getText().toString());
+                app_data.setApp_config(scout_data, 1, ScoutLastName.getText().toString());
+                app_data.setApp_config(scout_data, 2, String.valueOf(spinner.getSelectedItem()));
                 if(index == 0){
                     Intent startIntent = new Intent(getApplicationContext(), GameId0.class);
                     //show how to pass information to another activity
