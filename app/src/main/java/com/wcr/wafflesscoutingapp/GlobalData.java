@@ -3,6 +3,7 @@ package com.wcr.wafflesscoutingapp;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Application;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -32,6 +33,7 @@ import java.util.List;
 
 public class GlobalData extends Application {
     private static final String TAG = "GlobalData";
+    private BluetoothAdapter mBluetoothAdapter;
     private int game_index;
     //0: id0
     //1: id1
@@ -43,6 +45,8 @@ public class GlobalData extends Application {
     //3: teleoperated
     //4: endgame
     private String event;
+
+    public int match = 1;
 
     public String current_file;
 
@@ -260,6 +264,16 @@ public class GlobalData extends Application {
             }
         }
     }
-
+    public String getLocalBluetoothName(){
+        if(mBluetoothAdapter == null){
+            mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        }
+        String name = mBluetoothAdapter.getName();
+        if(name == null){
+            System.out.println("Name is null!");
+            name = mBluetoothAdapter.getAddress();
+        }
+        return name;
+    }
 
 }

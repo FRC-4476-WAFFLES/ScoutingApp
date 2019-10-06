@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,6 +16,12 @@ import android.widget.Toast;
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.MainActivity;
 import com.wcr.wafflesscoutingapp.R;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GameId1Before extends AppCompatActivity {
     Typeface CooperBlack;
@@ -34,10 +41,12 @@ public class GameId1Before extends AppCompatActivity {
         titleTextView.setTypeface(CooperBlack);
 
         //Team Number
-        final EditText teamNumberEditText = (EditText)findViewById(R.id.teamNumberEditText);
+        final TextView teamNumberEditText = (TextView) findViewById(R.id.teamNumberTextView);
+        teamNumberEditText.setText(getTeamNumber(app_data.getLocalBluetoothName(), app_data.match));
 
         //Match Number
         final EditText matchNumberEditText = (EditText)findViewById(R.id.matchNumberEditText);
+        matchNumberEditText.setText("" + app_data.match);
 
         //Driver Station buttons
         DriverStation = "";
@@ -143,6 +152,7 @@ public class GameId1Before extends AppCompatActivity {
                 //assign data to array
                 app_data.setMatchDataId(0, TeamNumber, GameId1Before.this);
                 app_data.setMatchDataId(1, MatchNumber, GameId1Before.this);
+                app_data.match = Integer.parseInt(MatchNumber);
                 app_data.setMatchDataId(44, app_data.getApp_config(0) + "." + app_data.getApp_config(1), GameId1Before.this);
                 if(DriverStation.charAt(0) == 'B'){
                     app_data.setMatchDataId(2, "b", GameId1Before.this);
@@ -184,6 +194,35 @@ public class GameId1Before extends AppCompatActivity {
         }else{
             buttons[id].setBackgroundColor(getResources().getColor(R.color.red));
         }
+    }
+
+    private String getTeamNumber(String Name, int match){
+        //Name should be the name of the device for use as the scout driver station position
+        //|->usually from bluetooth.
+        String team = "0000";
+        String[] names = {"R1", "R2", "R3", "B1", "B2", "B3"};
+        if(Arrays.asList(names).contains(Name)){
+            try {
+                InputStreamReader is = new InputStreamReader(getAssets().open("MatchSchedule.csv"));
+
+                BufferedReader reader = new BufferedReader(is);
+                reader.readLine();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] row = line.split(",");
+                    if(row[0].replaceAll('"', '') == ""+match){
+                        team = row[Arrays.asList(names).indexOf(Name)].replaceAll('"', '');
+                        return team;
+                    }
+                }
+            }catch (IOException e){
+                Log.e("Game1IdBefore.Java", "" + e.getMessage());
+            }
+        }else{
+            Toast.makeText(this, "DeviceName Set incorrectly", Toast.LENGTH_SHORT);
+            Log.e("Game1IdBefore.Java", "Bluetooth device name set incorrectly");
+        }
+        return team;
     }
 }
 
