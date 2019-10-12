@@ -1,17 +1,10 @@
 <resources>
     <string name="app_name">Waffles Scouting App</string>
 
-    <string name="Index_0_Name">Infinite Recharge</string>
-    <string name="Index_0_Year">2020</string>
-
     <string name="Index_1_Name">Deep Space</string>
     <string name="Index_1_Year">2019</string>
 
-    <string name="Index_2_Name">Power Up</string>
-    <string name="Index_2_Year">2018</string>
-
-    <string name="Index_3_Name">SteamWorks</string>
-    <string name="Index_3_Year">2017</string>
+    <string name="Index_3_Name">Pick List</string>
 
     <string name="pregame">1</string>
     <string name="sandstorm">2</string>

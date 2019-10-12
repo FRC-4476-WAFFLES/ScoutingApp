@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,9 +27,9 @@ import java.util.Arrays;
 
 public class GameId1Before extends AppCompatActivity {
     Typeface CooperBlack;
-    String DriverStation = "";
-    String StartOnLevel2 = "";
-    String StartingPosition = "";
+    String DriverStation = "Me3rther";
+    String StartOnLevel2 = "Mtjtyjfg";
+    String StartingPosition = "Mrthrht";
     //TODO: make buttons save data on press
 
 
@@ -44,12 +46,32 @@ public class GameId1Before extends AppCompatActivity {
         final TextView teamNumberEditText = (TextView) findViewById(R.id.teamNumberTextView);
         teamNumberEditText.setText(getTeamNumber(app_data.getLocalBluetoothName(), app_data.match));
 
+
         //Match Number
         final EditText matchNumberEditText = (EditText)findViewById(R.id.matchNumberEditText);
         matchNumberEditText.setText("" + app_data.match);
+        matchNumberEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String text = matchNumberEditText.getText().toString();
+                if(!text.equals("")) {
+                    app_data.match = Integer.parseInt(matchNumberEditText.getText().toString());
+                    teamNumberEditText.setText(getTeamNumber(app_data.getLocalBluetoothName(), app_data.match));
+                }
+            }
+        });
 
         //Driver Station buttons
-        DriverStation = "";
         final Button blue1Button = (Button)findViewById(R.id.blue1Button);
         blue1Button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,10 +176,13 @@ public class GameId1Before extends AppCompatActivity {
                 app_data.setMatchDataId(1, MatchNumber, GameId1Before.this);
                 app_data.match = Integer.parseInt(MatchNumber);
                 app_data.setMatchDataId(44, app_data.getApp_config(0) + "." + app_data.getApp_config(1), GameId1Before.this);
+                Log.e("GameId1Before.java", DriverStation);
                 if(DriverStation.charAt(0) == 'B'){
                     app_data.setMatchDataId(2, "b", GameId1Before.this);
                 }else if(DriverStation.charAt(0) == 'R'){
                     app_data.setMatchDataId(2, "r", GameId1Before.this);
+                }else {
+                    DriverStation = "";
                 }
                 app_data.setMatchDataId(3, StartingPosition, GameId1Before.this);
                 app_data.setMatchDataId(4, StartOnLevel2, GameId1Before.this);
@@ -201,6 +226,7 @@ public class GameId1Before extends AppCompatActivity {
         //|->usually from bluetooth.
         String team = "0000";
         String[] names = {"R1", "R2", "R3", "B1", "B2", "B3"};
+        final GlobalData app_data = (GlobalData)getApplicationContext();
         if(Arrays.asList(names).contains(Name)){
             try {
                 InputStreamReader is = new InputStreamReader(getAssets().open("MatchSchedule.csv"));
@@ -208,19 +234,24 @@ public class GameId1Before extends AppCompatActivity {
                 BufferedReader reader = new BufferedReader(is);
                 reader.readLine();
                 String line;
+                app_data.number_of_matches = 0;
                 while ((line = reader.readLine()) != null) {
+                    app_data.number_of_matches += 1;
+                    //TODO: chack that the match exists???
                     String[] row = line.split(",");
-                    if(row[0].replaceAll('"', '') == ""+match){
-                        team = row[Arrays.asList(names).indexOf(Name)].replaceAll('"', '');
-                        return team;
+                    if(row[0].replaceAll("\"", "").equals( ""+match)){
+                        team = row[Arrays.asList(names).indexOf(Name) + 1].replaceAll("\"", "");
                     }
                 }
+                return team;
+                //TODO: make sure this doesn't crash
             }catch (IOException e){
                 Log.e("Game1IdBefore.Java", "" + e.getMessage());
             }
         }else{
             Toast.makeText(this, "DeviceName Set incorrectly", Toast.LENGTH_SHORT);
             Log.e("Game1IdBefore.Java", "Bluetooth device name set incorrectly");
+            Log.e("GameId1Before.java", "device name: " + Name);
         }
         return team;
     }

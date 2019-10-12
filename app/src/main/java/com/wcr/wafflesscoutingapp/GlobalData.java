@@ -48,6 +48,8 @@ public class GlobalData extends Application {
 
     public int match = 1;
 
+    public int number_of_matches = 0;
+
     public String current_file;
 
     public String content_text;
@@ -93,9 +95,11 @@ public class GlobalData extends Application {
     }
 
     public void reset_all_match_data(){
-        game_state = "0";
         current_file = "";
         matchData = new String[45];
+        if(match < number_of_matches){
+            match +=1;
+        }
     }
 
     private void save_to_csv(Activity a) {

@@ -257,6 +257,7 @@ public class GameId1Transmit extends AppCompatActivity implements AdapterView.On
 
                 //clean up the match data
                 app_data.reset_all_match_data();
+                Log.d(TAG, "starting GameId1.java");
 
                 startActivity(startIntent);
             }

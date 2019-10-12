@@ -14,9 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.wcr.wafflesscoutingapp.GameId0.GameId0;
 import com.wcr.wafflesscoutingapp.GameId1.GameId1;
-import com.wcr.wafflesscoutingapp.GameId2.GameId2;
 import com.wcr.wafflesscoutingapp.GameId3.GameId3;
 
 public class ScoutData extends AppCompatActivity {
@@ -76,14 +74,7 @@ public class ScoutData extends AppCompatActivity {
                 app_data.setApp_config(scout_data, 1, ScoutLastName.getText().toString());
                 app_data.setApp_config(scout_data, 2, String.valueOf(spinner.getSelectedItem()));
                 if(index == 0){
-                    Intent startIntent = new Intent(getApplicationContext(), GameId0.class);
-                    //show how to pass information to another activity
-                    startActivity(startIntent);
-                }else if(index == 1){
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
-                    startActivity(startIntent);
-                }else if(index == 2){
-                    Intent startIntent = new Intent(getApplicationContext(), GameId2.class);
                     startActivity(startIntent);
                 }else if(index == 3){
                     Intent startIntent = new Intent(getApplicationContext(), GameId3.class);

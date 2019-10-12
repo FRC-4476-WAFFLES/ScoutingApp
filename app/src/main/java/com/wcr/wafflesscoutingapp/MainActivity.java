@@ -37,12 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         mainGrid = (GridLayout)findViewById(R.id.mainGrid);
         CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
-        TextView textView2020 = (TextView)findViewById(R.id.textView0);
-        textView2020.setTypeface(CooperBlack);
         TextView textView2019 = (TextView)findViewById(R.id.textView1);
         textView2019.setTypeface(CooperBlack);
-        TextView textView2018 = (TextView)findViewById(R.id.textView2);
-        textView2018.setTypeface(CooperBlack);
         TextView textView2017 = (TextView)findViewById(R.id.textView3);
         textView2017.setTypeface(CooperBlack);
         TextView textGrid = (TextView)findViewById(R.id.textGrid);
