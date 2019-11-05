@@ -187,6 +187,7 @@ public class GlobalData extends Application {
                 content = content + matchData[i] + ",";
             }
         }
+        content = content + getLocalBluetoothName();
         content_text = content;
         return content;
     }
