@@ -2,11 +2,13 @@ import bluetooth
 import pandas as pd
 import numpy as np
 import json
-
+import os
+# os.system('new_test.py')
 name = "waffle_scout_server"
 target_name = "test"
 uuid = "44764476-4476-4476-8000-00805F9B34FB"
 communication_file = "server_comm.txt"
+file_path = os.path.join(os.getcwd(), communication_file)
 R1Submit = False
 R2Submit = False
 R3Submit = False
@@ -24,27 +26,34 @@ def gen():
     if R1Submit:
         string = string + "T,"
     else:
-        string = string + "T,"
+        string = string + "F,"
     if R2Submit:
         string = string + "T,"
     else:
-        string = string + "T,"
+        string = string + "F,"
     if R3Submit:
         string = string + "T,"
     else:
-        string = string + "T,"
+        string = string + "F,"
     if B1Submit:
         string = string + "T,"
     else:
-        string = string + "T,"
+        string = string + "F,"
     if B2Submit:
         string = string + "T,"
     else:
-        string = string + "T,"
+        string = string + "F,"
     if B3Submit:
         string = string + "T,"
     else:
-        string = string + "T,"
+        string = string + "F,"
+    if R1Submit and R2Submit and R3Submit and B1Submit and B2Submit and B3Submit:
+        R1Submit = False
+        R2Submit = False
+        R3Submit = False
+        B1Submit = False
+        B2Submit = False
+        B3Submit = False
     return string
 
 with open("LEGEND.json") as f:
@@ -95,7 +104,11 @@ while True:
         R2Submit = True
     elif user.lower() == "B3".lower():
         R2Submit = True
-    gen()
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    with open(file_path, "w+") as f:
+        f.write(gen())
+
 
 
 server_socket.close()
