@@ -36,7 +36,8 @@ public class GameId1 extends AppCompatActivity {
             startActivity(startIntent);
         }else if(app_data.getGame_state().equals(getString(R.string.transmit))){
             Log.d(TAG, "Entering Transmit");
-            Intent startIntent = new Intent(getApplicationContext(), GameId1Transmit.class);
+//            Intent startIntent = new Intent(getApplicationContext(), GameId1Transmit.class);
+            Intent startIntent = new Intent(getApplicationContext(), GameId1TM.class);
             startActivity(startIntent);
         }else{
             Log.d(TAG, "hit else in oncreate method, gamestate = "+ app_data.getGame_state());
