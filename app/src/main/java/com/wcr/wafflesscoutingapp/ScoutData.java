@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.wcr.wafflesscoutingapp.GameId1.GameId1;
+import com.wcr.wafflesscoutingapp.GameId2.ScoutPicActivity;
 import com.wcr.wafflesscoutingapp.GameId3.GameId3;
 
 public class ScoutData extends AppCompatActivity {
@@ -76,10 +77,14 @@ public class ScoutData extends AppCompatActivity {
                 if(index == 0){
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                     startActivity(startIntent);
-                }else if(index == 3){
-                    Intent startIntent = new Intent(getApplicationContext(), GameId3.class);
+                }else if(index == 1){
+                    Intent startIntent = new Intent(getApplicationContext(), ScoutPicActivity.class);
                     startActivity(startIntent);
-                }
+                }else if(index == 2){
+                Intent startIntent = new Intent(getApplicationContext(), GameId3.class);
+                startActivity(startIntent);
+            }
+
             }
         });
 

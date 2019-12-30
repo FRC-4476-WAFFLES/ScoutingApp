@@ -41,15 +41,14 @@
         android:columnCount="1"
         android:columnOrderPreserved="false"
         android:padding="14dp"
-        android:rowCount="2">
+        android:rowCount="3">
 
         <!--grid layout: https://www.youtube.com/watch?v=VUPM387qyrw
         with click: https://www.youtube.com/watch?v=K2V6Y7zQ8NU
         scrolling: https://www.youtube.com/watch?v=go9q4O44b4E-->
         <!-- Row 1 -->
-        <!-- Column 1 -->
 
-        <!-- Column 2 -->
+        <!-- Column 1 -->
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -63,27 +62,29 @@
             app:cardElevation="8dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/deep_space220x220" />
+                    android:src="@drawable/deep_space220x220"
+                    android:layout_weight="0.85"/>
 
                 <TextView
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:text="@string/Index_1_Year"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_weight="0.15"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -91,7 +92,7 @@
         <!-- Row 2 -->
 
 
-        <!-- Column 2 -->
+        <!-- Column 1 -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -104,30 +105,75 @@
             app:cardElevation="8dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="16dp"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/clipboard220x220" />
+                    android:src="@drawable/photo_camera_220x220"
+                    android:layout_weight="0.85"/>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="@string/Index_2_Name"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_weight="0.15"/>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <!-- Row 3 -->
+
+
+        <!-- Column 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/clipboard220x220"
+                    android:layout_weight="0.85"/>
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:text="@string/Index_3_Name"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_weight="0.15"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
 
     </GridLayout>
 

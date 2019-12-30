@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true" />
+
     <application
         android:name=".GlobalData"
         android:allowBackup="true"
@@ -19,7 +22,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GameId1.GameId1TM"></activity>
+        <activity android:name=".GameId2.ScoutPicActivity"></activity>
+        <activity
+            android:name=".GameId3.GameId3"
+            android:label="@string/title_activity_game_id3"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".GameId1.GameId1TM" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -31,17 +39,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".GameId1.GameId1Transmit" />
+<!--        <activity android:name=".GameId1.GameId1Transmit" />-->
         <activity android:name=".GameId1.GameId1Endgame" />
         <activity android:name=".GameId1.GameId1Teleop" />
         <activity android:name=".GameId1.GameId1Autonomous" />
         <activity android:name=".GameId1.GameId1Before" />
-        <activity android:name=".GameId0.GameId0Before" />
-        <activity android:name=".GameId3.GameId3" />
         <activity android:name=".GameId1.GameId1" />
-        <activity android:name=".GameId2.GameId2" />
         <activity android:name=".ScoutData" />
-        <activity android:name=".GameId0.GameId0" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
