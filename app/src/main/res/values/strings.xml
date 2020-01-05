@@ -17,6 +17,7 @@
     <string name="midgame_2_title">Tele-Op</string>
     <string name="postgame_title">End Game</string>
     <string name="submit_title">Submit Match Data</string>
+    <string name="camera_title">Take Pictures of Team\'s Robots</string>
 
     //1: pregame
     //2: sandstorm

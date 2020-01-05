@@ -68,15 +68,19 @@ while True:
 	decodedObjects = pyzbar.decode(frame)
 	for obj in decodedObjects:
 		print("Data: ", obj.data)
+		print("Last Data", last_data)
 		data = obj.data
 		data = data.decode("utf-8")
-		if(data != last_data and data != ""):
+		if(not data == last_data and not data == ""):
 			data = data.replace("[", "").replace("]", "").split(",")
 			last_data = data
 			user = data[-1]
 			data = data[:44]
 			df = df.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
 			df.to_csv("qr_out.csv")
+			usbPath = r'E:/'   #Note r in front of windows path 
+			if os.path.exists(usbPath):
+				df.to_csv(os.path.join(usbPath, "qr_out.csv"))
 			if user.lower() == "R1".lower():
 				R1Submit = True
 			elif user.lower() == "R2".lower():
