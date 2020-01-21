@@ -7,18 +7,24 @@ import androidx.core.content.FileProvider;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.TestLooperManager;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.wcr.wafflesscoutingapp.BuildConfig;
 
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
+
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,15 +34,22 @@ import java.util.Date;
 import java.util.Locale;
 
 public class ScoutPicActivity extends AppCompatActivity {
-    static final int REQUEST_IMAGE_CAPTURE = 1001;
+    private static final int REQUEST_CAPTURE_IMAGE = 100;
     static final String TAG = "ScoutPicActivity";
-    String currentPhotoPath;
-    Uri imageUri;
+    private String teamNumber = "";
+    private static TextView teamNumbersComplete;
+    private final GlobalData app_data = (GlobalData)getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final GlobalData app_data = (GlobalData)getApplicationContext();
+        Typeface CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
+        final EditText getTeamnNumber = (EditText)findViewById(R.id.teamNumberEditText);
+        final TextView takenPicturesTextView = (TextView)findViewById(R.id.takenPicturesTextView);
+        takenPicturesTextView.setTypeface(CooperBlack);
+        teamNumbersComplete = (TextView)findViewById(R.id.teamNumberTextView);
+        teamNumbersComplete.setTypeface(CooperBlack);
+        teamNumbersComplete.setText(app_data.getApp_config(4));
 
         setContentView(R.layout.activity_scout_pic);
         final Button takePicture = (Button)findViewById(R.id.nextButton);
@@ -44,55 +57,31 @@ public class ScoutPicActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(app_data.isWriteExternalStorageGranted()){
+                    teamNumber = getTeamnNumber.getText().toString();
                     openCameraIntent();
-//                    openCamera();
-//                    openBackCamera();
                 }
+            }
+        });
+
+        final Button deletePictures = (Button)findViewById(R.id.deletePicturesButton);
+        deletePictures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                File dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+                try {
+                    FileUtils.cleanDirectory(dir);
+                }catch (IOException ex){
+                    Log.e(TAG, ex.getMessage());
+                    Log.e(TAG, "unable to clean images directory");
+                }
+                app_data.setApp_config(ScoutPicActivity.this, 4, "");
             }
         });
     }
 
-    private void openCamera() {
-        File Root = Environment.getExternalStorageDirectory();
-        File Dir = new File(Root.getAbsoluteFile() + "/WafflesScoutingAppData");
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, "New Picture.jpg");
-        values.put(MediaStore.Images.Media.DESCRIPTION, "its a new pic");
-        values.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg");
-        values.put(MediaStore.MediaColumns.RELATIVE_PATH, Dir.toString());
-        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-        //Camera Intent
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        startActivityForResult(cameraIntent, REQUEST_IMAGE_CAPTURE);
-    }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        if(requestCode == 1001){
-//            Bundle extras = data.getExtras();
-////            Bitmap imageBitmap = (Bitmap) extras.get("data");
-//            Bitmap imageBitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
-//            File Root = Environment.getExternalStorageDirectory();
-//            File Dir = new File(Root.getAbsoluteFile() + "/WafflesScoutingAppData");
-//
-//            if (!Dir.exists()) {
-//                Dir.mkdir();
-//            }
-//            File file = new File(Dir, "4476.jpg");
-//            try (FileOutputStream out = new FileOutputStream(file)) {
-//                imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, out); // bmp is your Bitmap instance
-//                Log.d(TAG, "saved??");
-//                // PNG is a lossless format, the compression factor (100) is ignored
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
     String imageFilePath;
     private File createImageFile() throws IOException {
-        String imageFileName = "4476";
+        String imageFileName = teamNumber;
         File storageDir =
                 getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = new File(storageDir, imageFileName+".jpg");
@@ -100,7 +89,7 @@ public class ScoutPicActivity extends AppCompatActivity {
         imageFilePath = image.getAbsolutePath();
         return image;
     }
-    private static final int REQUEST_CAPTURE_IMAGE = 100;
+
 
     private void openCameraIntent() {
         Intent pictureIntent = new Intent(
@@ -111,17 +100,23 @@ public class ScoutPicActivity extends AppCompatActivity {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
-                // Error occurred while creating the File
+                Log.e(TAG, "Error occurred while creating the temp file File");
+                Log.e(TAG, ex.getMessage()+"");
             }
             if (photoFile != null) {
-//                Uri photoURI = FileProvider.getUriForFile(this, getApplicationContext().getPackageName(), photoFile);
                 Uri photoURI = FileProvider.getUriForFile(this, "com.wcr.fileprovider", photoFile);
-//                Uri photoURI = Uri.fromFile(photoFile);
                 pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                         photoURI);
                 startActivityForResult(pictureIntent,
                         REQUEST_CAPTURE_IMAGE);
             }
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int ResultCode, @Nullable Intent data){
+        if(ResultCode == RESULT_OK && !teamNumber.equals("")){
+            app_data.setApp_config(this, 4, app_data.getApp_config(4) + teamNumber + ",");
+            teamNumbersComplete.setText(app_data.getApp_config(4));
         }
     }
 }

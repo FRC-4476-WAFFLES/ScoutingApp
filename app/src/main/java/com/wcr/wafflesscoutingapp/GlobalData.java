@@ -54,7 +54,7 @@ public class GlobalData extends Application {
 
     public String content_text;
 
-    private String[] app_config = new String[4];
+    private String[] app_config = new String[5];
 
 
     //map of indexes in in LEGEND.ods
