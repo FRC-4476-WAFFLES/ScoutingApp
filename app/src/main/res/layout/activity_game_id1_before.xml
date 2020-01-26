@@ -85,184 +85,21 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.58"
+            android:layout_weight="0.5"
             android:layout_marginTop="8dp"
             android:baselineAligned="false"
             app:layout_constraintTop_toBottomOf="@+id/driverStationTextView">
 
-            <GridLayout
-                android:id="@+id/mainGrid"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/scoutInformerTextView"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="8"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
-                android:padding="14dp"
-                android:rowCount="3">
-
-                <!--grid layout: https://www.youtube.com/watch?v=VUPM387qyrw
-            with click: https://www.youtube.com/watch?v=K2V6Y7zQ8NU
-            scrolling: https://www.youtube.com/watch?v=go9q4O44b4E-->
-                <!-- Row 1 -->
-                <!-- Column 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/blue"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
-
-                    <Button
-                        android:id="@+id/blue1Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/blue"
-                        android:text="Blue 1"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Column 2 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/blue"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
-
-                    <Button
-                        android:id="@+id/red1Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/red"
-                        android:text="Red 1"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Row 2 -->
-                <!-- Column 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/blue"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
-
-                    <Button
-                        android:id="@+id/blue2Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/blue"
-                        android:text="Blue 2"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Column 2 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
-
-                    <Button
-                        android:id="@+id/red2Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/red"
-                        android:text="Red 2"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Row 3 -->
-                <!-- Column 1 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/blue"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
-
-                    <Button
-                        android:id="@+id/blue3Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/blue"
-                        android:text="Blue 3"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-                <!-- Column 2 -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@android:color/white"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">
-
-                    <Button
-                        android:id="@+id/red3Button"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/red"
-                        android:text="Red 3"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </androidx.cardview.widget.CardView>
-
-            </GridLayout>
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black"
+                android:textSize="60sp"
+                tools:text="You Are X" />
         </LinearLayout>
 
         <LinearLayout
@@ -281,27 +118,13 @@
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-            <CheckBox
-                android:id="@+id/startPosCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="Level 2? "
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:background="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/startPostitionTextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/startPostitionTextView"
-                app:layout_constraintTop_toTopOf="@+id/startPostitionTextView" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.12"
+            android:layout_weight="0.2"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"

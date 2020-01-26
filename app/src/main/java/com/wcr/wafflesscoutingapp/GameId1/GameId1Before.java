@@ -28,7 +28,6 @@ import java.util.Arrays;
 public class GameId1Before extends AppCompatActivity {
     Typeface CooperBlack;
     String DriverStation = "Me3rther";
-    String StartOnLevel2 = "Mtjtyjfg";
     String StartingPosition = "Mrthrht";
     //TODO: make buttons save data on press
 
@@ -45,6 +44,9 @@ public class GameId1Before extends AppCompatActivity {
         //Team Number
         final TextView teamNumberEditText = (TextView) findViewById(R.id.teamNumberTextView);
         teamNumberEditText.setText(getTeamNumber(app_data.getLocalBluetoothName(), app_data.match));
+
+        //figure out what driverstation we are looking at on this device
+        DriverStation = app_data.getLocalBluetoothName();
 
 
         //Match Number
@@ -66,66 +68,18 @@ public class GameId1Before extends AppCompatActivity {
                 String text = matchNumberEditText.getText().toString();
                 if(!text.equals("")) {
                     app_data.match = Integer.parseInt(matchNumberEditText.getText().toString());
-                    teamNumberEditText.setText(getTeamNumber(app_data.getLocalBluetoothName(), app_data.match));
+                    teamNumberEditText.setText(getTeamNumber(DriverStation, app_data.match));
                 }
             }
         });
 
-        //Driver Station buttons
-        final Button blue1Button = (Button)findViewById(R.id.blue1Button);
-        blue1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DSLocBtn(0);
-                DriverStation = "Blue 1";
-            }
-        });
-        final Button blue2Button = (Button)findViewById(R.id.blue2Button);
-        blue2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DSLocBtn(1);
-                DriverStation = "Blue 2";
-            }
-        });
-        final Button blue3Button = (Button)findViewById(R.id.blue3Button);
-        blue3Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DSLocBtn(2);
-                DriverStation = "Blue 3";
-            }
-        });
-        final Button red1Button = (Button)findViewById(R.id.red1Button);
-        red1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DSLocBtn(3);
-                DriverStation = "Red 1";
-            }
-        });
-        final Button red2Button = (Button)findViewById(R.id.red2Button);
-        red2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DSLocBtn(4);
-                DriverStation = "Red 2";
-            }
-        });
-        final Button red3Button = (Button)findViewById(R.id.red3Button);
-        red3Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DSLocBtn(5);
-                DriverStation = "Red 3";
-            }
-        });
-
-        // level 2 check box
-        StartOnLevel2 = "1";
-        final CheckBox lvl2 = (CheckBox) findViewById(R.id.startPosCheckBox);
-        if(lvl2.isChecked()) {
-            StartOnLevel2 = "2";
+        final TextView scoutInformerTextView = findViewById(R.id.scoutInformerTextView);
+        scoutInformerTextView.setTypeface(CooperBlack);
+        scoutInformerTextView.setText("You Are Scouting The Team In Driverstation " + expandName(DriverStation));
+        if(DriverStation.charAt(0) == 'B'){
+            scoutInformerTextView.setBackgroundColor(getResources().getColor(R.color.blue));
+        }else{
+            scoutInformerTextView.setBackgroundColor(getResources().getColor(R.color.red));
         }
 
         //Starting position
@@ -175,8 +129,10 @@ public class GameId1Before extends AppCompatActivity {
                 app_data.setMatchDataId(0, TeamNumber, GameId1Before.this);
                 app_data.setMatchDataId(1, MatchNumber, GameId1Before.this);
                 app_data.match = Integer.parseInt(MatchNumber);
+                //set the scout name
                 app_data.setMatchDataId(44, app_data.getApp_config(0) + "." + app_data.getApp_config(1), GameId1Before.this);
                 Log.e("GameId1Before.java", DriverStation);
+                //determine the driverstation about to be scouted
                 if(DriverStation.charAt(0) == 'B'){
                     app_data.setMatchDataId(2, "b", GameId1Before.this);
                 }else if(DriverStation.charAt(0) == 'R'){
@@ -185,11 +141,10 @@ public class GameId1Before extends AppCompatActivity {
                     DriverStation = "";
                 }
                 app_data.setMatchDataId(3, StartingPosition, GameId1Before.this);
-                app_data.setMatchDataId(4, StartOnLevel2, GameId1Before.this);
 
 
                 //make sure to check all fields are filled
-                if(!DriverStation.equals("") && !StartOnLevel2.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("")) {
+                if(!DriverStation.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("")) {
                     app_data.setGame_state(getString(R.string.sandstorm));
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                     startActivity(startIntent);
@@ -201,23 +156,22 @@ public class GameId1Before extends AppCompatActivity {
 
 
     }
-    private void DSLocBtn(int id){
-        Button buttons[] = new Button[6];
-        buttons[0] = (Button)findViewById(R.id.blue1Button);//0
-        buttons[1] = (Button)findViewById(R.id.blue2Button);//1
-        buttons[2] = (Button)findViewById(R.id.blue3Button);//2
-        buttons[3] = (Button)findViewById(R.id.red1Button);//3
-        buttons[4] = (Button)findViewById(R.id.red2Button);//4
-        buttons[5] = (Button)findViewById(R.id.red3Button);//5
-        for(int i=0; i< buttons.length; i++){
-            if(id != i){
-                buttons[i].setBackgroundColor(getResources().getColor(R.color.grey));
-            }
-        }
-        if(id<3) {
-            buttons[id].setBackgroundColor(getResources().getColor(R.color.blue));
+
+    private String expandName(String shortened){
+        if(shortened.equals("R1")){
+            return "Red 1";
+        }else if(shortened.equals("R2")){
+            return "Red 2";
+        }else if(shortened.equals("R3")){
+            return "Red 3";
+        }else if(shortened.equals("B1")){
+            return "Blue 1";
+        }else if(shortened.equals("B2")){
+            return "Blue 2";
+        }else if(shortened.equals("B3")){
+            return "Blue 3";
         }else{
-            buttons[id].setBackgroundColor(getResources().getColor(R.color.red));
+            return "Device Name Set Incorrectly";
         }
     }
 
