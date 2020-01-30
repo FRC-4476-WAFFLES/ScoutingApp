@@ -98,7 +98,7 @@
                 android:textStyle="bold"
                 android:background="@android:color/white"
                 android:textColor="@android:color/black"
-                android:textSize="60sp"
+                android:textSize="40sp"
                 tools:text="You Are X" />
         </LinearLayout>
 

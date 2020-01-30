@@ -130,17 +130,17 @@ public class GameId1Before extends AppCompatActivity {
                 app_data.setMatchDataId(1, MatchNumber, GameId1Before.this);
                 app_data.match = Integer.parseInt(MatchNumber);
                 //set the scout name
-                app_data.setMatchDataId(44, app_data.getApp_config(0) + "." + app_data.getApp_config(1), GameId1Before.this);
+                app_data.setMatchDataId(3, app_data.getApp_config(0) + "." + app_data.getApp_config(1), GameId1Before.this);
                 Log.e("GameId1Before.java", DriverStation);
                 //determine the driverstation about to be scouted
                 if(DriverStation.charAt(0) == 'B'){
-                    app_data.setMatchDataId(2, "b", GameId1Before.this);
+                    app_data.setMatchDataId(2, DriverStation, GameId1Before.this);
                 }else if(DriverStation.charAt(0) == 'R'){
-                    app_data.setMatchDataId(2, "r", GameId1Before.this);
+                    app_data.setMatchDataId(2, DriverStation, GameId1Before.this);
                 }else {
                     DriverStation = "";
                 }
-                app_data.setMatchDataId(3, StartingPosition, GameId1Before.this);
+                app_data.setMatchDataId(4, StartingPosition, GameId1Before.this);
 
 
                 //make sure to check all fields are filled

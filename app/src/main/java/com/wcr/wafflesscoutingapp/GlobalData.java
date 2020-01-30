@@ -58,7 +58,9 @@ public class GlobalData extends Application {
 
 
     //map of indexes in in LEGEND.ods
+    //TODO: set the string array length to 28
     String[] matchData = new String[45];
+
 
     public int get_Game_index() {
         return game_index;
@@ -96,6 +98,7 @@ public class GlobalData extends Application {
 
     public void reset_all_match_data(){
         current_file = "";
+        //TODO: set the string array length to 28
         matchData = new String[45];
         if(match < number_of_matches){
             match +=1;

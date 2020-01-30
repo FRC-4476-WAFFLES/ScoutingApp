@@ -33,6 +33,13 @@
         <item>Off season?</item>
     </string-array>
 
+    <string-array name="pickup_array">
+        <item>None</item>
+        <item>Trench</item>
+        <item>Rendezvous</item>
+        <item>Various</item>
+    </string-array>
+
     <!--dimensions-->
     <dimen name="btnSize">80dp</dimen>
     <string name="title_activity_game_id3">GameId3</string>

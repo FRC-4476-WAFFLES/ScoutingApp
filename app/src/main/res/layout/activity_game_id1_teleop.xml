@@ -29,7 +29,7 @@
 
         <!--Rocket Ship Level 3-->
         <TextView
-            android:id="@+id/Rocket3TextView"
+            android:id="@+id/ShotsScoredTextView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="0.05"
@@ -41,14 +41,14 @@
             android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/crossedHabLineCheckBox" />
+            app:layout_constraintTop_toBottomOf="@+id/crossedInitLineCheckBox" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.12"
-            app:layout_constraintTop_toBottomOf="@+id/Rocket3TextView">
+            app:layout_constraintTop_toBottomOf="@+id/ShotsScoredTextView">
 
             <Button
                 android:id="@+id/Rocket3HatchButton"

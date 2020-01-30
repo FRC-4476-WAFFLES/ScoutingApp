@@ -6,28 +6,25 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
 
 public class GameId1Autonomous extends AppCompatActivity {
     Typeface CooperBlack;
-    String HasCrossedHabLine = "";
-    String RocketShipLevel1Hatch = "";
-    String RocketShipLevel2Hatch = "";
-    String RocketShipLevel3Hatch = "";
-    String RocketShipLevel1Cargo = "";
-    String RocketShipLevel2Cargo = "";
-    String RocketShipLevel3Cargo = "";
-    String CargoShipFrontHatch = "";
-    String CargoShipFrontCargo = "";
-    String CargoShipSideHatch = "";
-    String CargoShipSideCargo = "";
+    boolean Erase = false;
+    String HasCrossedInitiationLine = "";
+    int InnerAutoScore = 0;
+    int OuterAutoScore = 0;
+    int LowerAutoScore = 0;
+    int FailedAutoScore = 0;
+    int BallsCollected = 0;
     //TODO: make buttons save data on press
 
     @Override
@@ -43,266 +40,132 @@ public class GameId1Autonomous extends AppCompatActivity {
         titleTextView.setTypeface(CooperBlack);
 
         // Hab line check box
-        HasCrossedHabLine = "0";
-        final CheckBox crossedHabLine = (CheckBox) findViewById(R.id.crossedHabLineCheckBox);
-        if(crossedHabLine.isChecked()) {
-            HasCrossedHabLine = "1";
+        HasCrossedInitiationLine = "0";
+        final CheckBox crossedInitiationLine = (CheckBox) findViewById(R.id.crossedInitLineCheckBox);
+        crossedInitiationLine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(crossedInitiationLine.isChecked()) {
+                    HasCrossedInitiationLine = "1";
+                }else{
+                    HasCrossedInitiationLine = "0";
+                }
+            }
+        });
+
+
+        //Score inner position
+        {
+            final Button scoreInner = (Button) findViewById(R.id.innerScoreAutoButton);
+            scoreInner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (Erase) {
+                        InnerAutoScore = InnerAutoScore - 1;
+                        scoreInner.setText("Inner: " + InnerAutoScore);
+                    } else {
+                        InnerAutoScore = InnerAutoScore + 1;
+                        scoreInner.setText("Inner: " + InnerAutoScore);
+                    }
+                    app_data.setMatchDataId(6, "" + InnerAutoScore, GameId1Autonomous.this);
+                }
+            });
         }
 
-        //Rocket ship Hatches
+        //Score outer position
         {
-            final Button rocketHatch1 = (Button) findViewById(R.id.Rocket1HatchButton);
-            rocketHatch1.setOnClickListener(new View.OnClickListener() {
+            final Button scoreOuter = (Button) findViewById(R.id.outerScoreAutoButton);
+            scoreOuter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (RocketShipLevel1Hatch == "") {
-                        RocketShipLevel1Hatch = "0";
-                        app_data.setMatchDataId(6, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(7, "0", GameId1Autonomous.this);
-                        rocketHatch1.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (RocketShipLevel1Hatch == "0") {
-                        RocketShipLevel1Hatch = "1";
-                        app_data.setMatchDataId(6, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(7, "1", GameId1Autonomous.this);
-                        rocketHatch1.setBackgroundColor(getResources().getColor(R.color.red));
+                    if (Erase) {
+                        OuterAutoScore = OuterAutoScore - 1;
+                        scoreOuter.setText("Outer: " + OuterAutoScore);
                     } else {
-                        RocketShipLevel1Hatch = "";
-                        app_data.setMatchDataId(6, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(7, "0", GameId1Autonomous.this);
-
-                        rocketHatch1.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+                        OuterAutoScore = OuterAutoScore + 1;
+                        scoreOuter.setText("Outer: " + OuterAutoScore);
                     }
+                    app_data.setMatchDataId(7, "" + OuterAutoScore, GameId1Autonomous.this);
                 }
             });
-        }//Rocket ship Level 1
+        }
 
+        //Score Lower position
         {
-            final Button rocketHatch2 = (Button) findViewById(R.id.Rocket2HatchButton);
-            rocketHatch2.setOnClickListener(new View.OnClickListener() {
+            final Button scoreLower = (Button) findViewById(R.id.lowerScoreAutoButton);
+            scoreLower.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (RocketShipLevel2Hatch == "") {
-                        RocketShipLevel2Hatch = "0";
-                        app_data.setMatchDataId(8, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(9, "0", GameId1Autonomous.this);
-                        rocketHatch2.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (RocketShipLevel2Hatch == "0") {
-                        RocketShipLevel2Hatch = "1";
-                        app_data.setMatchDataId(8, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(9, "1", GameId1Autonomous.this);
-                        rocketHatch2.setBackgroundColor(getResources().getColor(R.color.red));
+                    if (Erase) {
+                        LowerAutoScore = LowerAutoScore - 1;
+                        scoreLower.setText("Lower: " + LowerAutoScore);
                     } else {
-                        RocketShipLevel2Hatch = "";
-                        app_data.setMatchDataId(8, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(9, "0", GameId1Autonomous.this);
-                        rocketHatch2.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+                        LowerAutoScore = LowerAutoScore + 1;
+                        scoreLower.setText("Lower: " + LowerAutoScore);
                     }
+                    app_data.setMatchDataId(8, "" + LowerAutoScore, GameId1Autonomous.this);
                 }
             });
-        }//Rocket ship Level 2
+        }
 
+        //failed shots
         {
-            final Button rocketHatch3 = (Button) findViewById(R.id.Rocket3HatchButton);
-            rocketHatch3.setOnClickListener(new View.OnClickListener() {
+            final Button scoreFailed = (Button) findViewById(R.id.failedScoreAutoButton);
+            scoreFailed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (RocketShipLevel3Hatch == "") {
-                        RocketShipLevel3Hatch = "0";
-                        app_data.setMatchDataId(10, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(11, "0", GameId1Autonomous.this);
-                        rocketHatch3.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (RocketShipLevel3Hatch == "0") {
-                        RocketShipLevel3Hatch = "1";
-                        app_data.setMatchDataId(10, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(11, "1", GameId1Autonomous.this);
-                        rocketHatch3.setBackgroundColor(getResources().getColor(R.color.red));
+                    if (Erase) {
+                        FailedAutoScore = FailedAutoScore - 1;
+                        scoreFailed.setText("Failed: " + FailedAutoScore);
                     } else {
-                        RocketShipLevel3Hatch = "";
-                        app_data.setMatchDataId(10, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(11, "0", GameId1Autonomous.this);
-                        rocketHatch3.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+                        FailedAutoScore = FailedAutoScore + 1;
+                        scoreFailed.setText("Failed: " + FailedAutoScore);
                     }
+                    app_data.setMatchDataId(9, "" + FailedAutoScore, GameId1Autonomous.this);
                 }
             });
-        }//Rocket ship Level 3
+        }
 
-        //Rocket ship Cargo
+        //number of balls picked up
         {
-            final Button rocketCargo1 = (Button) findViewById(R.id.Rocket1CargoButton);
-            rocketCargo1.setOnClickListener(new View.OnClickListener() {
+            final Button ballsPickedUp = (Button) findViewById(R.id.pickupButton);
+            ballsPickedUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (RocketShipLevel1Cargo == "") {
-                        RocketShipLevel1Cargo = "0";
-                        app_data.setMatchDataId(16, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(17, "0", GameId1Autonomous.this);
-                        rocketCargo1.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (RocketShipLevel1Cargo == "0") {
-                        RocketShipLevel1Cargo = "1";
-                        app_data.setMatchDataId(16, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(17, "1", GameId1Autonomous.this);
-                        rocketCargo1.setBackgroundColor(getResources().getColor(R.color.red));
+                    if (Erase) {
+                        BallsCollected = BallsCollected - 1;
+                        ballsPickedUp.setText("Number Collected: " + BallsCollected);
                     } else {
-                        RocketShipLevel1Cargo = "";
-                        app_data.setMatchDataId(16, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(17, "0", GameId1Autonomous.this);
-                        rocketCargo1.setBackgroundColor(getResources().getColor(R.color.ballOrange));
+                        BallsCollected = BallsCollected + 1;
+                        ballsPickedUp.setText("Number Collected: " + BallsCollected);
                     }
+                    app_data.setMatchDataId(10, "" + BallsCollected, GameId1Autonomous.this);
                 }
             });
-        }//Rocket ship Level 1
+        }
 
-        {
-            final Button rocketCargo2 = (Button) findViewById(R.id.Rocket2CargoButton);
-            rocketCargo2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (RocketShipLevel2Cargo == "") {
-                        RocketShipLevel2Cargo = "0";
-                        app_data.setMatchDataId(18, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(19, "0", GameId1Autonomous.this);
-                        rocketCargo2.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (RocketShipLevel2Cargo == "0") {
-                        RocketShipLevel2Cargo = "1";
-                        app_data.setMatchDataId(18, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(19, "1", GameId1Autonomous.this);
-                        rocketCargo2.setBackgroundColor(getResources().getColor(R.color.red));
-                    } else {
-                        RocketShipLevel2Cargo = "";
-                        app_data.setMatchDataId(18, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(19, "0", GameId1Autonomous.this);
-                        rocketCargo2.setBackgroundColor(getResources().getColor(R.color.ballOrange));
-                    }
-                }
-            });
-        }//Rocket ship Level 2
+        //PickupLocation Spinner
+        final Spinner spinner = (Spinner)findViewById(R.id.pickupLocationSpinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.pickup_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        ArrayAdapter myAdap = (ArrayAdapter) spinner.getAdapter(); //cast to an ArrayAdapter
+        spinner.setSelection(myAdap.getPosition(adapter.getItem(0)));
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                app_data.setMatchDataId(11, String.valueOf(spinner.getSelectedItem()), GameId1Autonomous.this);
+            }
 
-        {
-            final Button rocketCargo3 = (Button) findViewById(R.id.Rocket3CargoButton);
-            rocketCargo3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (RocketShipLevel3Cargo == "") {
-                        RocketShipLevel3Cargo = "0";
-                        app_data.setMatchDataId(20, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(21, "0", GameId1Autonomous.this);
-                        rocketCargo3.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (RocketShipLevel3Cargo == "0") {
-                        RocketShipLevel3Cargo = "1";
-                        app_data.setMatchDataId(20, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(21, "1", GameId1Autonomous.this);
-                        rocketCargo3.setBackgroundColor(getResources().getColor(R.color.red));
-                    } else {
-                        RocketShipLevel3Cargo = "";
-                        app_data.setMatchDataId(20, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(21, "0", GameId1Autonomous.this);
-                        rocketCargo3.setBackgroundColor(getResources().getColor(R.color.ballOrange));
-                    }
-                }
-            });
-        }//Rocket ship Level 3
-
-        //Cargo Ship Front
-        {
-            final Button hatchFront = (Button) findViewById(R.id.hatchFrontButton);
-            hatchFront.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (CargoShipFrontHatch == "") {
-                        CargoShipFrontHatch = "0";
-                        app_data.setMatchDataId(12, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(13, "0", GameId1Autonomous.this);
-                        hatchFront.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (CargoShipFrontHatch == "0") {
-                        CargoShipFrontHatch = "1";
-                        app_data.setMatchDataId(12, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(13, "1", GameId1Autonomous.this);
-                        hatchFront.setBackgroundColor(getResources().getColor(R.color.red));
-                    } else {
-                        CargoShipFrontHatch = "";
-                        app_data.setMatchDataId(12, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(13, "0", GameId1Autonomous.this);
-                        hatchFront.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                    }
-                }
-            });
-        }//front hatch
-
-        {
-            final Button cargoFront = (Button) findViewById(R.id.cargoFrontButton);
-            cargoFront.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (CargoShipFrontCargo == "") {
-                        CargoShipFrontCargo = "0";
-                        app_data.setMatchDataId(22, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(23, "0", GameId1Autonomous.this);
-                        cargoFront.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (CargoShipFrontCargo == "0") {
-                        CargoShipFrontCargo = "1";
-                        app_data.setMatchDataId(22, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(23, "1", GameId1Autonomous.this);
-                        cargoFront.setBackgroundColor(getResources().getColor(R.color.red));
-                    } else {
-                        CargoShipFrontCargo = "";
-                        app_data.setMatchDataId(22, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(23, "0", GameId1Autonomous.this);
-                        cargoFront.setBackgroundColor(getResources().getColor(R.color.ballOrange));
-                    }
-                }
-            });
-        }//front cargo
-
-        //Cargo Ship Side
-        {
-            final Button hatchSide = (Button) findViewById(R.id.hatchSideButton);
-            hatchSide.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (CargoShipSideHatch == "") {
-                        CargoShipSideHatch = "0";
-                        app_data.setMatchDataId(14, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(15, "0", GameId1Autonomous.this);
-                        hatchSide.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (CargoShipSideHatch == "0") {
-                        CargoShipSideHatch = "1";
-                        app_data.setMatchDataId(15, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(15, "1", GameId1Autonomous.this);
-                        hatchSide.setBackgroundColor(getResources().getColor(R.color.red));
-                    } else {
-                        CargoShipSideHatch = "";
-                        app_data.setMatchDataId(14, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(15, "0", GameId1Autonomous.this);
-                        hatchSide.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                    }
-                }
-            });
-        }//front hatch
-
-        {
-            final Button cargoSide = (Button) findViewById(R.id.cargoSideButton);
-            cargoSide.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (CargoShipSideCargo == "") {
-                        CargoShipSideCargo = "0";
-                        app_data.setMatchDataId(22, "1", GameId1Autonomous.this);
-                        app_data.setMatchDataId(23, "0", GameId1Autonomous.this);
-                        cargoSide.setBackgroundColor(getResources().getColor(R.color.green));
-                    } else if (CargoShipSideCargo == "0") {
-                        CargoShipSideCargo = "1";
-                        app_data.setMatchDataId(22, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(23, "1", GameId1Autonomous.this);
-                        cargoSide.setBackgroundColor(getResources().getColor(R.color.red));
-                    } else {
-                        CargoShipSideCargo = "";
-                        app_data.setMatchDataId(22, "0", GameId1Autonomous.this);
-                        app_data.setMatchDataId(23, "0", GameId1Autonomous.this);
-                        cargoSide.setBackgroundColor(getResources().getColor(R.color.ballOrange));
-                    }
-                }
-            });
-        }//front cargo
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                app_data.setMatchDataId(11, "", GameId1Autonomous.this);
+            }
+        });
 
         //Continue Button
         Button continueButton = (Button)findViewById(R.id.continueToTeleopButton);
@@ -311,12 +174,26 @@ public class GameId1Autonomous extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: make sure to save the data
                 //make sure to pass on the data.
-                app_data.setMatchDataId(5, HasCrossedHabLine, GameId1Autonomous.this);
+                app_data.setMatchDataId(5, HasCrossedInitiationLine, GameId1Autonomous.this);
                 app_data.setGame_state(getString(R.string.teleop));
                 Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                 startActivity(startIntent);
             }
         });
 
+        //Erase Button
+        final Button eraseButton = (Button)findViewById(R.id.AutoEraseButton);
+        eraseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Erase){
+                    Erase = false;
+                    eraseButton.setBackgroundColor(getResources().getColor(R.color.grey));
+                }else{
+                    Erase = true;
+                    eraseButton.setBackgroundColor(getResources().getColor(R.color.red));
+                }
+            }
+        });
     }
 }
