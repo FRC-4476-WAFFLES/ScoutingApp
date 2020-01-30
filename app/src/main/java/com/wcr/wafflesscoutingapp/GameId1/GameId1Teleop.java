@@ -15,16 +15,10 @@ import com.wcr.wafflesscoutingapp.R;
 public class GameId1Teleop extends AppCompatActivity {
     Typeface CooperBlack;
     boolean Erase = false;
-    int Rocket3HatchCount = 0;
-    int Rocket2HatchCount = 0;
-    int Rocket1HatchCount = 0;
-    int CargoShipHatchCount = 0;
-    int FailuresHatchCount = 0;
-    int Rocket3CargoCount = 0;
-    int Rocket2CargoCount = 0;
-    int Rocket1CargoCount = 0;
-    int CargoShipCargoCount = 0;
-    int FailuresCargoCount = 0;
+    int InnerAutoScore = 0;
+    int OuterAutoScore = 0;
+    int LowerAutoScore = 0;
+    int FailedAutoScore = 0;
     //TODO: make buttons save data on press
 
 
@@ -41,167 +35,74 @@ public class GameId1Teleop extends AppCompatActivity {
         TextView titleTextView = (TextView)findViewById(R.id.titleTextView);
         titleTextView.setTypeface(CooperBlack);
 
-        //Rocket 3
+        //Score inner position
         {
-            final Button Rocket3HatchButton = (Button)findViewById(R.id.Rocket3HatchButton);
-            Rocket3HatchButton.setOnClickListener(new View.OnClickListener() {
+            final Button scoreInner = (Button) findViewById(R.id.innerScoreTeleopButton);
+            scoreInner.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(Erase){
-                        Rocket3HatchCount = Rocket3HatchCount - 1;
-                        Rocket3HatchButton.setText("HATCH: " + Rocket3HatchCount);
-                    }else{
-                        Rocket3HatchCount = Rocket3HatchCount + 1;
-                        Rocket3HatchButton.setText("HATCH: " + Rocket3HatchCount);
+                    if (Erase) {
+                        InnerAutoScore = InnerAutoScore - 1;
+                        scoreInner.setText("Inner: " + InnerAutoScore);
+                    } else {
+                        InnerAutoScore = InnerAutoScore + 1;
+                        scoreInner.setText("Inner: " + InnerAutoScore);
                     }
+                    app_data.setMatchDataId(12, "" + InnerAutoScore, GameId1Teleop.this);
                 }
             });
         }
 
+        //Score outer position
         {
-            final Button Rocket3CargoButton = (Button)findViewById(R.id.Rocket3CargoButton);
-            Rocket3CargoButton.setOnClickListener(new View.OnClickListener() {
+            final Button scoreOuter = (Button) findViewById(R.id.outerScoreTeleopButton);
+            scoreOuter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(Erase){
-                        Rocket3CargoCount = Rocket3CargoCount - 1;
-                        Rocket3CargoButton.setText("CARGO: " + Rocket3CargoCount);
-                    }else{
-                        Rocket3CargoCount = Rocket3CargoCount + 1;
-                        Rocket3CargoButton.setText("CARGO: " + Rocket3CargoCount);
+                    if (Erase) {
+                        OuterAutoScore = OuterAutoScore - 1;
+                        scoreOuter.setText("Outer: " + OuterAutoScore);
+                    } else {
+                        OuterAutoScore = OuterAutoScore + 1;
+                        scoreOuter.setText("Outer: " + OuterAutoScore);
                     }
+                    app_data.setMatchDataId(13, "" + OuterAutoScore, GameId1Teleop.this);
                 }
             });
         }
 
-        //Rocket 2
+        //Score Lower position
         {
-            final Button Rocket2HatchButton = (Button)findViewById(R.id.Rocket2HatchButton);
-            Rocket2HatchButton.setOnClickListener(new View.OnClickListener() {
+            final Button scoreLower = (Button) findViewById(R.id.lowerScoreTeleopButton);
+            scoreLower.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(Erase){
-                        Rocket2HatchCount = Rocket2HatchCount - 1;
-                        Rocket2HatchButton.setText("HATCH: " + Rocket2HatchCount);
-                    }else{
-                        Rocket2HatchCount = Rocket2HatchCount + 1;
-                        Rocket2HatchButton.setText("HATCH: " + Rocket2HatchCount);
+                    if (Erase) {
+                        LowerAutoScore = LowerAutoScore - 1;
+                        scoreLower.setText("Lower: " + LowerAutoScore);
+                    } else {
+                        LowerAutoScore = LowerAutoScore + 1;
+                        scoreLower.setText("Lower: " + LowerAutoScore);
                     }
+                    app_data.setMatchDataId(14, "" + LowerAutoScore, GameId1Teleop.this);
                 }
             });
         }
 
+        //failed shots
         {
-            final Button Rocket2CargoButton = (Button)findViewById(R.id.Rocket2CargoButton);
-            Rocket2CargoButton.setOnClickListener(new View.OnClickListener() {
+            final Button scoreFailed = (Button) findViewById(R.id.failedScoreTeleopButton);
+            scoreFailed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(Erase){
-                        Rocket2CargoCount = Rocket2CargoCount - 1;
-                        Rocket2CargoButton.setText("CARGO: " + Rocket2CargoCount);
-                    }else{
-                        Rocket2CargoCount = Rocket2CargoCount + 1;
-                        Rocket2CargoButton.setText("CARGO: " + Rocket2CargoCount);
+                    if (Erase) {
+                        FailedAutoScore = FailedAutoScore - 1;
+                        scoreFailed.setText("Failed: " + FailedAutoScore);
+                    } else {
+                        FailedAutoScore = FailedAutoScore + 1;
+                        scoreFailed.setText("Failed: " + FailedAutoScore);
                     }
-                }
-            });
-        }
-
-        //Rocket 1
-        {
-            final Button Rocket1HatchButton = (Button)findViewById(R.id.Rocket1HatchButton);
-            Rocket1HatchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(Erase){
-                        Rocket1HatchCount = Rocket1HatchCount - 1;
-                        Rocket1HatchButton.setText("HATCH: " + Rocket1HatchCount);
-                    }else{
-                        Rocket1HatchCount = Rocket1HatchCount + 1;
-                        Rocket1HatchButton.setText("HATCH: " + Rocket1HatchCount);
-                    }
-                }
-            });
-        }
-
-        {
-            final Button Rocket1CargoButton = (Button)findViewById(R.id.Rocket1CargoButton);
-            Rocket1CargoButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(Erase){
-                        Rocket1CargoCount = Rocket1CargoCount - 1;
-                        Rocket1CargoButton.setText("CARGO: " + Rocket1CargoCount);
-                    }else{
-                        Rocket1CargoCount = Rocket1CargoCount + 1;
-                        Rocket1CargoButton.setText("CARGO: " + Rocket1CargoCount);
-                    }
-                }
-            });
-        }
-
-        //Cargo Ship
-        {
-            final Button CargoShipHatchButton = (Button)findViewById(R.id.CargoShipHatchButton);
-            CargoShipHatchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(Erase){
-                        CargoShipHatchCount = CargoShipHatchCount - 1;
-                        CargoShipHatchButton.setText("HATCH: " + CargoShipHatchCount);
-                    }else{
-                        CargoShipHatchCount = CargoShipHatchCount + 1;
-                        CargoShipHatchButton.setText("HATCH: " + CargoShipHatchCount);
-                    }
-                }
-            });
-        }
-
-        {
-            final Button CargoShipCargoButton = (Button)findViewById(R.id.CargoShipCargoButton);
-            CargoShipCargoButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(Erase){
-                        CargoShipCargoCount = CargoShipCargoCount - 1;
-                        CargoShipCargoButton.setText("CARGO: " + CargoShipCargoCount);
-                    }else{
-                        CargoShipCargoCount = CargoShipCargoCount + 1;
-                        CargoShipCargoButton.setText("CARGO: " + CargoShipCargoCount);
-                    }
-                }
-            });
-        }
-
-        //Failures
-        {
-            final Button FailuresHatchButton = (Button)findViewById(R.id.FailuresHatchButton);
-            FailuresHatchButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(Erase){
-                        FailuresHatchCount = FailuresHatchCount - 1;
-                        FailuresHatchButton.setText("HATCH: " + FailuresHatchCount);
-                    }else{
-                        FailuresHatchCount = FailuresHatchCount + 1;
-                        FailuresHatchButton.setText("HATCH: " + FailuresHatchCount);
-                    }
-                }
-            });
-        }
-
-        {
-            final Button FailuresCargoButton = (Button)findViewById(R.id.FailuresCargoButton);
-            FailuresCargoButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(Erase){
-                        FailuresCargoCount = FailuresCargoCount - 1;
-                        FailuresCargoButton.setText("CARGO: " + FailuresCargoCount);
-                    }else{
-                        FailuresCargoCount = FailuresCargoCount + 1;
-                        FailuresCargoButton.setText("CARGO: " + FailuresCargoCount);
-                    }
+                    app_data.setMatchDataId(15, "" + FailedAutoScore, GameId1Teleop.this);
                 }
             });
         }
@@ -227,21 +128,6 @@ public class GameId1Teleop extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: make sure to save the data
-                //Maybe check for errors
-                //make sure to pass on information
-                app_data.setMatchDataId(24, Rocket1HatchCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(25, Rocket2HatchCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(26, Rocket3HatchCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(27, CargoShipHatchCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(28, FailuresHatchCount + "", GameId1Teleop.this);
-
-                app_data.setMatchDataId(29, Rocket1CargoCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(30, Rocket2CargoCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(31, Rocket3CargoCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(32, CargoShipCargoCount + "", GameId1Teleop.this);
-                app_data.setMatchDataId(33, FailuresCargoCount + "", GameId1Teleop.this);
-
                 app_data.setGame_state(getString(R.string.endgame));
                 Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                 startActivity(startIntent);

@@ -32,216 +32,273 @@
             android:id="@+id/ShotsScoredTextView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="0.05"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="Rocket Ship Level 3"
-            android:layout_gravity="center"
-            android:textStyle="bold"
+            android:layout_weight="0.05"
+            android:text="Scoring Power cells"
             android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/crossedInitLineCheckBox" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
+        <GridLayout
+            android:id="@+id/scoringPositionGridLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.12"
-            app:layout_constraintTop_toBottomOf="@+id/ShotsScoredTextView">
+            android:layout_weight="0.46"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:padding="10dp"
+            android:rowCount="2">
 
-            <Button
-                android:id="@+id/Rocket3HatchButton"
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/wafflesYellow"
-                android:text="Hatch: 0" />
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
-            <Button
-                android:id="@+id/Rocket3CargoButton"
+                <Button
+                    android:id="@+id/innerScoreTeleopButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="Inner: 0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/ballOrange"
-                android:text="Cargo: 0" />
-        </LinearLayout>
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
 
-        <!--Rocket Ship Level 2-->
-        <TextView
-            android:id="@+id/Rocket2TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="center"
-            android:text="Rocket Ship Level 2"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+                <Button
+                    android:id="@+id/outerScoreTeleopButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="Outer: 0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <Button
+                    android:id="@+id/lowerScoreTeleopButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="Lower: 0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <Button
+                    android:id="@+id/failedScoreTeleopButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="Failed: 0"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.12"
-            app:layout_constraintTop_toBottomOf="@+id/Rocket2TextView">
+            android:layout_weight="0.30"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp">
 
-            <Button
-                android:id="@+id/Rocket2HatchButton"
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="0.50"
-                android:background="@color/wafflesYellow"
-                android:text="Hatch: 0" />
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/rotationControlTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.12"
+                    android:text="Rotation Control"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            <Button
-                android:id="@+id/Rocket2CargoButton"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.44"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/rotationControlNoButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/wafflesYellow"
+                        android:text="Not Attempted"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_weight="0.5"
+                        android:layout_margin="10dp"/>
+                    <Button
+                        android:id="@+id/rotationControlYesButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/wafflesYellow"
+                        android:text="Achieved"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_weight="0.5"
+                        android:layout_margin="10dp"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/rotationControlFailedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/wafflesYellow"
+                    android:text="Failed"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_weight="0.44"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginEnd="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="0.50"
-                android:background="@color/ballOrange"
-                android:text="Cargo: 0" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <!--Rocket Ship Level 1-->
-        <TextView
-            android:id="@+id/Rocket1TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="center"
-            android:text="Rocket Ship Level 1"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+                <TextView
+                    android:id="@+id/positionControlTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.12"
+                    android:text="Rotation Control"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-        <LinearLayout
-            android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.12"
-            app:layout_constraintTop_toBottomOf="@+id/Rocket1TextView">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.44"
+                    android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/Rocket1HatchButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/wafflesYellow"
-                android:text="Hatch: 0" />
+                    <Button
+                        android:id="@+id/positionControlNoButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/wafflesYellow"
+                        android:text="Not Attempted"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_weight="0.5"
+                        android:layout_margin="10dp"/>
+                    <Button
+                        android:id="@+id/positionControlYesButton"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/wafflesYellow"
+                        android:text="Achieved"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_weight="0.5"
+                        android:layout_margin="10dp"/>
 
-            <Button
-                android:id="@+id/Rocket1CargoButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/ballOrange"
-                android:text="Cargo: 0" />
-        </LinearLayout>
+                </LinearLayout>
 
-        <!--Cargo Ship-->
+                <Button
+                    android:id="@+id/positionControlFailedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/wafflesYellow"
+                    android:text="Failed"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_weight="0.44"
+                    android:layout_margin="10dp"/>
 
-        <TextView
-            android:id="@+id/CargoShipTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="center"
-            android:text="Cargo Ship"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.12">
-
-            <Button
-                android:id="@+id/CargoShipHatchButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/wafflesYellow"
-                android:text="Hatch: 0" />
-
-            <Button
-                android:id="@+id/CargoShipCargoButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/ballOrange"
-                android:text="Cargo: 0" />
-        </LinearLayout>
-
-        <!--Failures -->
-        <TextView
-            android:id="@+id/FailuresTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="center"
-            android:text="Failures"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.12">
-
-            <Button
-                android:id="@+id/FailuresHatchButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/wafflesYellow"
-                android:text="Hatch: 0" />
-
-            <Button
-                android:id="@+id/FailuresCargoButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/btnSize"
-                android:layout_marginEnd="0dp"
-                android:layout_weight="0.50"
-                android:background="@color/ballOrange"
-                android:text="Cargo: 0" />
         </LinearLayout>
 
         <LinearLayout
