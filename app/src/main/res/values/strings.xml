@@ -13,7 +13,7 @@
     <string name="transmit">5</string>
 
     <string name="pregame_title">Before the Match</string>
-    <string name="midgame_1_title">Sandstorm</string>
+    <string name="midgame_1_title">Autonomous</string>
     <string name="midgame_2_title">Tele-Op</string>
     <string name="postgame_title">End Game</string>
     <string name="submit_title">Submit Match Data</string>

@@ -25,7 +25,7 @@ public class GameId1Autonomous extends AppCompatActivity {
     int LowerAutoScore = 0;
     int FailedAutoScore = 0;
     int BallsCollected = 0;
-    //TODO: make buttons save data on press
+    //TODO: add the current team being scouted to the top corner
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
