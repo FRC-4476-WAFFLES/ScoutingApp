@@ -424,7 +424,7 @@
                 app:cardElevation="8dp">
 
                 <Button
-                    android:id="@+id/OverflowPlayButton"
+                    android:id="@+id/overflowPlayButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/wafflesYellow"
