@@ -15,9 +15,10 @@
     <string name="pregame_title">Before the Match</string>
     <string name="midgame_1_title">Autonomous</string>
     <string name="midgame_2_title">Tele-Op</string>
-    <string name="postgame_title">End Game</string>
+    <string name="postgame_title">Post Match</string>
     <string name="submit_title">Submit Match Data</string>
     <string name="camera_title">Take Pictures of Team\'s Robots</string>
+    <string name="endgame_title">End Game</string>
 
     //1: pregame
     //2: sandstorm

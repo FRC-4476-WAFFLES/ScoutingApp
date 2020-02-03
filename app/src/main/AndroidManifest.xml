@@ -10,8 +10,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-feature android:name="android.hardware.camera"
-                  android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:name=".GlobalData"
@@ -22,22 +23,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GameId2.ScoutPicActivity"></activity>
+        <activity android:name=".GameId1.GameId1Endgame"></activity>
+        <activity android:name=".GameId2.ScoutPicActivity" />
         <activity
             android:name=".GameId3.GameId3"
             android:label="@string/title_activity_game_id3"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GameId1.GameId1TM" />
-
-<!--        <provider-->
-<!--            android:name="androidx.core.content.FileProvider"-->
-<!--            android:authorities="com.wcr.fileprovider"-->
-<!--            android:exported="false"-->
-<!--            android:grantUriPermissions="true">-->
-<!--            <meta-data-->
-<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
-<!--                android:resource="@xml/file_paths" />-->
-<!--        </provider>-->
+        <activity android:name=".GameId1.GameId1TM" /> <!-- <provider -->
+        <!-- android:name="androidx.core.content.FileProvider" -->
+        <!-- android:authorities="com.wcr.fileprovider" -->
+        <!-- android:exported="false" -->
+        <!-- android:grantUriPermissions="true"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+        <!-- android:resource="@xml/file_paths" /> -->
+        <!-- </provider> -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.wcr.fileprovider"
@@ -45,12 +45,9 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths">
-            </meta-data>
-        </provider>
-
-<!--        <activity android:name=".GameId1.GameId1Transmit" />-->
-        <activity android:name=".GameId1.GameId1Endgame" />
+                android:resource="@xml/file_paths"></meta-data>
+        </provider> <!-- <activity android:name=".GameId1.GameId1Transmit" /> -->
+        <activity android:name=".GameId1.GameId1Postgame" />
         <activity android:name=".GameId1.GameId1Teleop" />
         <activity android:name=".GameId1.GameId1Autonomous" />
         <activity android:name=".GameId1.GameId1Before" />

@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameId1.GameId1Endgame"
-    android:background="@mipmap/waffle_background1280x1920_96dpi">
+    android:background="@mipmap/waffle_background1280x1920_96dpi"
+    tools:context=".GameId1.GameId1Endgame">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.08"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:text="@string/postgame_title"
+            android:layout_weight="0.08"
+            android:text="@string/endgame_title"
             android:textColor="@android:color/black"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -28,203 +30,238 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="0.1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="Lvl 1 Climb"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
-
-            <Button
-                android:id="@+id/L1YesButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="Yes"
-                android:background="@color/green"/>
-
-            <Button
-                android:id="@+id/L1FailButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="Fail"
-                android:background="@color/red"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="0.1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="Lvl 2 Climb"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
-
-            <Button
-                android:id="@+id/L2YesButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="Yes"
-                android:background="@color/green"/>
-
-            <Button
-                android:id="@+id/L2FailButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="Fail"
-                android:background="@color/red"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="0.1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="Lvl 3 Climb"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
-
-            <Button
-                android:id="@+id/L3YesButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="Yes"
-                android:background="@color/green"/>
-
-            <Button
-                android:id="@+id/L3FailButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:text="Fail"
-                android:background="@color/red"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/didNotTryButton"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.12"
-            android:background="@color/grey"
-            android:text="Did Not Try"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.15"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="0.5">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:text="Alliance Score"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
-
-                <EditText
-                    android:id="@+id/allianceScoreEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
-                    android:hint="Score"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:background="@android:color/white"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_weight="0.5">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.2"
-                    android:text="Fouls (Alliance)"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
-
-                <EditText
-                    android:id="@+id/allianceFoulsEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
-                    android:hint="fouls"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:background="@android:color/white"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/ShotsScoredTextView"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="0.05"
-            android:text="Comments"
-            android:textStyle="bold"
+            android:text="Climb:"
             android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/commentsEditText"
+        <GridLayout
+            android:id="@+id/mainGrid2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.25"
-            android:background="@android:color/white"
-            android:gravity="top|left"
-            android:hint="(suggestions: gameplay style(DEFENSIVE,HATCH?CARGO,WHAT LVL, fouls[how many fouls was it repeated], robot died, fell over,etc.) ARE HELPFUL" />
+            android:layout_weight="0.3"
+            android:columnCount="3"
+            android:columnOrderPreserved="false"
+            android:padding="14dp"
+            android:rowCount="1">
 
-        <Button
-            android:id="@+id/continueButton"
+            <!-- Row 1 -->
+            <!-- Column 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <Button
+                    android:id="@+id/climbYesButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="Yes"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+            <!-- Column 3 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <Button
+                    android:id="@+id/climbNoButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="No"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <Button
+                    android:id="@+id/climbFailButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="Fail"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.07"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginLeft="0dp"
-            android:background="@color/wafflesYellow"
-            android:text="Continue"
-            android:textColor="@android:color/black" />
+            android:layout_weight="0.08"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:text="Line up time:"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/climbTimeEditText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:hint="0"
+                android:inputType="number"
+                android:background="@android:color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="Carrier:"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/buddyYesButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="Yes"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buddyNoButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="No"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buddyFailButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="Fail"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="Cargo:"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/carriedYesButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="Yes"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/carriedNoButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="No"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/carriedFailButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="Fail"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -32,7 +32,7 @@ public class GameId1 extends AppCompatActivity {
             startActivity(startIntent);
         }else if(app_data.getGame_state().equals(getString(R.string.endgame))){
             Log.d(TAG, "Entering Endgame");
-            Intent startIntent = new Intent(getApplicationContext(), GameId1Endgame.class);
+            Intent startIntent = new Intent(getApplicationContext(), GameId1Postgame.class);
             startActivity(startIntent);
         }else if(app_data.getGame_state().equals(getString(R.string.transmit))){
             Log.d(TAG, "Entering Transmit");
