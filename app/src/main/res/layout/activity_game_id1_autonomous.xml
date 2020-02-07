@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/autonomousTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -218,14 +218,14 @@
                 android:text="Number Collected: 0"
                 android:textSize="20sp" />
 
-            <Spinner
-                android:id="@+id/pickupLocationSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="0.5"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown" />
+<!--            <Spinner-->
+<!--                android:id="@+id/pickupLocationSpinner"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="0.5"-->
+<!--                android:background="@android:drawable/btn_dropdown"-->
+<!--                android:spinnerMode="dropdown" />-->
 
         </LinearLayout>
 

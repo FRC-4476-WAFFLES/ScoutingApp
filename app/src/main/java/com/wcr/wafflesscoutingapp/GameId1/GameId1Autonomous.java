@@ -36,7 +36,7 @@ public class GameId1Autonomous extends AppCompatActivity {
         final GlobalData app_data = (GlobalData)getApplicationContext();
 
         //title
-        TextView titleTextView = (TextView)findViewById(R.id.titleTextView);
+        TextView titleTextView = (TextView)findViewById(R.id.autonomousTitleTextView);
         titleTextView.setTypeface(CooperBlack);
 
         // Hab line check box
@@ -144,28 +144,28 @@ public class GameId1Autonomous extends AppCompatActivity {
             });
         }
 
-        //PickupLocation Spinner
-        final Spinner spinner = (Spinner)findViewById(R.id.pickupLocationSpinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.pickup_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-        ArrayAdapter myAdap = (ArrayAdapter) spinner.getAdapter(); //cast to an ArrayAdapter
-        spinner.setSelection(myAdap.getPosition(adapter.getItem(0)));
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                app_data.setMatchDataId(11, String.valueOf(spinner.getSelectedItem()), GameId1Autonomous.this);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                app_data.setMatchDataId(11, "", GameId1Autonomous.this);
-            }
-        });
+//        //PickupLocation Spinner
+//        final Spinner spinner = (Spinner)findViewById(R.id.pickupLocationSpinner);
+//        // Create an ArrayAdapter using the string array and a default spinner layout
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+//                R.array.pickup_array, android.R.layout.simple_spinner_item);
+//        // Specify the layout to use when the list of choices appears
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        // Apply the adapter to the spinner
+//        spinner.setAdapter(adapter);
+//        ArrayAdapter myAdap = (ArrayAdapter) spinner.getAdapter(); //cast to an ArrayAdapter
+//        spinner.setSelection(myAdap.getPosition(adapter.getItem(0)));
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                app_data.setMatchDataId(11, String.valueOf(spinner.getSelectedItem()), GameId1Autonomous.this);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//                app_data.setMatchDataId(11, "", GameId1Autonomous.this);
+//            }
+//        });
 
         //Continue Button
         Button continueButton = (Button)findViewById(R.id.continueToTeleopButton);

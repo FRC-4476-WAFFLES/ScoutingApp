@@ -37,7 +37,7 @@ public class GameId1Teleop extends AppCompatActivity {
         final GlobalData app_data = (GlobalData)getApplicationContext();
 
         //title
-        TextView titleTextView = (TextView)findViewById(R.id.titleTextView);
+        TextView titleTextView = (TextView)findViewById(R.id.teleopTitleTextView);
         titleTextView.setTypeface(CooperBlack);
 
         //Score inner position
@@ -53,7 +53,7 @@ public class GameId1Teleop extends AppCompatActivity {
                         InnerAutoScore = InnerAutoScore + 1;
                         scoreInner.setText("Inner: " + InnerAutoScore);
                     }
-                    app_data.setMatchDataId(12, "" + InnerAutoScore, GameId1Teleop.this);
+                    app_data.setMatchDataId(11, "" + InnerAutoScore, GameId1Teleop.this);
                 }
             });
         }
@@ -71,7 +71,7 @@ public class GameId1Teleop extends AppCompatActivity {
                         OuterAutoScore = OuterAutoScore + 1;
                         scoreOuter.setText("Outer: " + OuterAutoScore);
                     }
-                    app_data.setMatchDataId(13, "" + OuterAutoScore, GameId1Teleop.this);
+                    app_data.setMatchDataId(12, "" + OuterAutoScore, GameId1Teleop.this);
                 }
             });
         }
@@ -89,7 +89,7 @@ public class GameId1Teleop extends AppCompatActivity {
                         LowerAutoScore = LowerAutoScore + 1;
                         scoreLower.setText("Lower: " + LowerAutoScore);
                     }
-                    app_data.setMatchDataId(14, "" + LowerAutoScore, GameId1Teleop.this);
+                    app_data.setMatchDataId(13, "" + LowerAutoScore, GameId1Teleop.this);
                 }
             });
         }
@@ -107,7 +107,7 @@ public class GameId1Teleop extends AppCompatActivity {
                         FailedAutoScore = FailedAutoScore + 1;
                         scoreFailed.setText("Failed: " + FailedAutoScore);
                     }
-                    app_data.setMatchDataId(15, "" + FailedAutoScore, GameId1Teleop.this);
+                    app_data.setMatchDataId(14, "" + FailedAutoScore, GameId1Teleop.this);
                 }
             });
         }

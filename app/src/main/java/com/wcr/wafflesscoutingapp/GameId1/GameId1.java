@@ -30,8 +30,12 @@ public class GameId1 extends AppCompatActivity {
             Log.d(TAG, "Entering Teleop");
             Intent startIntent = new Intent(getApplicationContext(), GameId1Teleop.class);
             startActivity(startIntent);
-        }else if(app_data.getGame_state().equals(getString(R.string.endgame))){
+        }else if(app_data.getGame_state().equals(getString(R.string.endgame))) {
             Log.d(TAG, "Entering Endgame");
+            Intent startIntent = new Intent(getApplicationContext(), GameId1Endgame.class);
+            startActivity(startIntent);
+        }else if(app_data.getGame_state().equals(getString(R.string.postgame))){
+            Log.d(TAG, "Entering Postgame");
             Intent startIntent = new Intent(getApplicationContext(), GameId1Postgame.class);
             startActivity(startIntent);
         }else if(app_data.getGame_state().equals(getString(R.string.transmit))){

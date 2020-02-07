@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="471c6d85-7100-4927-95bf-d26a13613129" name="Default Changelist" comment="" />
+    <list default="true" id="471c6d85-7100-4927-95bf-d26a13613129" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Autonomous.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Autonomous.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Before.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Endgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Endgame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Postgame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Postgame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1TM.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1TM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Teleop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Teleop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Transmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/wcr/wafflesscoutingapp/GameId1/GameId1Transmit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_autonomous.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_autonomous.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_before.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_before.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_endgame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_endgame.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_postgame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_postgame.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_teleop.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_teleop.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_tm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_tm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_transmit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/activity_game_id1_transmit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,10 +48,31 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/qrserver.py" />
+    <property name="last_opened_file_path" value="C:/learnC++Tutoral/pythonChallenge/dnaParser.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.dnaParser">
+    <configuration name="dnaParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="C:/learnC++Tutoral/pythonChallenge" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:/learnC++Tutoral/pythonChallenge/dnaParser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="run qr server" type="PythonConfigurationType" factoryName="Python">
       <module name="python_server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,9 +118,11 @@
     <list>
       <item itemvalue="Python.run qr server" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.dnaParser" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dnaParser" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -116,33 +161,69 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="412" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1580572190173" />
-    <state x="540" y="193" key="FileChooserDialogImpl" timestamp="1580590976742">
+    <state x="439" y="173" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580929070816">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="540" y="193" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1580590976742" />
-    <state width="682" height="208" key="GridCell.Tab.0.bottom" timestamp="1580591292449">
+    <state x="439" y="173" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1580929070816" />
+    <state x="540" y="193" key="FileChooserDialogImpl" timestamp="1580929554208">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="682" height="208" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580591292449" />
-    <state width="682" height="208" key="GridCell.Tab.0.center" timestamp="1580591292449">
+    <state x="540" y="193" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1580929554208" />
+    <state width="682" height="258" key="GridCell.Tab.0.bottom" timestamp="1580930757895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="682" height="208" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1580591292449" />
-    <state width="682" height="208" key="GridCell.Tab.0.left" timestamp="1580591292449">
+    <state width="682" height="258" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.0.center" timestamp="1580930757895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="682" height="208" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1580591292449" />
-    <state width="682" height="208" key="GridCell.Tab.0.right" timestamp="1580591292449">
+    <state width="682" height="258" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.0.left" timestamp="1580930757895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="682" height="208" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1580591292449" />
-    <state x="277" y="74" key="SettingsEditor" timestamp="1580587572637">
+    <state width="682" height="258" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.0.right" timestamp="1580930757895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="74" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1580587572637" />
-    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1580590580358">
+    <state width="682" height="258" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.1.bottom" timestamp="1580930757895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1580590580358" />
+    <state width="682" height="258" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.1.center" timestamp="1580930757895">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="682" height="258" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.1.left" timestamp="1580930757895">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="682" height="258" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state width="682" height="258" key="GridCell.Tab.1.right" timestamp="1580930757895">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="682" height="258" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1580930757895" />
+    <state x="277" y="74" key="SettingsEditor" timestamp="1580929564275">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="277" y="74" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1580929564275" />
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1580930570618">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1580930570618" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://C:/learnC++Tutoral/pythonChallenge/dnaParser.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://C:/learnC++Tutoral/pythonChallenge/dnaParser.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

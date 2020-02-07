@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.WriterException;
 import com.wcr.wafflesscoutingapp.GlobalData;
@@ -23,12 +25,17 @@ import androidmads.library.qrgenearator.QRGEncoder;
 public class GameId1TM extends AppCompatActivity {
     Bitmap bitmap;
     private static final String TAG = "GameID1TM";
+    Typeface CooperBlack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_id1_tm);
         final GlobalData app_data = (GlobalData)getApplicationContext();
+        CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
+
+        TextView title = (TextView)findViewById(R.id.tmTitleTextView);
+        title.setTypeface(CooperBlack);
 
         WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();

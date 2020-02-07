@@ -204,7 +204,7 @@
 //        final GlobalData app_data = (GlobalData)getApplicationContext();
 //
 //        //title
-//        TextView titleTextView = (TextView)findViewById(R.id.titleTextView);
+//        TextView titleTextView = (TextView)findViewById(R.id.transmitTitleTextView);
 //        titleTextView.setTypeface(CooperBlack);
 //
 //        //initialization of bluetooth

@@ -38,7 +38,7 @@ public class GameId1Before extends AppCompatActivity {
         setContentView(R.layout.activity_game_id1_before);
         CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
         final GlobalData app_data = (GlobalData)getApplicationContext();
-        TextView titleTextView = (TextView)findViewById(R.id.titleTextView);
+        TextView titleTextView = (TextView)findViewById(R.id.beforeTitleTextView);
         titleTextView.setTypeface(CooperBlack);
 
         //Team Number
