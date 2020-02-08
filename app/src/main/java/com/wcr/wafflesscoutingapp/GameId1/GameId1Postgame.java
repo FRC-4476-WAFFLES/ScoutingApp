@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,8 +20,6 @@ public class GameId1Postgame extends AppCompatActivity {
     String FinalScore = "0";
     String AllianceFouls = "0";
     String ScoutComments = "0";
-    //TODO: make buttons save data on press
-
 
 
     @Override
@@ -40,13 +39,24 @@ public class GameId1Postgame extends AppCompatActivity {
         final EditText allianceFoulsEditText = (EditText)findViewById(R.id.allianceFoulsEditText);
         final EditText commentsEditText = (EditText)findViewById(R.id.commentsEditText);
 
+        final CheckBox crossedInitiationLine = (CheckBox) findViewById(R.id.levelClimbButton);
+        crossedInitiationLine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(crossedInitiationLine.isChecked()) {
+                    app_data.setMatchDataId(25, "1", GameId1Postgame.this);
+                }else{
+                    app_data.setMatchDataId(25, "0", GameId1Postgame.this);
+                }
+            }
+        });
+
 
         //continue button
         final Button continueButton = (Button)findViewById(R.id.continueButton);
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: make sure to save the data
                 FinalScore = finalScoreEditText.getText().toString();
                 app_data.setMatchDataId(24, FinalScore, GameId1Postgame.this);
                 AllianceFouls = allianceFoulsEditText.getText().toString();

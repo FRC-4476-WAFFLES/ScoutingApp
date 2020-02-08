@@ -23,6 +23,7 @@ subprocess.Popen(["py", "-3", "new_test.py"])
 with open("LEGEND.json") as f:
 	header = json.load(f)
 df = pd.DataFrame(columns=header)
+matchdf = pd.DataFrame(columns=header)
 
 # for opencv
 cap = cv2.VideoCapture(0)
@@ -38,14 +39,15 @@ def gen():
 		else:
 			tmp = "F"
 		string = string + tmp + ","
-	return
+	return string
 
 
 def verifydata():
 	global df
 	global root
+	global matchdf
 	# get the last match
-	last_match_df = df.tail(6)
+	last_match_df = matchdf.tail(6)
 	validate.findMatch("qm19")
 	# get any changes that need to be made
 	msg = validate.findErrors(last_match_df)
@@ -61,15 +63,21 @@ def verifydata():
 	thing.pack(side=tk.TOP)
 	# make the thing run
 	root.mainloop()
-	df = pt.model.df
+	df = df.append(pt.model.df)
+	matchdf = pd.DataFrame(columns=header)
+	saveData()
 
 
+def saveData():
+	df.to_csv("qr_out.csv", index=False)
+	usbPath = r'E:/'  # Note r in front of windows path
+	if os.path.exists(usbPath):
+		df.to_csv(os.path.join(usbPath, "qr_out.csv"), index=False)
 
 
 print("looking for codes")
 while True:
 	_, frame = cap.read()
-
 
 	decodedObjects = pyzbar.decode(frame)
 	for obj in decodedObjects:
@@ -77,17 +85,14 @@ while True:
 		print("Last Data", last_data)
 		data = obj.data
 		data = data.decode("utf-8")
-		if userID.count(data[-1].lower()) < 1 and not submitted[userID.index(data[-2:].lower())] and not data == "":
+		if not data == "" and userID.count(data[-1].lower()) < 1 and not submitted[userID.index(data[-2:].lower())]:
 			#
 			data = data.replace("[", "").replace("]", "").split(",")
 			last_data = data
 			user = data[-1]
-			data = data[:44]
-			df = df.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
-			df.to_csv("qr_out.csv", index=False)
-			usbPath = r'E:/'   #Note r in front of windows path 
-			if os.path.exists(usbPath):
-				df.to_csv(os.path.join(usbPath, "qr_out.csv"), index=False)
+			data = data[:28]
+			matchdf = matchdf.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
+			matchdf.to_csv("match_df.csv", index=False)
 			for i in range(len(userID)):
 				if userID[i] == user.lower():
 					submitted[i] = True;

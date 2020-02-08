@@ -172,7 +172,6 @@ public class GameId1Autonomous extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: make sure to save the data
                 //make sure to pass on the data.
                 app_data.setMatchDataId(5, HasCrossedInitiationLine, GameId1Autonomous.this);
                 app_data.setGame_state(getString(R.string.teleop));

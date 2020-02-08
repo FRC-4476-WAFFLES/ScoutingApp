@@ -29,7 +29,6 @@ public class GameId1Before extends AppCompatActivity {
     Typeface CooperBlack;
     String DriverStation = "Me3rther";
     String StartingPosition = "Mrthrht";
-    //TODO: make buttons save data on press
 
 
     @Override
@@ -121,7 +120,6 @@ public class GameId1Before extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: make sure to save the data
                 String TeamNumber = teamNumberEditText.getText().toString();
                 String MatchNumber = matchNumberEditText.getText().toString();
 

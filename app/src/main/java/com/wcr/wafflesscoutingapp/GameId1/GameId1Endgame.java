@@ -196,27 +196,27 @@ public class GameId1Endgame extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     UpdateTriColour(CargoButtons, 0);
-                    app_data.setMatchDataId(23, "Side", GameId1Endgame.this);
+                    app_data.setMatchDataId(23, "Success", GameId1Endgame.this);
                 }
             });
             noParked.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     UpdateTriColour(CargoButtons, 1);
-                    app_data.setMatchDataId(23, "Middle", GameId1Endgame.this);
+                    app_data.setMatchDataId(23, "N/A", GameId1Endgame.this);
                 }
             });
             failedParked.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     UpdateTriColour(CargoButtons, 2);
-                    app_data.setMatchDataId(23, "None", GameId1Endgame.this);
+                    app_data.setMatchDataId(23, "Fail", GameId1Endgame.this);
                 }
             });
         }
 
         //Continue Button
-        final Button continueButton = (Button)findViewById(R.id.continueButton);
+        final Button continueButton = (Button)findViewById(R.id.endgameContinueButton);
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -232,7 +232,7 @@ public class GameId1Endgame extends AppCompatActivity {
         });
     }
     private void UpdateTriColour(List<Button> buttonList, int clicked){
-        for(int i = 0; i<2; i++){
+        for(int i = 0; i<3; i++){
             Button tmp = buttonList.get(i);
             if(i == clicked){
                 tmp.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
