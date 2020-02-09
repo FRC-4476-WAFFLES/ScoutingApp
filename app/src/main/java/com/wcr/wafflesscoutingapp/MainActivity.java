@@ -69,17 +69,6 @@ public class MainActivity extends AppCompatActivity {
             cardView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    Log.d(TAG, "set onclick listener");
-                    if(cardView.getCardBackgroundColor().getDefaultColor() == -1) {
-                        Log.d(TAG, "Set Colour first");
-                        cardView.setBackgroundColor(Color.parseColor("#FF6F00"));
-                    }else{
-                        cardView.setCardBackgroundColor(Color.parseColor("FFFFFF"));
-                        Log.d(TAG, "set colour else");
-                    }
-                    //replace with start new activity code
-                    Toast.makeText(MainActivity.this, "Clicked at index " + finalI, Toast.LENGTH_SHORT).show();
-
                     Intent startIntent = new Intent(getApplicationContext(), ScoutData.class);
                     //show how to pass information to another activity
                     app_data.set_Game_index(finalI);

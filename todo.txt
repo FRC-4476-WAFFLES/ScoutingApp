@@ -1,0 +1,23 @@
+camera
+change icon/year
+turn off orangy thing
+fix numbers that are too big/aren't real numbers (match number)(breaks on 11 digits)
+add padding to button
+look into the typefaces
+make erase minimum at negative
+change title on autonomous
+add title for playstyle
+make server check match number
+back button
+main menue stuff
+bigger team number on first screen
+load server with last data
+save as older version
+make things mandatroy like name
+rotate looses all progress
+change colours of buttons 
+titles and names bolder
+light up green/light up red for erase or not erase
+maybe if erase was while held
+
+
