@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.wcr.wafflesscoutingapp.BuildConfig;
 
+import com.wcr.wafflesscoutingapp.GameId1.GameId1;
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
 
@@ -37,28 +38,42 @@ public class ScoutPicActivity extends AppCompatActivity {
     private static final int REQUEST_CAPTURE_IMAGE = 100;
     static final String TAG = "ScoutPicActivity";
     private String teamNumber = "";
-    private static TextView teamNumbersComplete;
-    private final GlobalData app_data = (GlobalData)getApplicationContext();
+    private TextView teamNumbersComplete;
+    GlobalData app_data;
+    Typeface CooperBlack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Typeface CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
-        final EditText getTeamnNumber = (EditText)findViewById(R.id.teamNumberEditText);
+        setContentView(R.layout.activity_scout_pic);
+        //Config
+        app_data = (GlobalData)getApplicationContext();
+        CooperBlack = Typeface.createFromAsset(ScoutPicActivity.this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
+
+        //TEXT
+        final TextView getTeamNumber = (TextView)findViewById(R.id.picTitleTextView);
         final TextView takenPicturesTextView = (TextView)findViewById(R.id.takenPicturesTextView);
         takenPicturesTextView.setTypeface(CooperBlack);
         teamNumbersComplete = (TextView)findViewById(R.id.teamNumberTextView);
         teamNumbersComplete.setTypeface(CooperBlack);
         teamNumbersComplete.setText(app_data.getApp_config(4));
 
-        setContentView(R.layout.activity_scout_pic);
+        //edit text
+        final EditText teamNumberEditText = (EditText)findViewById(R.id.teamNumberEditText);
+
+
         final Button takePicture = (Button)findViewById(R.id.nextButton);
         takePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(app_data.isWriteExternalStorageGranted()){
-                    teamNumber = getTeamnNumber.getText().toString();
-                    openCameraIntent();
+                    teamNumber = teamNumberEditText.getText().toString();
+                    if(!teamNumber.equals("")){
+                        openCameraIntent();
+                    }else{
+                        Toast.makeText(ScoutPicActivity.this, "Please Enter A Team Number...", Toast.LENGTH_LONG).show();
+                    }
+
                 }
             }
         });
@@ -75,6 +90,7 @@ public class ScoutPicActivity extends AppCompatActivity {
                     Log.e(TAG, "unable to clean images directory");
                 }
                 app_data.setApp_config(ScoutPicActivity.this, 4, "");
+                teamNumbersComplete.setText(app_data.getApp_config(4));
             }
         });
     }

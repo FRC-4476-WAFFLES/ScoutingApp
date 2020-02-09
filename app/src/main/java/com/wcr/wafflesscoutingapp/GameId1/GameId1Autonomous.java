@@ -32,8 +32,9 @@ public class GameId1Autonomous extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_id1_autonomous);
 
-        //global data import
+        //globalg data import
         final GlobalData app_data = (GlobalData)getApplicationContext();
+        CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
 
         //title
         TextView titleTextView = (TextView)findViewById(R.id.autonomousTitleTextView);

@@ -255,6 +255,7 @@ public class GlobalData extends Application {
             File Root = Environment.getExternalStorageDirectory();
             File Dir = new File(Root.getAbsoluteFile() + "/WafflesScoutingAppData");
             File file = new File(Dir, "config.txt");
+            int former_app_config_length = app_config.length;
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 String line;
@@ -263,7 +264,11 @@ public class GlobalData extends Application {
                 while ((line = reader.readLine()) != null) {
                     lines.add(line);
                 }
+                while (lines.size()<former_app_config_length){
+                    lines.add("");
+                }
                 app_config = lines.toArray(new String[lines.size()]);
+
             } catch (IOException e) {
                 e.printStackTrace();
                 Toast.makeText(c, "borked.", Toast.LENGTH_LONG);
