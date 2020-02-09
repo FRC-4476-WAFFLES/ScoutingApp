@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/deep_space220x220"
+                    android:src="@drawable/infinite_recharge220x220"
                     android:layout_weight="0.85"/>
 
                 <TextView
