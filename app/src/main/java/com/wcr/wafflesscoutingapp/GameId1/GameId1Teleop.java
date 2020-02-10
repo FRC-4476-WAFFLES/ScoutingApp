@@ -35,6 +35,7 @@ public class GameId1Teleop extends AppCompatActivity {
 
         //global data import
         final GlobalData app_data = (GlobalData)getApplicationContext();
+        CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
 
         //title
         TextView titleTextView = (TextView)findViewById(R.id.teleopTitleTextView);

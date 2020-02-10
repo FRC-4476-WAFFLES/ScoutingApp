@@ -1,5 +1,3 @@
-turn off orangy thing
-fix numbers that are too big/aren't real numbers (match number)(breaks on 11 digits)
 add padding to button
 look into the typefaces
 make erase minimum at negative

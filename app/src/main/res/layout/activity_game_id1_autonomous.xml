@@ -175,8 +175,7 @@
             android:id="@+id/linearLayout9"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.05"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+            android:layout_weight="0.05">
 
             <TextView
                 android:id="@+id/pickupLocationTextView"
@@ -193,8 +192,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                app:layout_constraintStart_toStartOf="parent"/>
         </LinearLayout>
 
         <LinearLayout
@@ -210,12 +208,13 @@
                 android:id="@+id/pickupButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="16dp"
                 android:layout_weight="0.5"
                 android:background="@color/wafflesYellow"
                 android:text="Number Collected: 0"
+                android:padding="8dp"
                 android:textSize="20sp" />
 
 <!--            <Spinner-->

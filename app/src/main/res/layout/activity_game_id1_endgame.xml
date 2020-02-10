@@ -189,7 +189,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/carrierNoButton"
@@ -201,7 +202,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/carrierFailButton"
@@ -213,7 +215,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
         </LinearLayout>
 
@@ -244,7 +247,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/cargoNoButton"
@@ -256,7 +260,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/cargoFailButton"
@@ -268,7 +273,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
         </LinearLayout>
 
@@ -300,7 +306,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/placeCenterButton"
@@ -312,7 +319,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/placeNoneButton"
@@ -324,7 +332,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
         </LinearLayout>
 
@@ -356,7 +365,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <Button
                 android:id="@+id/parkedNoButton"
@@ -368,7 +378,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp"/>
 
             <Button
                 android:id="@+id/parkedFailButton"
@@ -380,7 +391,8 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp"/>
 
         </LinearLayout>
 
