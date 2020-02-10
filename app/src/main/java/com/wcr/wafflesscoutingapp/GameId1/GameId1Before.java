@@ -65,9 +65,11 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 String text = matchNumberEditText.getText().toString();
-                if(!text.equals("")) {
+                if(!text.equals("") && text.length()<6 && !text.equals("0") && !text.equals("00") && !text.equals("000") && !text.equals("0000") && !text.equals("00000")) {
                     app_data.match = Integer.parseInt(matchNumberEditText.getText().toString());
                     teamNumberEditText.setText(getTeamNumber(DriverStation, app_data.match));
+                }else{
+                    matchNumberEditText.setText("1");
                 }
             }
         });
@@ -142,7 +144,7 @@ public class GameId1Before extends AppCompatActivity {
 
 
                 //make sure to check all fields are filled
-                if(!DriverStation.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("")) {
+                if(!DriverStation.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("") && !MatchNumber.equals("0")) {
                     app_data.setGame_state(getString(R.string.sandstorm));
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                     startActivity(startIntent);
