@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
 
+import java.time.chrono.Era;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,76 +43,68 @@ public class GameId1Teleop extends AppCompatActivity {
         titleTextView.setTypeface(CooperBlack);
 
         //Score inner position
-        {
-            final Button scoreInner = (Button) findViewById(R.id.innerScoreTeleopButton);
-            scoreInner.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        InnerAutoScore = InnerAutoScore - 1;
-                        scoreInner.setText("Inner: " + InnerAutoScore);
-                    } else {
-                        InnerAutoScore = InnerAutoScore + 1;
-                        scoreInner.setText("Inner: " + InnerAutoScore);
-                    }
-                    app_data.setMatchDataId(11, "" + InnerAutoScore, GameId1Teleop.this);
+        final Button scoreInner = (Button) findViewById(R.id.innerScoreTeleopButton);
+        scoreInner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && InnerAutoScore > 0) {
+                    InnerAutoScore = InnerAutoScore - 1;
+                    scoreInner.setText("Inner: " + InnerAutoScore);
+                } else if(!Erase){
+                    InnerAutoScore = InnerAutoScore + 1;
+                    scoreInner.setText("Inner: " + InnerAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(11, "" + InnerAutoScore, GameId1Teleop.this);
+            }
+        });
 
         //Score outer position
-        {
-            final Button scoreOuter = (Button) findViewById(R.id.outerScoreTeleopButton);
-            scoreOuter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        OuterAutoScore = OuterAutoScore - 1;
-                        scoreOuter.setText("Outer: " + OuterAutoScore);
-                    } else {
-                        OuterAutoScore = OuterAutoScore + 1;
-                        scoreOuter.setText("Outer: " + OuterAutoScore);
-                    }
-                    app_data.setMatchDataId(12, "" + OuterAutoScore, GameId1Teleop.this);
+        final Button scoreOuter = (Button) findViewById(R.id.outerScoreTeleopButton);
+        scoreOuter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && OuterAutoScore > 0) {
+                    OuterAutoScore = OuterAutoScore - 1;
+                    scoreOuter.setText("Outer: " + OuterAutoScore);
+                } else if(!Erase){
+                    OuterAutoScore = OuterAutoScore + 1;
+                    scoreOuter.setText("Outer: " + OuterAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(12, "" + OuterAutoScore, GameId1Teleop.this);
+            }
+        });
 
         //Score Lower position
-        {
-            final Button scoreLower = (Button) findViewById(R.id.lowerScoreTeleopButton);
-            scoreLower.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        LowerAutoScore = LowerAutoScore - 1;
-                        scoreLower.setText("Lower: " + LowerAutoScore);
-                    } else {
-                        LowerAutoScore = LowerAutoScore + 1;
-                        scoreLower.setText("Lower: " + LowerAutoScore);
-                    }
-                    app_data.setMatchDataId(13, "" + LowerAutoScore, GameId1Teleop.this);
+        final Button scoreLower = (Button) findViewById(R.id.lowerScoreTeleopButton);
+        scoreLower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && LowerAutoScore > 0) {
+                    LowerAutoScore = LowerAutoScore - 1;
+                    scoreLower.setText("Lower: " + LowerAutoScore);
+                } else if(!Erase){
+                    LowerAutoScore = LowerAutoScore + 1;
+                    scoreLower.setText("Lower: " + LowerAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(13, "" + LowerAutoScore, GameId1Teleop.this);
+            }
+        });
 
         //failed shots
-        {
-            final Button scoreFailed = (Button) findViewById(R.id.failedScoreTeleopButton);
-            scoreFailed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        FailedAutoScore = FailedAutoScore - 1;
-                        scoreFailed.setText("Failed: " + FailedAutoScore);
-                    } else {
-                        FailedAutoScore = FailedAutoScore + 1;
-                        scoreFailed.setText("Failed: " + FailedAutoScore);
-                    }
-                    app_data.setMatchDataId(14, "" + FailedAutoScore, GameId1Teleop.this);
+        final Button scoreFailed = (Button) findViewById(R.id.failedScoreTeleopButton);
+        scoreFailed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && FailedAutoScore > 0) {
+                    FailedAutoScore = FailedAutoScore - 1;
+                    scoreFailed.setText("Failed: " + FailedAutoScore);
+                } else if(!Erase){
+                    FailedAutoScore = FailedAutoScore + 1;
+                    scoreFailed.setText("Failed: " + FailedAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(14, "" + FailedAutoScore, GameId1Teleop.this);
+            }
+        });
 
         //Rotation Control stuff
         {
@@ -233,15 +226,17 @@ public class GameId1Teleop extends AppCompatActivity {
 
         //Erase Button
         final Button eraseButton = (Button)findViewById(R.id.eraseButton);
+        final List<Button> buttonsForErase = Arrays.asList(scoreInner, scoreOuter, scoreLower, scoreFailed, eraseButton);
         eraseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(Erase){
                     Erase = false;
+                    UpdateButtonColours(buttonsForErase, getResources().getColor(R.color.green));
                     eraseButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 }else{
                     Erase = true;
-                    eraseButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    UpdateButtonColours(buttonsForErase, getResources().getColor(R.color.red));
                 }
             }
         });
@@ -309,6 +304,13 @@ public class GameId1Teleop extends AppCompatActivity {
             }else{
                 curentButton.setBackgroundColor(getResources().getColor(R.color.grey));
             }
+        }
+    }
+
+    private void UpdateButtonColours(List<Button> list, int Colour){
+        for(int i = 0; i<list.size(); i++){
+            Button tmp = list.get(i);
+            tmp.setBackgroundColor(Colour);
         }
     }
 }

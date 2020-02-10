@@ -16,6 +16,9 @@ import android.widget.TextView;
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class GameId1Autonomous extends AppCompatActivity {
     Typeface CooperBlack;
     boolean Erase = false;
@@ -48,7 +51,7 @@ public class GameId1Autonomous extends AppCompatActivity {
             public void onClick(View view) {
                 if(crossedInitiationLine.isChecked()) {
                     HasCrossedInitiationLine = "1";
-                }else{
+                }else if(!Erase){
                     HasCrossedInitiationLine = "0";
                 }
             }
@@ -56,117 +59,84 @@ public class GameId1Autonomous extends AppCompatActivity {
 
 
         //Score inner position
-        {
-            final Button scoreInner = (Button) findViewById(R.id.innerScoreAutoButton);
-            scoreInner.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        InnerAutoScore = InnerAutoScore - 1;
-                        scoreInner.setText("Inner: " + InnerAutoScore);
-                    } else {
-                        InnerAutoScore = InnerAutoScore + 1;
-                        scoreInner.setText("Inner: " + InnerAutoScore);
-                    }
-                    app_data.setMatchDataId(6, "" + InnerAutoScore, GameId1Autonomous.this);
+        final Button scoreInner = (Button) findViewById(R.id.innerScoreAutoButton);
+        scoreInner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && InnerAutoScore > 0) {
+                    InnerAutoScore = InnerAutoScore - 1;
+                    scoreInner.setText("Inner: " + InnerAutoScore);
+                } else if(!Erase){
+                    InnerAutoScore = InnerAutoScore + 1;
+                    scoreInner.setText("Inner: " + InnerAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(6, "" + InnerAutoScore, GameId1Autonomous.this);
+            }
+        });
 
         //Score outer position
-        {
-            final Button scoreOuter = (Button) findViewById(R.id.outerScoreAutoButton);
-            scoreOuter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        OuterAutoScore = OuterAutoScore - 1;
-                        scoreOuter.setText("Outer: " + OuterAutoScore);
-                    } else {
-                        OuterAutoScore = OuterAutoScore + 1;
-                        scoreOuter.setText("Outer: " + OuterAutoScore);
-                    }
-                    app_data.setMatchDataId(7, "" + OuterAutoScore, GameId1Autonomous.this);
+        final Button scoreOuter = (Button) findViewById(R.id.outerScoreAutoButton);
+        scoreOuter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && OuterAutoScore > 0) {
+                    OuterAutoScore = OuterAutoScore - 1;
+                    scoreOuter.setText("Outer: " + OuterAutoScore);
+                } else if(!Erase){
+                    OuterAutoScore = OuterAutoScore + 1;
+                    scoreOuter.setText("Outer: " + OuterAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(7, "" + OuterAutoScore, GameId1Autonomous.this);
+            }
+        });
 
         //Score Lower position
-        {
-            final Button scoreLower = (Button) findViewById(R.id.lowerScoreAutoButton);
-            scoreLower.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        LowerAutoScore = LowerAutoScore - 1;
-                        scoreLower.setText("Lower: " + LowerAutoScore);
-                    } else {
-                        LowerAutoScore = LowerAutoScore + 1;
-                        scoreLower.setText("Lower: " + LowerAutoScore);
-                    }
-                    app_data.setMatchDataId(8, "" + LowerAutoScore, GameId1Autonomous.this);
+        final Button scoreLower = (Button) findViewById(R.id.lowerScoreAutoButton);
+        scoreLower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && LowerAutoScore > 0) {
+                    LowerAutoScore = LowerAutoScore - 1;
+                    scoreLower.setText("Lower: " + LowerAutoScore);
+                } else if(!Erase){
+                    LowerAutoScore = LowerAutoScore + 1;
+                    scoreLower.setText("Lower: " + LowerAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(8, "" + LowerAutoScore, GameId1Autonomous.this);
+            }
+        });
 
         //failed shots
-        {
-            final Button scoreFailed = (Button) findViewById(R.id.failedScoreAutoButton);
-            scoreFailed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        FailedAutoScore = FailedAutoScore - 1;
-                        scoreFailed.setText("Failed: " + FailedAutoScore);
-                    } else {
-                        FailedAutoScore = FailedAutoScore + 1;
-                        scoreFailed.setText("Failed: " + FailedAutoScore);
-                    }
-                    app_data.setMatchDataId(9, "" + FailedAutoScore, GameId1Autonomous.this);
+        final Button scoreFailed = (Button) findViewById(R.id.failedScoreAutoButton);
+        scoreFailed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && FailedAutoScore > 0) {
+                    FailedAutoScore = FailedAutoScore - 1;
+                    scoreFailed.setText("Failed: " + FailedAutoScore);
+                } else if(!Erase){
+                    FailedAutoScore = FailedAutoScore + 1;
+                    scoreFailed.setText("Failed: " + FailedAutoScore);
                 }
-            });
-        }
+                app_data.setMatchDataId(9, "" + FailedAutoScore, GameId1Autonomous.this);
+            }
+        });
 
         //number of balls picked up
-        {
-            final Button ballsPickedUp = (Button) findViewById(R.id.pickupButton);
-            ballsPickedUp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (Erase) {
-                        BallsCollected = BallsCollected - 1;
-                        ballsPickedUp.setText("Number Collected: " + BallsCollected);
-                    } else {
-                        BallsCollected = BallsCollected + 1;
-                        ballsPickedUp.setText("Number Collected: " + BallsCollected);
-                    }
-                    app_data.setMatchDataId(10, "" + BallsCollected, GameId1Autonomous.this);
+        final Button ballsPickedUp = (Button) findViewById(R.id.pickupButton);
+        ballsPickedUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Erase && BallsCollected > 0) {
+                    BallsCollected = BallsCollected - 1;
+                    ballsPickedUp.setText("Number Collected: " + BallsCollected);
+                } else if(!Erase){
+                    BallsCollected = BallsCollected + 1;
+                    ballsPickedUp.setText("Number Collected: " + BallsCollected);
                 }
-            });
-        }
-
-//        //PickupLocation Spinner
-//        final Spinner spinner = (Spinner)findViewById(R.id.pickupLocationSpinner);
-//        // Create an ArrayAdapter using the string array and a default spinner layout
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.pickup_array, android.R.layout.simple_spinner_item);
-//        // Specify the layout to use when the list of choices appears
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        // Apply the adapter to the spinner
-//        spinner.setAdapter(adapter);
-//        ArrayAdapter myAdap = (ArrayAdapter) spinner.getAdapter(); //cast to an ArrayAdapter
-//        spinner.setSelection(myAdap.getPosition(adapter.getItem(0)));
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                app_data.setMatchDataId(11, String.valueOf(spinner.getSelectedItem()), GameId1Autonomous.this);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                app_data.setMatchDataId(11, "", GameId1Autonomous.this);
-//            }
-//        });
+                app_data.setMatchDataId(10, "" + BallsCollected, GameId1Autonomous.this);
+            }
+        });
 
         //Continue Button
         Button continueButton = (Button)findViewById(R.id.continueToTeleopButton);
@@ -183,17 +153,26 @@ public class GameId1Autonomous extends AppCompatActivity {
 
         //Erase Button
         final Button eraseButton = (Button)findViewById(R.id.AutoEraseButton);
+        final List<Button> buttonsForErase = Arrays.asList(scoreInner, scoreOuter, scoreLower, scoreFailed, ballsPickedUp, eraseButton);
         eraseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(Erase){
                     Erase = false;
+                    UpdateButtonColours(buttonsForErase, getResources().getColor(R.color.green));
                     eraseButton.setBackgroundColor(getResources().getColor(R.color.grey));
                 }else{
                     Erase = true;
-                    eraseButton.setBackgroundColor(getResources().getColor(R.color.red));
+                    UpdateButtonColours(buttonsForErase, getResources().getColor(R.color.red));
                 }
             }
         });
+    }
+
+    private void UpdateButtonColours(List<Button> list, int Colour){
+        for(int i = 0; i<list.size(); i++){
+            Button tmp = list.get(i);
+            tmp.setBackgroundColor(Colour);
+        }
     }
 }
