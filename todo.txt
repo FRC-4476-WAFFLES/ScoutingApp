@@ -1,5 +1,3 @@
-add padding to button
-look into the typefaces
 make erase minimum at negative
 add title for playstyle
 make server check match number
