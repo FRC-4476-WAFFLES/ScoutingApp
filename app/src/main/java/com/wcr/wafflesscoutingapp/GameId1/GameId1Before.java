@@ -24,11 +24,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class GameId1Before extends AppCompatActivity {
     Typeface CooperBlack;
     String DriverStation = "Me3rther";
-    String StartingPosition = "Mrthrht";
 
 
     @Override
@@ -51,6 +51,10 @@ public class GameId1Before extends AppCompatActivity {
         //Match Number
         final EditText matchNumberEditText = (EditText)findViewById(R.id.matchNumberEditText);
         matchNumberEditText.setText("" + app_data.match);
+        final TextView scoutInformerTextView = findViewById(R.id.scoutInformerTextView);
+        scoutInformerTextView.setTypeface(CooperBlack);
+        scoutInformerTextView.setText("You Are Scouting Team " + getTeamNumber(DriverStation, app_data.match) +" In Driverstation " + expandName(DriverStation));
+
         matchNumberEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -68,15 +72,13 @@ public class GameId1Before extends AppCompatActivity {
                 if(!text.equals("") && text.length()<6 && !text.equals("0") && !text.equals("00") && !text.equals("000") && !text.equals("0000") && !text.equals("00000")) {
                     app_data.match = Integer.parseInt(matchNumberEditText.getText().toString());
                     teamNumberEditText.setText(getTeamNumber(DriverStation, app_data.match));
+                    scoutInformerTextView.setText("You Are Scouting Team " + getTeamNumber(DriverStation, app_data.match) +" In Driverstation " + expandName(DriverStation));
                 }else{
                     matchNumberEditText.setText("1");
                 }
             }
         });
 
-        final TextView scoutInformerTextView = findViewById(R.id.scoutInformerTextView);
-        scoutInformerTextView.setTypeface(CooperBlack);
-        scoutInformerTextView.setText("You Are Scouting The Team In Driverstation " + expandName(DriverStation));
         if(DriverStation.charAt(0) == 'B'){
             scoutInformerTextView.setBackgroundColor(getResources().getColor(R.color.blue));
         }else{
@@ -87,31 +89,37 @@ public class GameId1Before extends AppCompatActivity {
         final Button leftButton = (Button)findViewById(R.id.leftButton);
         final Button centerButton = (Button)findViewById(R.id.centerButton);
         final Button rightButton = (Button)findViewById(R.id.rightButton);
+        final List<Button> startPosButtons = Arrays.asList(leftButton, centerButton, rightButton);
+        //Load Last
+        String tmp = "" + app_data.getMatchDataId(4);
+        if(!tmp.equals("")){
+            if(tmp.equals("1")){
+                UpdateTriColour(startPosButtons, 0);
+            }else if(tmp.equals("r")){
+                UpdateTriColour(startPosButtons, 2);
+            }else if(tmp.equals("c")){
+                UpdateTriColour(startPosButtons, 1);
+            }
+        }
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                centerButton.setBackgroundColor(getResources().getColor(R.color.grey));
-                rightButton.setBackgroundColor(getResources().getColor(R.color.grey));
-                leftButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                StartingPosition = "l";
+                UpdateTriColour(startPosButtons, 0);
+                app_data.setMatchDataId(4, "l", GameId1Before.this);
             }
         });
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                centerButton.setBackgroundColor(getResources().getColor(R.color.grey));
-                leftButton.setBackgroundColor(getResources().getColor(R.color.grey));
-                rightButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                StartingPosition = "r";
+                UpdateTriColour(startPosButtons, 2);
+                app_data.setMatchDataId(4, "r", GameId1Before.this);
             }
         });
         centerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rightButton.setBackgroundColor(getResources().getColor(R.color.grey));
-                leftButton.setBackgroundColor(getResources().getColor(R.color.grey));
-                centerButton.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
-                StartingPosition = "c";
+                UpdateTriColour(startPosButtons, 1);
+                app_data.setMatchDataId(4, "c", GameId1Before.this);
             }
         });
 
@@ -140,11 +148,10 @@ public class GameId1Before extends AppCompatActivity {
                 }else {
                     DriverStation = "";
                 }
-                app_data.setMatchDataId(4, StartingPosition, GameId1Before.this);
 
 
                 //make sure to check all fields are filled
-                if(!DriverStation.equals("") && !StartingPosition.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("") && !MatchNumber.equals("0")) {
+                if(!DriverStation.equals("") && !app_data.getMatchDataId(4).equals("") && !TeamNumber.equals("") && !MatchNumber.equals("") && !MatchNumber.equals("0")) {
                     app_data.setGame_state(getString(R.string.sandstorm));
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                     startActivity(startIntent);
@@ -208,6 +215,17 @@ public class GameId1Before extends AppCompatActivity {
             Log.e("GameId1Before.java", "device name: " + Name);
         }
         return team;
+    }
+
+    private void UpdateTriColour(List<Button> buttonList, int clicked){
+        for(int i = 0; i<3; i++){
+            Button tmp = buttonList.get(i);
+            if(i == clicked){
+                tmp.setBackgroundColor(getResources().getColor(R.color.wafflesYellow));
+            }else{
+                tmp.setBackgroundColor(getResources().getColor(R.color.grey));
+            }
+        }
     }
 }
 

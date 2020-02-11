@@ -1,8 +1,6 @@
-add title for playstyle
 make server check match number
 back button
 main menue stuff
-bigger team number on first screen
 load server with last data
 - save as older version
 make things mandatroy like name
