@@ -101,11 +101,14 @@ def checkReloadMatchDF():
 
 def restoreState():
 	global df
+	global matchdf
 	checkReloadDF()
 	checkReloadMatchDF()
-	collected = list(df.Alliance.values)
-	for i in userID:
-		if i in collected:
+	collected = list(matchdf.Alliance.values)
+	for coll in range(len(collected)):
+		collected[coll] = collected[coll].lower()
+	for i in range(len(userID)):
+		if userID[i] in collected:
 			submitted[i] = True
 	communicate()
 
