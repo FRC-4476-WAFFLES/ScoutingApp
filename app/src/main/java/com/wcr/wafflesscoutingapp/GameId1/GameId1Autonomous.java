@@ -22,7 +22,6 @@ import java.util.List;
 public class GameId1Autonomous extends AppCompatActivity {
     Typeface CooperBlack;
     boolean Erase = false;
-    String HasCrossedInitiationLine = "";
     int InnerAutoScore = 0;
     int OuterAutoScore = 0;
     int LowerAutoScore = 0;
@@ -35,7 +34,7 @@ public class GameId1Autonomous extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_id1_autonomous);
 
-        //globalg data import
+        //global data import
         final GlobalData app_data = (GlobalData)getApplicationContext();
         CooperBlack = Typeface.createFromAsset(this.getAssets(), "fonts/CooperFiveOpti-Black.otf");
 
@@ -44,15 +43,20 @@ public class GameId1Autonomous extends AppCompatActivity {
         titleTextView.setTypeface(CooperBlack);
 
         // Hab line check box
-        HasCrossedInitiationLine = "0";
         final CheckBox crossedInitiationLine = (CheckBox) findViewById(R.id.crossedInitLineCheckBox);
+        //for when the screen rotates, or if the activity is restarted from a previous state.
+        if(GetIntFromArray("" + app_data.getMatchDataId(5)) == 1){
+            crossedInitiationLine.setChecked(true);
+        }else{
+            crossedInitiationLine.setChecked(false);
+        }
         crossedInitiationLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(crossedInitiationLine.isChecked()) {
-                    HasCrossedInitiationLine = "1";
+                    app_data.setMatchDataId(5, "1", GameId1Autonomous.this);
                 }else if(!Erase){
-                    HasCrossedInitiationLine = "0";
+                    app_data.setMatchDataId(5, "0", GameId1Autonomous.this);
                 }
             }
         });
@@ -60,6 +64,10 @@ public class GameId1Autonomous extends AppCompatActivity {
 
         //Score inner position
         final Button scoreInner = (Button) findViewById(R.id.innerScoreAutoButton);
+        //for when the screen rotates, or if the activity is restarted from a previous state.
+        InnerAutoScore = GetIntFromArray("" + app_data.getMatchDataId(6));
+        scoreInner.setText("Inner: " + InnerAutoScore);
+        //Update on button press
         scoreInner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +84,10 @@ public class GameId1Autonomous extends AppCompatActivity {
 
         //Score outer position
         final Button scoreOuter = (Button) findViewById(R.id.outerScoreAutoButton);
+        //for when the screen rotates, or if the activity is restarted from a previous state.
+        OuterAutoScore = GetIntFromArray("" + app_data.getMatchDataId(7));
+        scoreOuter.setText("Outer: " + OuterAutoScore);
+        //Update on button press
         scoreOuter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +104,10 @@ public class GameId1Autonomous extends AppCompatActivity {
 
         //Score Lower position
         final Button scoreLower = (Button) findViewById(R.id.lowerScoreAutoButton);
+        //for when the screen rotates, or if the activity is restarted from a previous state.
+        LowerAutoScore = GetIntFromArray("" + app_data.getMatchDataId(8));
+        scoreLower.setText("Lower: " + LowerAutoScore);
+        //Update on button press
         scoreLower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +124,10 @@ public class GameId1Autonomous extends AppCompatActivity {
 
         //failed shots
         final Button scoreFailed = (Button) findViewById(R.id.failedScoreAutoButton);
+        //for when the screen rotates, or if the activity is restarted from a previous state.
+        FailedAutoScore = GetIntFromArray("" + app_data.getMatchDataId(9));
+        scoreFailed.setText("Failed: " + FailedAutoScore);
+        //Update on button press
         scoreFailed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,6 +144,10 @@ public class GameId1Autonomous extends AppCompatActivity {
 
         //number of balls picked up
         final Button ballsPickedUp = (Button) findViewById(R.id.pickupButton);
+        //for when the screen rotates, or if the activity is restarted from a previous state.
+        BallsCollected = GetIntFromArray("" + app_data.getMatchDataId(10));
+        ballsPickedUp.setText("Number Collected: " + BallsCollected);
+        //Update on button press
         ballsPickedUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,7 +168,6 @@ public class GameId1Autonomous extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //make sure to pass on the data.
-                app_data.setMatchDataId(5, HasCrossedInitiationLine, GameId1Autonomous.this);
                 app_data.setGame_state(getString(R.string.teleop));
                 Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                 startActivity(startIntent);
@@ -173,6 +196,14 @@ public class GameId1Autonomous extends AppCompatActivity {
         for(int i = 0; i<list.size(); i++){
             Button tmp = list.get(i);
             tmp.setBackgroundColor(Colour);
+        }
+    }
+
+    private int GetIntFromArray(String s){
+        if(s.equals("")){
+            return 0;
+        }else{
+            return Integer.parseInt(s);
         }
     }
 }

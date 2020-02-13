@@ -9,7 +9,6 @@ import datavalidation as validate
 import pandastable
 import tkinter as tk
 # global vars general
-last_data = ""
 communication_file = "server_comm.txt"
 file_path = os.path.join(os.getcwd(), communication_file)
 submitted = [False, False, False, False, False, False]
@@ -69,46 +68,87 @@ def verifydata():
 
 
 def saveData():
+	global matchdf
 	df.to_csv("qr_out.csv", index=False)
 	usbPath = r'E:/'  # Note r in front of windows path
+	saveMatchDF(matchdf)
 	if os.path.exists(usbPath):
 		df.to_csv(os.path.join(usbPath, "qr_out.csv"), index=False)
 
 
+def communicate():
+	if os.path.exists(file_path):
+		os.remove(file_path)
+	with open(file_path, "w+") as f:
+		f.write(gen())
+
+
+def checkReloadDF():
+	global df
+	# Check if there is already a saved file, if so load it.
+	if os.path.exists(os.path.join(os.getcwd(), "qr_out.csv")):
+		df = pd.read_csv("qr_out.csv")
+		print("Loaded dataframe from previous save")
+		print(df.head())
+
+def checkReloadMatchDF():
+	global matchdf
+	# Check if there is already a saved file, if so load it.
+	if os.path.exists(os.path.join(os.getcwd(), "match_df.csv")):
+		matchdf = pd.read_csv("match_df.csv")
+		print("Loaded last match in progress")
+		print(matchdf.head())
+
+def restoreState():
+	global df
+	checkReloadDF()
+	checkReloadMatchDF()
+	collected = list(df.Alliance.values)
+	for i in userID:
+		if i in collected:
+			submitted[i] = True
+	communicate()
+
+# make sure to overwrite whatever state the dashboard was in when the program closed
+restoreState()
+
 print("looking for codes")
+
+
+def saveMatchDF(matchdf):
+	matchdf.to_csv("match_df.csv", index=False)
+
+
 while True:
 	_, frame = cap.read()
 
 	decodedObjects = pyzbar.decode(frame)
 	for obj in decodedObjects:
 		print("Data: ", obj.data)
-		print("Last Data", last_data)
 		data = obj.data
 		data = data.decode("utf-8")
-		if not data == "" and userID.count(data[-1].lower()) < 1 and not submitted[userID.index(data[-2:].lower())]:
-			#
-			data = data.replace("[", "").replace("]", "").split(",")
-			last_data = data
-			user = data[-1]
-			data = data[:28]
-			matchdf = matchdf.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
-			matchdf.to_csv("match_df.csv", index=False)
-			for i in range(len(userID)):
-				if userID[i] == user.lower():
-					submitted[i] = True;
-			if os.path.exists(file_path):
-				os.remove(file_path)
-			with open(file_path, "w+") as f:
-				f.write(gen())
+		# make sure we don't accidentally try to read a qrcode that isn't a qrcode
+		if not data == "" and 28 < len(data.split(",")):
+			if userID.count(data[-1].lower()) < 1 and not submitted[userID.index(data[-2:].lower())]:
+				# Split the qrcode data into a list
+				data = data.replace("[", "").replace("]", "").split(",")
+				user = data[-1]
+				data = data[:28]
+				matchdf = matchdf.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
+				saveMatchDF(matchdf)
+				# look to see what user just submitted their data
+				for i in range(len(userID)):
+					if userID[i] == user.lower():
+						submitted[i] = True
+				# tell the dashboard what to do
+				communicate()
 		#			window   text	   loc(l, t) font  size colour(BGR) thckness
 		cv2.putText(frame, str(obj.data), (50,50), font, 3, (255, 0, 0), 3)
-		allTrue = all(i for i in submitted);
+		allTrue = all(i for i in submitted)
 		if allTrue:
 			submitted = [False, False, False, False, False, False]
 			verifydata()
 			time.sleep(10)
-
-
 
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1)
