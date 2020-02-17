@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,9 +21,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameId1Endgame extends AppCompatActivity {
+    private static final String TAG = "GameId1Endgame";
     Typeface CooperBlack;
     GlobalData app_data;
     int LinupTime = 0;
+    final List<String> genericButtonStates = Arrays.asList("1", "0", "-1");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +47,21 @@ public class GameId1Endgame extends AppCompatActivity {
             Button noClimb = (Button)findViewById(R.id.climbNoButton);
             Button failClimb = (Button)findViewById(R.id.climbFailButton);
             final List<Button> ClimbButtons = Arrays.asList(yesClimb, noClimb, failClimb);
+            final List<String> climbStates = Arrays.asList("Success", "N/A", "Fail");
+            String savedClimbState = app_data.getMatchDataId(18);
+            if(savedClimbState == null){savedClimbState = "";}
+            //Load from saved data
+            for(String state : climbStates){
+                if(state.equals(savedClimbState)){
+                    UpdateTriColour(ClimbButtons, climbStates.indexOf(state));
+                }
+            }
 
             yesClimb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     UpdateTriColour(ClimbButtons, 0);
-                    app_data.setMatchDataId(18, "Success", GameId1Endgame.this);
+                    app_data.setMatchDataId(18, climbStates.get(0), GameId1Endgame.this);
                 }
             });
 
@@ -57,7 +69,7 @@ public class GameId1Endgame extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     UpdateTriColour(ClimbButtons, 1);
-                    app_data.setMatchDataId(18, "N/A", GameId1Endgame.this);
+                    app_data.setMatchDataId(18, climbStates.get(1), GameId1Endgame.this);
                 }
             });
 
@@ -65,7 +77,7 @@ public class GameId1Endgame extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     UpdateTriColour(ClimbButtons, 2);
-                    app_data.setMatchDataId(18, "Fail", GameId1Endgame.this);
+                    app_data.setMatchDataId(18, climbStates.get(2), GameId1Endgame.this);
                 }
             });
 
@@ -74,6 +86,7 @@ public class GameId1Endgame extends AppCompatActivity {
         //Lineup Time text box
         {
             final EditText linupTime = (EditText)findViewById(R.id.climbTimeEditText);
+            linupTime.setText(app_data.getMatchDataId(19));
             linupTime.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -90,6 +103,8 @@ public class GameId1Endgame extends AppCompatActivity {
                     String in = linupTime.getText().toString();
                     if(!in.equals("")){
                         LinupTime = Integer.parseInt(in);
+                        //save lineup time text
+                        app_data.setMatchDataId(19, ""+LinupTime, GameId1Endgame.this);
                     }
                 }
             });
@@ -101,6 +116,15 @@ public class GameId1Endgame extends AppCompatActivity {
             final Button noCarrier = (Button)findViewById(R.id.carrierNoButton);
             final Button failedCarrier = (Button)findViewById(R.id.carrierFailButton);
             final List<Button> CarrierButtons = Arrays.asList(yesCarrier, noCarrier, failedCarrier);
+
+            String savedState = app_data.getMatchDataId(20);
+            if(savedState == null){savedState = "";}
+            //Load from saved data
+            for(String state : genericButtonStates){
+                if(state.equals(savedState)){
+                    UpdateTriColour(CarrierButtons, genericButtonStates.indexOf(state));
+                }
+            }
 
             yesCarrier.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -132,6 +156,15 @@ public class GameId1Endgame extends AppCompatActivity {
             final Button failedCargo = (Button)findViewById(R.id.cargoFailButton);
             final List<Button> CargoButtons = Arrays.asList(yesCargo, noCargo, failedCargo);
 
+            String savedState = app_data.getMatchDataId(21);
+            if(savedState == null){savedState = "";}
+            //Load from saved data
+            for(String state : genericButtonStates){
+                if(state.equals(savedState)){
+                    UpdateTriColour(CargoButtons, genericButtonStates.indexOf(state));
+                }
+            }
+
             yesCargo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -160,26 +193,36 @@ public class GameId1Endgame extends AppCompatActivity {
             final Button sidePlace = (Button)findViewById(R.id.placeSideButton);
             final Button centerPlace = (Button)findViewById(R.id.placeCenterButton);
             final Button nonePlace = (Button)findViewById(R.id.placeNoneButton);
-            final List<Button> CargoButtons = Arrays.asList(sidePlace, centerPlace, nonePlace);
+            final List<Button> PlaceButtons = Arrays.asList(sidePlace, centerPlace, nonePlace);
+            final List<String> placeStates = Arrays.asList("Side", "Middle", "None");
+
+            String savedState = app_data.getMatchDataId(22);
+            if(savedState == null){savedState = "";}
+            //Load from saved data
+            for(String state : placeStates){
+                if(state.equals(savedState)){
+                    UpdateTriColour(PlaceButtons, placeStates.indexOf(state));
+                }
+            }
 
             sidePlace.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UpdateTriColour(CargoButtons, 0);
+                    UpdateTriColour(PlaceButtons, 0);
                     app_data.setMatchDataId(22, "Side", GameId1Endgame.this);
                 }
             });
             centerPlace.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UpdateTriColour(CargoButtons, 1);
+                    UpdateTriColour(PlaceButtons, 1);
                     app_data.setMatchDataId(22, "Middle", GameId1Endgame.this);
                 }
             });
             nonePlace.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UpdateTriColour(CargoButtons, 2);
+                    UpdateTriColour(PlaceButtons, 2);
                     app_data.setMatchDataId(22, "None", GameId1Endgame.this);
                 }
             });
@@ -190,26 +233,36 @@ public class GameId1Endgame extends AppCompatActivity {
             final Button yesParked = (Button)findViewById(R.id.parkedYesButton);
             final Button noParked = (Button)findViewById(R.id.parkedNoButton);
             final Button failedParked = (Button)findViewById(R.id.parkedFailButton);
-            final List<Button> CargoButtons = Arrays.asList(yesParked, noParked, failedParked);
+            final List<Button> ParkedButtons = Arrays.asList(yesParked, noParked, failedParked);
+            final List<String> parkedStates = Arrays.asList("Success", "N/A", "Fail");
+
+            String savedState = app_data.getMatchDataId(23);
+            if(savedState == null){savedState = "";}
+            //Load from saved data
+            for(String state : parkedStates){
+                if(state.equals(savedState)){
+                    UpdateTriColour(ParkedButtons, parkedStates.indexOf(state));
+                }
+            }
 
             yesParked.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UpdateTriColour(CargoButtons, 0);
+                    UpdateTriColour(ParkedButtons, 0);
                     app_data.setMatchDataId(23, "Success", GameId1Endgame.this);
                 }
             });
             noParked.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UpdateTriColour(CargoButtons, 1);
+                    UpdateTriColour(ParkedButtons, 1);
                     app_data.setMatchDataId(23, "N/A", GameId1Endgame.this);
                 }
             });
             failedParked.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    UpdateTriColour(CargoButtons, 2);
+                    UpdateTriColour(ParkedButtons, 2);
                     app_data.setMatchDataId(23, "Fail", GameId1Endgame.this);
                 }
             });
@@ -220,9 +273,6 @@ public class GameId1Endgame extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //save lineup time text
-                app_data.setMatchDataId(19, ""+LinupTime, GameId1Endgame.this);
 
                 //Start Next Page
                 app_data.setGame_state(getString(R.string.postgame));
@@ -240,5 +290,16 @@ public class GameId1Endgame extends AppCompatActivity {
                 tmp.setBackgroundColor(getResources().getColor(R.color.grey));
             }
         }
+    }
+
+    private int GetIntFromArray(String s){
+        int parsed;
+        try {
+            parsed = Integer.parseInt(s);
+        } catch (Exception e){
+            Log.e(TAG, "string value '"  + s + "' could not be converted to an integer");
+            parsed = 0;
+        }
+        return parsed;
     }
 }
