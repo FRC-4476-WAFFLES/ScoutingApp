@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
@@ -273,11 +274,27 @@ public class GameId1Endgame extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String tmpLineupTime = app_data.getMatchDataId(19);
+                String tmpCarrier = app_data.getMatchDataId(20);
+                String tmpCargo = app_data.getMatchDataId(21);
+                String tmpBarSpot = app_data.getMatchDataId(22);
+                String tmpParked = app_data.getMatchDataId(23);
 
-                //Start Next Page
-                app_data.setGame_state(getString(R.string.postgame));
-                Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
-                startActivity(startIntent);
+                if(tmpLineupTime == null) {tmpLineupTime = "";}
+                if(tmpCarrier == null) {tmpCarrier = "";}
+                if(tmpCargo == null) {tmpCargo = "";}
+                if(tmpBarSpot == null) {tmpBarSpot = "";}
+                if(tmpParked == null) {tmpParked = "";}
+
+
+                if(tmpLineupTime.equals("") || tmpCarrier.equals("") || tmpCargo.equals("") || tmpBarSpot.equals("") || tmpParked.equals("")){
+                    Toast.makeText(GameId1Endgame.this, "please make sure all fields are filled...", Toast.LENGTH_SHORT).show();
+                }else{
+                    //Start Next Page
+                    app_data.setGame_state(getString(R.string.postgame));
+                    Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
+                    startActivity(startIntent);
+                }
             }
         });
     }

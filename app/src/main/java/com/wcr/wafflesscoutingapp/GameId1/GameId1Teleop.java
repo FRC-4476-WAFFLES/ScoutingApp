@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
@@ -284,9 +285,19 @@ public class GameId1Teleop extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                app_data.setGame_state(getString(R.string.endgame));
-                Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
-                startActivity(startIntent);
+                String tmpPlaystyle = app_data.getMatchDataId(17);
+                String tmpRotCont = app_data.getMatchDataId(15);
+                String tmpPosCont = app_data.getMatchDataId(16);
+                if(tmpPlaystyle == null) {tmpPlaystyle = "";}
+                if(tmpRotCont == null) {tmpRotCont = "";}
+                if(tmpPosCont == null) {tmpPosCont = "";}
+                if(tmpPlaystyle.equals("") || tmpPosCont.equals("") || tmpRotCont.equals("")){
+                    Toast.makeText(GameId1Teleop.this, "please make sure all fields are filled...", Toast.LENGTH_SHORT).show();
+                }else{
+                    app_data.setGame_state(getString(R.string.endgame));
+                    Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
+                    startActivity(startIntent);
+                }
             }
         });
     }

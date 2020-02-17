@@ -1,7 +1,5 @@
 make server check match number
 back button
 main menue stuff
-make things mandatroy like name
-maybe if erase was while held
 
 
