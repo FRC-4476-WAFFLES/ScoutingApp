@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameId1Autonomous extends AppCompatActivity {
+    private static final String TAG = "GameId1Autonomous";
     Typeface CooperBlack;
     boolean Erase = false;
     int InnerAutoScore = 0;
@@ -200,10 +202,13 @@ public class GameId1Autonomous extends AppCompatActivity {
     }
 
     private int GetIntFromArray(String s){
-        if(s.equals("")){
-            return 0;
-        }else{
-            return Integer.parseInt(s);
+        int parsed;
+        try {
+            parsed = Integer.parseInt(s);
+        } catch (Exception e){
+            Log.e(TAG, "string value '"  + s + "' could not be converted to an integer");
+            parsed = 0;
         }
+        return parsed;
     }
 }

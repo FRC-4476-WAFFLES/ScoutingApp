@@ -149,9 +149,12 @@ public class GameId1Before extends AppCompatActivity {
                     DriverStation = "";
                 }
 
-
+                String startPosit = app_data.getMatchDataId(4);
+                if(startPosit == null){
+                    startPosit = "";
+                }
                 //make sure to check all fields are filled
-                if(!DriverStation.equals("") && !app_data.getMatchDataId(4).equals("") && !TeamNumber.equals("") && !MatchNumber.equals("") && !MatchNumber.equals("0")) {
+                if(!DriverStation.equals("") && !startPosit.equals("") && !TeamNumber.equals("") && !MatchNumber.equals("") && !MatchNumber.equals("0")) {
                     app_data.setGame_state(getString(R.string.sandstorm));
                     Intent startIntent = new Intent(getApplicationContext(), GameId1.class);
                     startActivity(startIntent);
