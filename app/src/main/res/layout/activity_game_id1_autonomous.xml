@@ -54,7 +54,7 @@
             android:layout_weight="0.05"
             android:text="Shots Scored"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -171,29 +171,22 @@
             </androidx.cardview.widget.CardView>
         </GridLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout9"
+        <TextView
+            android:id="@+id/pickupLocationTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.05">
-
-            <TextView
-                android:id="@+id/pickupLocationTextView"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="0.5"
-                android:text="Pickup Location"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-        </LinearLayout>
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.06"
+            android:text="Pickup Location"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <LinearLayout
             android:id="@+id/linearLayout6"

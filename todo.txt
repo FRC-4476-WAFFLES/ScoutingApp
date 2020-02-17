@@ -2,7 +2,6 @@ make server check match number
 back button
 main menue stuff
 make things mandatroy like name
-titles and names bolder
 maybe if erase was while held
 
 
