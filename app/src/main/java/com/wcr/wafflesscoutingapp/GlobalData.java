@@ -87,7 +87,7 @@ public class GlobalData extends Application {
     public void setMatchDataId(int id, String content, Activity a){
         matchData[id] = content;
         if(matchData[1] != null && matchData[0] != null){
-            save_to_csv(a);
+//            save_to_csv(a);
         }
 
     }

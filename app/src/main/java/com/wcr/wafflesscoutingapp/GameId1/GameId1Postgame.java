@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +19,7 @@ import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.R;
 
 public class GameId1Postgame extends AppCompatActivity {
+    private static final String TAG = "GameId1Postgame";
     Typeface CooperBlack;
     String FinalScore = "0";
     String AllianceFouls = "0";
@@ -37,10 +41,59 @@ public class GameId1Postgame extends AppCompatActivity {
 
         //edit texts
         final EditText finalScoreEditText = (EditText)findViewById(R.id.allianceScoreEditText);
+        // Load from last time clicked
+        finalScoreEditText.setText(app_data.getMatchDataId(24));
+        // Listen for clicks on this.
+        finalScoreEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                app_data.setMatchDataId(24, finalScoreEditText.getText().toString(), GameId1Postgame.this);
+                Log.d(TAG, "Focus on Final Score Changed");
+            }
+        });
+
+
         final EditText allianceFoulsEditText = (EditText)findViewById(R.id.allianceFoulsEditText);
+        // Load from last time clicked
+        allianceFoulsEditText.setText(app_data.getMatchDataId(26));
+        // Listen for clicks on this.
+        allianceFoulsEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                app_data.setMatchDataId(26, allianceFoulsEditText.getText().toString(), GameId1Postgame.this);
+                Log.d(TAG, "Focus on Alliance Foul Score Changed");
+            }
+        });
+
+
         final EditText commentsEditText = (EditText)findViewById(R.id.commentsEditText);
+        // Load everything that was typed before redraw
+        commentsEditText.setText(app_data.getMatchDataId(27));
+        // Listen for changes in the text
+        commentsEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                app_data.setMatchDataId(27, commentsEditText.getText().toString(), GameId1Postgame.this);
+            }
+        });
+
 
         final CheckBox crossedInitiationLine = (CheckBox) findViewById(R.id.levelClimbButton);
+        if(GetIntFromArray("" + app_data.getMatchDataId(5)) == 1){
+            crossedInitiationLine.setChecked(true);
+        }else{
+            crossedInitiationLine.setChecked(false);
+        }
         crossedInitiationLine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,5 +128,16 @@ public class GameId1Postgame extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private int GetIntFromArray(String s){
+        int parsed;
+        try {
+            parsed = Integer.parseInt(s);
+        } catch (Exception e){
+            Log.e(TAG, "string value '"  + s + "' could not be converted to an integer");
+            parsed = 0;
+        }
+        return parsed;
     }
 }
