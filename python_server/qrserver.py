@@ -13,7 +13,7 @@ communication_file = "server_comm.txt"
 file_path = os.path.join(os.getcwd(), communication_file)
 submitted = [False, False, False, False, False, False]
 userID = ["r1", "r2", "r3", "b1", "b2", "b3"]
-root = tk.Tk()
+root = None
 
 # add the subprocess for the gui
 subprocess.Popen(["py", "-3", "new_test.py"])
@@ -45,6 +45,8 @@ def verifydata():
 	global df
 	global root
 	global matchdf
+	# refresh tk
+	root = tk.Tk()
 	# get the last match
 	last_match_df = matchdf.tail(6)
 	validate.findMatch("qm19")
@@ -112,48 +114,78 @@ def restoreState():
 			submitted[i] = True
 	communicate()
 
-# make sure to overwrite whatever state the dashboard was in when the program closed
-restoreState()
-
-print("looking for codes")
-
 
 def saveMatchDF(matchdf):
 	matchdf.to_csv("match_df.csv", index=False)
 
 
+def runQRcapture():
+	global cap
+	global font
+	global file_path
+	global submitted
+	global userID
+	global df
+	global matchdf
+	shouldCont = True
+	while shouldCont:
+		_, frame = cap.read()
+
+		decodedObjects = pyzbar.decode(frame)
+		for obj in decodedObjects:
+			print("Data: ", obj.data)
+			data = obj.data
+			data = data.decode("utf-8")
+			# make sure we don't accidentally try to read a qrcode that isn't a qrcode
+			if not data == "" and 28 < len(data.split(",")):
+				if userID.count(data[-1].lower()) < 1 and not submitted[userID.index(data[-2:].lower())]:
+					# Split the qrcode data into a list
+					data = data.replace("[", "").replace("]", "").split(",")
+					user = data[-1]
+					data = data[:28]
+					matchdf = matchdf.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
+					saveMatchDF(matchdf)
+					# look to see what user just submitted their data
+					for i in range(len(userID)):
+						if userID[i] == user.lower():
+							submitted[i] = True
+					# tell the dashboard what to do
+					communicate()
+					# only read one QRcode at a time (end the search loop)
+					shouldCont = False
+			#			window   text	   loc(l, t) font  size colour(BGR) thckness
+			cv2.putText(frame, str(obj.data), (50, 50), font, 3, (255, 0, 0), 3)
+			allTrue = all(i for i in submitted)
+			if allTrue:
+				submitted = [False, False, False, False, False, False]
+				verifydata()
+				time.sleep(10)
+			return
+
+		cv2.imshow("Frame", frame)
+		key = cv2.waitKey(1)
+		if key == 27 or not shouldCont:
+			pass
+
+
+def runWait():
+	global root
+	root = tk.Tk()
+
+	def end():
+		root.destroy()
+
+	button = tk.Button(root, text='Scan a Code', width=25, command=end)
+	button.pack()
+	root.mainloop()
+	return
+
+
+# make sure to overwrite whatever state the dashboard was in when the program closed
+restoreState()
+
+print("looking for codes")
+
 while True:
-	_, frame = cap.read()
-
-	decodedObjects = pyzbar.decode(frame)
-	for obj in decodedObjects:
-		print("Data: ", obj.data)
-		data = obj.data
-		data = data.decode("utf-8")
-		# make sure we don't accidentally try to read a qrcode that isn't a qrcode
-		if not data == "" and 28 < len(data.split(",")):
-			if userID.count(data[-1].lower()) < 1 and not submitted[userID.index(data[-2:].lower())]:
-				# Split the qrcode data into a list
-				data = data.replace("[", "").replace("]", "").split(",")
-				user = data[-1]
-				data = data[:28]
-				matchdf = matchdf.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
-				saveMatchDF(matchdf)
-				# look to see what user just submitted their data
-				for i in range(len(userID)):
-					if userID[i] == user.lower():
-						submitted[i] = True
-				# tell the dashboard what to do
-				communicate()
-		#			window   text	   loc(l, t) font  size colour(BGR) thckness
-		cv2.putText(frame, str(obj.data), (50,50), font, 3, (255, 0, 0), 3)
-		allTrue = all(i for i in submitted)
-		if allTrue:
-			submitted = [False, False, False, False, False, False]
-			verifydata()
-			time.sleep(10)
-
-	cv2.imshow("Frame", frame)
-	key = cv2.waitKey(1)
-	if key == 27:
-		pass
+	runWait()
+	runQRcapture()

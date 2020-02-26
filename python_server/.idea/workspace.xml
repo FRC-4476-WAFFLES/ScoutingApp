@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="471c6d85-7100-4927-95bf-d26a13613129" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qrserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/qrserver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +33,31 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/dictionaryProgram/textProgs.py" />
+    <property name="last_opened_file_path" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/Chess Tournament/ChessSchedule.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.run qr server">
+    <configuration name="ChessSchedule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/Chess Tournament" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/Chess Tournament/ChessSchedule.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dnaParser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,9 +169,11 @@
       <item itemvalue="Python.dnaParser" />
       <item itemvalue="Python.myDictionary" />
       <item itemvalue="Python.myDictionaryClass" />
+      <item itemvalue="Python.ChessSchedule" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ChessSchedule" />
         <item itemvalue="Python.myDictionaryClass" />
         <item itemvalue="Python.dnaParser" />
         <item itemvalue="Python.myDictionary" />
@@ -167,6 +192,7 @@
         </serviceView>
       </list>
     </option>
+    <option name="showServicesTree" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -193,53 +219,73 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="412" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1580572190173" />
-    <state x="439" y="173" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581430679937">
+    <state x="439" y="173" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582033265938">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="439" y="173" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1581430679937" />
-    <state x="540" y="193" key="FileChooserDialogImpl" timestamp="1581602971396">
+    <state x="439" y="173" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.864@0.0.1536.864" timestamp="1582033265938" />
+    <state x="540" y="193" key="FileChooserDialogImpl" timestamp="1582637910810">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="540" y="193" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1581602971396" />
-    <state width="1515" height="224" key="GridCell.Tab.0.bottom" timestamp="1581686874660">
+    <state x="540" y="193" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1582637910810" />
+    <state width="756" height="276" key="GridCell.Tab.0.bottom" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1581686874660" />
-    <state width="1515" height="224" key="GridCell.Tab.0.center" timestamp="1581686874660">
+    <state width="756" height="276" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.0.center" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1581686874660" />
-    <state width="1515" height="224" key="GridCell.Tab.0.left" timestamp="1581686874660">
+    <state width="756" height="276" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.0.left" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1581686874660" />
-    <state width="1515" height="224" key="GridCell.Tab.0.right" timestamp="1581686874660">
+    <state width="756" height="276" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.0.right" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1581686874660" />
-    <state width="372" height="276" key="GridCell.Tab.1.bottom" timestamp="1581443538967">
+    <state width="756" height="276" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.1.bottom" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="372" height="276" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1581443538967" />
-    <state width="372" height="276" key="GridCell.Tab.1.center" timestamp="1581443538967">
+    <state width="756" height="276" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.1.center" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="372" height="276" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1581443538967" />
-    <state width="372" height="276" key="GridCell.Tab.1.left" timestamp="1581443538967">
+    <state width="756" height="276" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.1.left" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="372" height="276" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1581443538967" />
-    <state width="372" height="276" key="GridCell.Tab.1.right" timestamp="1581443538967">
+    <state width="756" height="276" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
+    <state width="756" height="276" key="GridCell.Tab.1.right" timestamp="1582759746158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="372" height="276" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1581443538967" />
+    <state width="756" height="276" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1582759746158" />
     <state x="277" y="74" key="SettingsEditor" timestamp="1580929564275">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="74" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1580929564275" />
-    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1581430031808">
+    <state width="776" height="440" key="XDebugger.FullValuePopup" timestamp="1582640953313">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1581430031808" />
+    <state width="776" height="440" key="XDebugger.FullValuePopup/0.0.1536.864@0.0.1536.864" timestamp="1582640953313" />
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1582640243804">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1582640243804" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/Chess Tournament/ChessSchedule.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/Chess Tournament/ChessSchedule.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
