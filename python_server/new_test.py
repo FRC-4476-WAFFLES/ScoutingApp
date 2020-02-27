@@ -68,10 +68,13 @@ def server(label):
             content = ["F", "F", "F", "F", "F", "F"]
             # print("im running")
             if os.path.exists(file_path):
-                with open(file_path, "r") as current:
-                    content = current.read()
-                    content = content.strip()
-                    content = content.split(",")
+                try:
+                    with open(file_path, "r") as current:
+                        content = current.read()
+                        content = content.strip()
+                        content = content.split(",")
+                except:
+                    print("here's that weird error that doesn't really make sense.")
             if not R1Submit:
                 if 'T' in content[0]:
                     R1Submit = True

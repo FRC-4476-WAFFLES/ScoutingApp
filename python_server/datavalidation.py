@@ -4,12 +4,10 @@ import tkinter as tk
 import pandas as pd
 import time
 
-eventCode = "2020onosh"
-apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
-# matchNum = "qm19"
+
+
 root = tk.Tk()
 root.title("Scouting Server")
-matchInfo = dict()
 
 def is_connected(hostname):
     try:
@@ -42,7 +40,9 @@ def findMatch(matchNum):
 
 
 def findErrors(df):
-    global matchInfo
+    eventCode = "2020onosh"
+    apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
+    matchNum = "qm19"
     finalMSG = ""
 
     if finalMSG == "":
