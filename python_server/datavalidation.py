@@ -3,8 +3,10 @@ import tbapy
 import tkinter as tk
 import pandas as pd
 import time
+from statistics import mode
 
-
+eventCode = "2020isde1"
+apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
 
 root = tk.Tk()
 root.title("Scouting Server")
@@ -24,26 +26,66 @@ def is_connected(hostname):
     return False
 
 
-def findMatch(matchNum):
-    global eventCode
-    global apiKEY
-    global matchInfo
-    shouldCont = True
-    while shouldCont:
-        if is_connected("www.thebluealliance.com"):
-            tba = tbapy.TBA(apiKEY)
-            mat = tba.match(eventCode + "_" + matchNum)
-            if mat.winning_alliance is not None:
-                shouldCont = False
-                matchInfo = mat
-            time.sleep(30)
+# def findMatch(matchNum):
+#     global eventCode
+#     global apiKEY
+#     global matchInfo
+#     shouldCont = True
+#     while shouldCont:
+#         if is_connected("www.thebluealliance.com"):
+#             tba = tbapy.TBA(apiKEY)
+#             mat = tba.match(eventCode + "_" + matchNum)
+#             if mat.winning_alliance is not None:
+#                 shouldCont = False
+#                 matchInfo = mat
+#         else:
+#             time.sleep(30)
 
 
 def findErrors(df):
-    eventCode = "2020onosh"
-    apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
-    matchNum = "qm19"
+    global apiKEY
+    global eventCode
+    print("Starting finding errors")
+    tba = tbapy.TBA(apiKEY)
     finalMSG = ""
+
+    try:
+        matchNum = f"qm{mode(df['Match'])}"
+        match_data = tba.match(f"{eventCode}_{matchNum}")
+    except:
+        return " No consensus on match number!!! YO SCOUTS FIX YO STUFF"
+
+
+    blueScore = match_data["alliances"]["blue"]["score"]
+    redScore = match_data["alliances"]["red"]["score"]
+    print(blueScore)
+    print(redScore)
+    scoreBreakdown = match_data["score_breakdown"]
+    for index, row in df.iterrows():
+        # Get alliance station
+        alliance = row['Alliance'][:1]
+        drive_station = row['Alliance'][1:]
+        # Get correct alliance data
+        if alliance == "R":
+            allianceBreakdown = scoreBreakdown['red']
+        else:
+            allianceBreakdown = scoreBreakdown['blue']
+        # Gets known values on a per robot basis
+        measuredMovement = allianceBreakdown[f'initLineRobot{drive_station}']
+
+        # INITIATION LINE CHECK
+        # Convert string to boolean
+        if measuredMovement == "Exited":
+            measuredMovement = 1
+        else:
+            measuredMovement = 0
+        # Check if value of initiation line is correct.
+        if row['Movement'] != measuredMovement:
+            finalMSG += f" {row['Team']} incorrect initiation line value.\n"
+
+        # HANGING/PARK CHECK
+
+
 
     if finalMSG == "":
         finalMSG = "no changes needed, please close the frame"
