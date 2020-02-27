@@ -3,8 +3,10 @@ import tbapy
 import tkinter as tk
 import pandas as pd
 import time
+from statistics import mode
 
-
+eventCode = "2020isde1"
+apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
 
 root = tk.Tk()
 root.title("Scouting Server")
@@ -36,13 +38,32 @@ def findMatch(matchNum):
             if mat.winning_alliance is not None:
                 shouldCont = False
                 matchInfo = mat
+        else:
             time.sleep(30)
 
 
 def findErrors(df):
-    eventCode = "2020onosh"
-    apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
-    matchNum = "qm19"
+    global apiKEY
+    global eventCode
+    print("Starting finding errors")
+    tba = tbapy.TBA(apiKEY)
+
+    try:
+        matchNum = f"qm{mode(df['Match'])}"
+        match_data = tba.match(f"{eventCode}_{matchNum}")
+    except:
+        return "No consensus on match number!!! YO SCOUTS FIX YO STUFF"
+
+
+    print(match_data)
+
+    blueScore = match_data["alliances"]["blue"]["score"]
+    redScore = match_data["alliances"]["red"]["score"]
+    scoreBreakdown = match_data["score_breakdown"]
+    for team in df:
+        alliance = team['Alliance']
+        drive_station = team['Alliance']
+        print(alliance, drive_station)
     finalMSG = ""
 
     if finalMSG == "":
