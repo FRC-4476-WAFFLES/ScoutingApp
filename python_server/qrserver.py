@@ -49,18 +49,18 @@ def verifydata():
 	root = tk.Tk()
 	# get the last match
 	last_match_df = matchdf.tail(6)
-	validate.findMatch("qm19")
+	# validate.findMatch("qm19")
 	# get any changes that need to be made
 	msg = validate.findErrors(last_match_df)
 
 	f = tk.Frame(root)
 	f.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=1)
-	pt = pandastable.Table(f, dataframe=matchdf, showtoolbar=True, showstatusbar=True)
+	pt = pandastable.Table(f, dataframe=last_match_df, showtoolbar=True, showstatusbar=True)
 	pt.show()
 	# make the instructions appear above the dataframe
 	otherstuff = tk.Frame(root)
 	otherstuff.pack(side=tk.TOP)
-	thing = tk.Label(otherstuff, text='Changes Needed:')
+	thing = tk.Label(otherstuff, text=f'Changes Needed:{msg}')
 	thing.pack(side=tk.TOP)
 	# make the thing run
 	root.mainloop()
