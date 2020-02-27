@@ -102,7 +102,8 @@ public class GameId1Endgame extends AppCompatActivity {
                 @Override
                 public void afterTextChanged(Editable editable) {
                     String in = linupTime.getText().toString();
-                    if(!in.equals("")){
+                    Log.d(TAG, "length of lineup time: " + in.length() + " " + in.getClass().getName());
+                    if(!in.equals("") && in.length() < 3){
                         LinupTime = Integer.parseInt(in);
                         //save lineup time text
                         app_data.setMatchDataId(19, ""+LinupTime, GameId1Endgame.this);
@@ -287,7 +288,7 @@ public class GameId1Endgame extends AppCompatActivity {
                 if(tmpParked == null) {tmpParked = "";}
 
 
-                if(tmpLineupTime.equals("") || tmpCarrier.equals("") || tmpCargo.equals("") || tmpBarSpot.equals("") || tmpParked.equals("")){
+                if(tmpCarrier.equals("") || tmpCargo.equals("") || tmpBarSpot.equals("") || tmpParked.equals("")){
                     Toast.makeText(GameId1Endgame.this, "please make sure all fields are filled...", Toast.LENGTH_SHORT).show();
                 }else{
                     //Start Next Page
