@@ -55,7 +55,7 @@ def verifydata():
 
 	f = tk.Frame(root)
 	f.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=1)
-	pt = pandastable.Table(f, dataframe=df, showtoolbar=True, showstatusbar=True)
+	pt = pandastable.Table(f, dataframe=matchdf, showtoolbar=True, showstatusbar=True)
 	pt.show()
 	# make the instructions appear above the dataframe
 	otherstuff = tk.Frame(root)

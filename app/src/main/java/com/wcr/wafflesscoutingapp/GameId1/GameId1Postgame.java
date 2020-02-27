@@ -83,7 +83,9 @@ public class GameId1Postgame extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                app_data.setMatchDataId(27, commentsEditText.getText().toString(), GameId1Postgame.this);
+                String coments = commentsEditText.getText().toString();
+                coments = coments.replace(",", "...");
+                app_data.setMatchDataId(27, coments, GameId1Postgame.this);
             }
         });
 
@@ -115,8 +117,6 @@ public class GameId1Postgame extends AppCompatActivity {
                 app_data.setMatchDataId(24, FinalScore, GameId1Postgame.this);
                 AllianceFouls = allianceFoulsEditText.getText().toString();
                 app_data.setMatchDataId(26, AllianceFouls, GameId1Postgame.this);
-                ScoutComments = commentsEditText.getText().toString();
-                app_data.setMatchDataId(27, ScoutComments, GameId1Postgame.this);
 
                 //make sure to check all fields are filled
                 if(!FinalScore.equals("") && !AllianceFouls.equals("") && !ScoutComments.equals("")) {

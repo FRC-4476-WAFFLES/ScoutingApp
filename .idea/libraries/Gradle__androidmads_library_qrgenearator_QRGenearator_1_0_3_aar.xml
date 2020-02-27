@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: androidmads.library.qrgenearator:QRGenearator:1.0.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/99636e713cabf118b4a9ac7b98670ed7/QRGenearator-1.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/99636e713cabf118b4a9ac7b98670ed7/QRGenearator-1.0.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d9385baa1d1f7e32ec34485bdf42bc8b/jetified-QRGenearator-1.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d9385baa1d1f7e32ec34485bdf42bc8b/jetified-QRGenearator-1.0.3/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidmads.library.qrgenearator/QRGenearator/1.0.3/6d5ba51325848da403567811ac218cd181ea8a84/QRGenearator-1.0.3-javadoc.jar!/" />
