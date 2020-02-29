@@ -25,7 +25,7 @@ df = pd.DataFrame(columns=header)
 matchdf = pd.DataFrame(columns=header)
 
 # for opencv
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 font = cv2.FONT_HERSHEY_PLAIN
 
 

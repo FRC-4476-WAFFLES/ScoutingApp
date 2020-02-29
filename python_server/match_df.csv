@@ -1,9 +1,2 @@
 Team,Match,Alliance,Scout,Start Pos,Movement,A_Inner,A_Outer,A_Lower,A_Failures,A_Pickup,T_Inner,T_Outer,T_Lower,T_Failures,Rotate,Position,Playstyle,Hang,Lineup Time,carrier,cargo,Bar Spot,Park,Final score,Balance,Foul Score,Comment
-4590,36,R3,Anica.Bibic,r,1,0,0,0,5,1,0,2,0,6,0,0,Close Shot,,9999,0,0,None,,39,0,15,Missed a lot.
-5135,36,R2,Anica.Bibic,c,1,0,0,0,3,0,0,6,0,3,0,0,Far Shot,,9999,0,0,None,Fail,39,0,15,Slow driving for the first half of the game.
-6738,36,R1,Test.Name,r,0,0,0,0,0,0,0,0,0,0,0,0,Not Applicable,,999999,0,0,None,,39,0,15,"Didn't show up
-"
-4586,36,B1,owen.maclennan,c,1,0,0,0,0,0,0,3,0,9,0,0,Close Shot,Success,25,0,0,Side,,93,0,0,Good shooter just missed a lot
-1574,36,B2,"Test.Name
-",r,1,0,3,0,0,3,0,4,0,13,0,0,Close Shot,Fail,25,0,0,Side,Success,93,0,0,Not very accurate
-2230,36,B3,kaidra.giroux,l,1,0,3,0,0,0,0,0,0,3,0,0,Defence,,9999,0,0,None,,93,0,0,Good auto got a foul
+7735,36,B3,kaidra.giroux ,l,1,3,0,0,0,0,0,0,0,3,0,0,Defence,N/A,9999,0,0,None,N/A,93,0,0,Good auto
