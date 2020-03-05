@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.wcr.wafflesscoutingapp.GlobalData;
 import com.wcr.wafflesscoutingapp.MainActivity;
 import com.wcr.wafflesscoutingapp.R;
+import com.wcr.wafflesscoutingapp.ScoutData;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -123,7 +124,14 @@ public class GameId1Before extends AppCompatActivity {
             }
         });
 
-
+        final Button changeScout = (Button)findViewById(R.id.changeScoutButton);
+        changeScout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(), ScoutData.class);
+                startActivity(startIntent);
+            }
+        });
 
         //continue button
         final Button continueButton = (Button)findViewById(R.id.continueButton);

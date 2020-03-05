@@ -3,11 +3,13 @@ import numpy as np
 import json
 import tkinter as tk
 import os
+
 with open("LEGEND.json") as f:
     header = json.load(f)
-# df = pd.DataFrame(columns=header)
-# data = ['7735', '7', 'r', 'c', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '898', '9888', "Duncan.s"]
-# df = df.append(pd.DataFrame(data=[data], columns=header), ignore_index=True)
+# df = pd.DataFrame(columns=header) data = ['7735', '7', 'r', 'c', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0',
+# '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
+# '0', '0', '0', '0', '898', '9888', "Duncan.s"] df = df.append(pd.DataFrame(data=[data], columns=header),
+# ignore_index=True)
 
 communication_file = "server_comm.txt"
 file_path = os.path.join(os.getcwd(), communication_file)
@@ -42,13 +44,18 @@ b2.pack(padx=10, ipady=200, side=tk.LEFT)
 b3 = tk.Label(root, text="Blue 3 Not Submitted", bg="blue", fg="white", font=("Helvetica", 16))
 b3.pack(padx=10, ipady=200, side=tk.LEFT)
 
+
 # counter_label(label)
 def end():
     global maintain
     root.destroy()
     maintain = False
+
+
 button = tk.Button(root, text='Stop', width=25, command=end)
 button.pack()
+
+
 def server(label):
     def cont():
         global R1Submit
@@ -60,11 +67,11 @@ def server(label):
         global root
         if maintain:
             # root.focus_force()
-            #example.py is very example
+            # example.py is very example
             # counter += 1
             # label.config(text=str(counter))
             # label.after(1000, count)
-            #if the scout has not yet submitted, check if they have yet
+            # if the scout has not yet submitted, check if they have yet
             content = ["F", "F", "F", "F", "F", "F"]
             # print("im running")
             if os.path.exists(file_path):
@@ -131,8 +138,9 @@ def server(label):
             B2Submit = False
             B3Submit = False
         label.after(200, cont)
+
     cont()
+
+
 server(label)
 root.mainloop()
-
-

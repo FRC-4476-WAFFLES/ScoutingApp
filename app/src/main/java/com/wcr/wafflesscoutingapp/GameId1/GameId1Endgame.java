@@ -25,7 +25,7 @@ public class GameId1Endgame extends AppCompatActivity {
     private static final String TAG = "GameId1Endgame";
     Typeface CooperBlack;
     GlobalData app_data;
-    int LinupTime = 0;
+    double LinupTime = 0;
     final List<String> genericButtonStates = Arrays.asList("1", "0", "-1");
 
     @Override
@@ -104,7 +104,7 @@ public class GameId1Endgame extends AppCompatActivity {
                     String in = linupTime.getText().toString();
                     Log.d(TAG, "length of lineup time: " + in.length() + " " + in.getClass().getName());
                     if(!in.equals("") && in.length() < 3){
-                        LinupTime = Integer.parseInt(in);
+                        LinupTime = Double.parseDouble(in);
                         //save lineup time text
                         app_data.setMatchDataId(19, ""+LinupTime, GameId1Endgame.this);
                     }
@@ -275,6 +275,7 @@ public class GameId1Endgame extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String tmpClimb = app_data.getMatchDataId(18);
                 String tmpLineupTime = app_data.getMatchDataId(19);
                 String tmpCarrier = app_data.getMatchDataId(20);
                 String tmpCargo = app_data.getMatchDataId(21);
@@ -290,6 +291,36 @@ public class GameId1Endgame extends AppCompatActivity {
 
                 if(tmpCarrier.equals("") || tmpCargo.equals("") || tmpBarSpot.equals("") || tmpParked.equals("")){
                     Toast.makeText(GameId1Endgame.this, "please make sure all fields are filled...", Toast.LENGTH_SHORT).show();
+                }else if(tmpClimb.equals("Success")) {
+                    if (tmpParked.equals("Success") || tmpParked.equals("Fail")) {
+                        Toast.makeText(GameId1Endgame.this, "Cant park and hang at the same time.", Toast.LENGTH_SHORT).show();
+                    }
+                    if(LinupTime >=0){
+                        Toast.makeText(GameId1Endgame.this, "It will take more than 0s to line up", Toast.LENGTH_SHORT).show();
+                    }
+                }else if(tmpCarrier.equals("1")) {
+                    if (tmpCargo.equals("1") || tmpCargo.equals("-1")) {
+                        Toast.makeText(GameId1Endgame.this, "cant be carrier and cargo", Toast.LENGTH_SHORT).show();
+                    }
+                    if (tmpClimb.equals("N/A") || tmpClimb.equals("Fail")) {
+                        Toast.makeText(GameId1Endgame.this, "Must climb to be a Carrier", Toast.LENGTH_SHORT).show();
+                    }
+                    if (tmpBarSpot.equals("None")) {
+                        Toast.makeText(GameId1Endgame.this, "Must have bar spot to be Carrier", Toast.LENGTH_SHORT).show();
+                    }
+                    if (tmpParked.equals("Success") || tmpParked.equals("Fail")) {
+                        Toast.makeText(GameId1Endgame.this, "Cant park and hang at the same time.", Toast.LENGTH_SHORT).show();
+                    }
+                    if (LinupTime >= 0) {
+                        Toast.makeText(GameId1Endgame.this, "It will Definitely take more than 0s to line up", Toast.LENGTH_SHORT).show();
+                    }
+                }else if(tmpCargo.equals("1")){
+                    if(LinupTime >=0){
+                        Toast.makeText(GameId1Endgame.this, "It will Definitely take more than 0s to line up", Toast.LENGTH_SHORT).show();
+                    }
+                    if(tmpParked.equals("Success") || tmpParked.equals("Fail")){
+                        Toast.makeText(GameId1Endgame.this, "Cant park and hang at the same time.", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     //Start Next Page
                     app_data.setGame_state(getString(R.string.postgame));
@@ -310,14 +341,14 @@ public class GameId1Endgame extends AppCompatActivity {
         }
     }
 
-    private int GetIntFromArray(String s){
-        int parsed;
-        try {
-            parsed = Integer.parseInt(s);
-        } catch (Exception e){
-            Log.e(TAG, "string value '"  + s + "' could not be converted to an integer");
-            parsed = 0;
-        }
-        return parsed;
-    }
+//    private int GetIntFromArray(String s){
+//        int parsed;
+//        try {
+//            parsed = Integer.parseInt(s);
+//        } catch (Exception e){
+//            Log.e(TAG, "string value '"  + s + "' could not be converted to an integer");
+//            parsed = 0;
+//        }
+//        return parsed;
+//    }
 }
