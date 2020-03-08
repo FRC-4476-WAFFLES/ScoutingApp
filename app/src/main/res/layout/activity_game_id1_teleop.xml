@@ -74,7 +74,7 @@
                     android:text="Inner: 0"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -99,7 +99,7 @@
                     android:text="Outer: 0"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -124,7 +124,7 @@
                     android:text="Lower: 0"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -149,7 +149,7 @@
                     android:text="Failed: 0"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>

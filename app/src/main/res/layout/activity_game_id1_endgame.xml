@@ -105,35 +105,11 @@
                     android:text="Yes"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
             <!-- Column 3 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/wafflesYellow"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <Button
-                    android:id="@+id/climbNoButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/wafflesYellow"
-                    android:text="No"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -155,7 +131,32 @@
                     android:text="Fail"
                     android:textAlignment="center"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/wafflesYellow"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <Button
+                    android:id="@+id/climbNoButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/wafflesYellow"
+                    android:text="No"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </androidx.cardview.widget.CardView>
@@ -193,25 +194,25 @@
                 android:layout_margin="8dp" />
 
             <Button
+                android:id="@+id/carrierFailButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:layout_weight="0.11"
+                android:background="@color/wafflesYellow"
+                android:text="Fail"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
                 android:id="@+id/carrierNoButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.11"
                 android:background="@color/wafflesYellow"
                 android:text="No"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_margin="8dp" />
-
-            <Button
-                android:id="@+id/carrierFailButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.11"
-                android:background="@color/wafflesYellow"
-                android:text="Fail"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -251,12 +252,12 @@
                 android:layout_margin="8dp" />
 
             <Button
-                android:id="@+id/cargoNoButton"
+                android:id="@+id/cargoFailButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.11"
                 android:background="@color/wafflesYellow"
-                android:text="No"
+                android:text="Fail"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -264,12 +265,12 @@
                 android:layout_margin="8dp" />
 
             <Button
-                android:id="@+id/cargoFailButton"
+                android:id="@+id/cargoNoButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.11"
                 android:background="@color/wafflesYellow"
-                android:text="Fail"
+                android:text="No"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -369,12 +370,12 @@
                 android:layout_margin="8dp" />
 
             <Button
-                android:id="@+id/parkedNoButton"
+                android:id="@+id/parkedFailButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.11"
                 android:background="@color/wafflesYellow"
-                android:text="No"
+                android:text="Fail"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -382,12 +383,12 @@
                 android:layout_margin="8dp"/>
 
             <Button
-                android:id="@+id/parkedFailButton"
+                android:id="@+id/parkedNoButton"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.11"
                 android:background="@color/wafflesYellow"
-                android:text="Fail"
+                android:text="No"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"

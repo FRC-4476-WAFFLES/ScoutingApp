@@ -291,14 +291,25 @@ public class GameId1Endgame extends AppCompatActivity {
 
                 if(tmpCarrier.equals("") || tmpCargo.equals("") || tmpBarSpot.equals("") || tmpParked.equals("")){
                     Toast.makeText(GameId1Endgame.this, "please make sure all fields are filled...", Toast.LENGTH_SHORT).show();
-                }else if(tmpClimb.equals("Success")) {
+                }else if(tmpClimb.equals("Success") &&(
+                        tmpParked.equals("Success") || tmpParked.equals("Fail")
+                        || LinupTime <=0
+                        || tmpBarSpot.equals("None"))) {
                     if (tmpParked.equals("Success") || tmpParked.equals("Fail")) {
                         Toast.makeText(GameId1Endgame.this, "Cant park and hang at the same time.", Toast.LENGTH_SHORT).show();
                     }
-                    if(LinupTime >=0){
+                    if(LinupTime <=0){
                         Toast.makeText(GameId1Endgame.this, "It will take more than 0s to line up", Toast.LENGTH_SHORT).show();
                     }
-                }else if(tmpCarrier.equals("1")) {
+                    if(tmpBarSpot.equals("None")){
+                        Toast.makeText(GameId1Endgame.this, "Must have Bar Spot to Climb", Toast.LENGTH_SHORT).show();
+                    }
+                }else if(tmpCarrier.equals("1")
+                        && ((tmpCargo.equals("1") || tmpCargo.equals("-1"))
+                        || (tmpClimb.equals("N/A") || tmpClimb.equals("Fail"))
+                        || tmpBarSpot.equals("None")
+                        || (tmpParked.equals("Success") || tmpParked.equals("Fail"))
+                        || LinupTime <= 0)) {
                     if (tmpCargo.equals("1") || tmpCargo.equals("-1")) {
                         Toast.makeText(GameId1Endgame.this, "cant be carrier and cargo", Toast.LENGTH_SHORT).show();
                     }
@@ -311,16 +322,21 @@ public class GameId1Endgame extends AppCompatActivity {
                     if (tmpParked.equals("Success") || tmpParked.equals("Fail")) {
                         Toast.makeText(GameId1Endgame.this, "Cant park and hang at the same time.", Toast.LENGTH_SHORT).show();
                     }
-                    if (LinupTime >= 0) {
+                    if (LinupTime <= 0) {
                         Toast.makeText(GameId1Endgame.this, "It will Definitely take more than 0s to line up", Toast.LENGTH_SHORT).show();
                     }
-                }else if(tmpCargo.equals("1")){
-                    if(LinupTime >=0){
+                }else if(tmpCargo.equals("1")
+                        && (LinupTime <= 0
+                        || (tmpParked.equals("Success") || tmpParked.equals("Fail")))) {
+                    if (LinupTime <= 0) {
                         Toast.makeText(GameId1Endgame.this, "It will Definitely take more than 0s to line up", Toast.LENGTH_SHORT).show();
                     }
-                    if(tmpParked.equals("Success") || tmpParked.equals("Fail")){
+                    if (tmpParked.equals("Success") || tmpParked.equals("Fail")) {
                         Toast.makeText(GameId1Endgame.this, "Cant park and hang at the same time.", Toast.LENGTH_SHORT).show();
                     }
+                }else if(tmpClimb.equals("N/A")
+                        && (tmpBarSpot.equals("Side") || tmpBarSpot.equals("Middle"))){
+                        Toast.makeText(GameId1Endgame.this, "No Bar Spot for parked robots.", Toast.LENGTH_SHORT).show();
                 }else{
                     //Start Next Page
                     app_data.setGame_state(getString(R.string.postgame));

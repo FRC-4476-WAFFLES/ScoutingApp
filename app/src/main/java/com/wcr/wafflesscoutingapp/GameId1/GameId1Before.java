@@ -106,21 +106,21 @@ public class GameId1Before extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 UpdateTriColour(startPosButtons, 0);
-                app_data.setMatchDataId(4, "l", GameId1Before.this);
+                app_data.setMatchDataId(4, "left", GameId1Before.this);
             }
         });
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UpdateTriColour(startPosButtons, 2);
-                app_data.setMatchDataId(4, "r", GameId1Before.this);
+                app_data.setMatchDataId(4, "right", GameId1Before.this);
             }
         });
         centerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UpdateTriColour(startPosButtons, 1);
-                app_data.setMatchDataId(4, "c", GameId1Before.this);
+                app_data.setMatchDataId(4, "center", GameId1Before.this);
             }
         });
 
