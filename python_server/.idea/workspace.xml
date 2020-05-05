@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="471c6d85-7100-4927-95bf-d26a13613129" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/QRApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qrserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/qrserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QRApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/QRApp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datavalidation.py" beforeDir="false" afterPath="$PROJECT_DIR$/datavalidation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +32,10 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/qrserver.py" />
+    <property name="last_opened_file_path" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/graphix/leahurstGraphics.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.run qr server">
+  <component name="RunManager" selected="Python.QRApp">
     <configuration name="ChessSchedule" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -56,6 +49,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/projects/Chess Tournament/ChessSchedule.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="QRApp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/QRApp.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -98,27 +112,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../../learnC++Tutoral/pythonChallenge/dnaParser.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="myDictionary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python_server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/foo/dictionaryProgram" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:/Google Drive/Duncan_ICS4U_FORAS_2019/foo/dictionaryProgram/myDictionary.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,18 +165,18 @@
     <list>
       <item itemvalue="Python.run qr server" />
       <item itemvalue="Python.dnaParser" />
-      <item itemvalue="Python.myDictionary" />
       <item itemvalue="Python.myDictionaryClass" />
       <item itemvalue="Python.ChessSchedule" />
       <item itemvalue="Python.TriangleProblem" />
+      <item itemvalue="Python.QRApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.QRApp" />
         <item itemvalue="Python.TriangleProblem" />
         <item itemvalue="Python.ChessSchedule" />
         <item itemvalue="Python.myDictionaryClass" />
         <item itemvalue="Python.dnaParser" />
-        <item itemvalue="Python.myDictionary" />
       </list>
     </recent_temporary>
   </component>
@@ -220,42 +213,46 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="93" y="93" width="1350" height="678" key="DiffContextDialog/0.0.1536.864@0.0.1536.864" timestamp="1583165035809" />
-    <state x="540" y="193" key="FileChooserDialogImpl" timestamp="1583972109901">
+    <state x="540" y="193" key="FileChooserDialogImpl" timestamp="1587931332491">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="540" y="193" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1583972109901" />
-    <state width="755" height="224" key="GridCell.Tab.0.bottom" timestamp="1587091289029">
+    <state x="540" y="193" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1587931332491" />
+    <state width="753" height="225" key="GridCell.Tab.0.bottom" timestamp="1588694632489">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="755" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587091289029" />
-    <state width="755" height="224" key="GridCell.Tab.0.center" timestamp="1587091289029">
+    <state width="753" height="225" key="GridCell.Tab.0.bottom/0.0.1536.864/-1280.54.1280.1024@0.0.1536.864" timestamp="1588694632489" />
+    <state width="753" height="225" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588561115797" />
+    <state width="753" height="225" key="GridCell.Tab.0.center" timestamp="1588694632489">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="755" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587091289029" />
-    <state width="755" height="224" key="GridCell.Tab.0.left" timestamp="1587091289029">
+    <state width="753" height="225" key="GridCell.Tab.0.center/0.0.1536.864/-1280.54.1280.1024@0.0.1536.864" timestamp="1588694632489" />
+    <state width="753" height="225" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588561115797" />
+    <state width="753" height="225" key="GridCell.Tab.0.left" timestamp="1588694632489">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="755" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587091289029" />
-    <state width="755" height="224" key="GridCell.Tab.0.right" timestamp="1587091289029">
+    <state width="753" height="225" key="GridCell.Tab.0.left/0.0.1536.864/-1280.54.1280.1024@0.0.1536.864" timestamp="1588694632489" />
+    <state width="753" height="225" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588561115796" />
+    <state width="753" height="225" key="GridCell.Tab.0.right" timestamp="1588694632489">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="755" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587091289029" />
-    <state width="756" height="276" key="GridCell.Tab.1.bottom" timestamp="1583348873079">
+    <state width="753" height="225" key="GridCell.Tab.0.right/0.0.1536.864/-1280.54.1280.1024@0.0.1536.864" timestamp="1588694632489" />
+    <state width="753" height="225" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588561115797" />
+    <state width="756" height="276" key="GridCell.Tab.1.bottom" timestamp="1587933800305">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="756" height="276" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1583348873079" />
-    <state width="756" height="276" key="GridCell.Tab.1.center" timestamp="1583348873079">
+    <state width="756" height="276" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587933800305" />
+    <state width="756" height="276" key="GridCell.Tab.1.center" timestamp="1587933800305">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="756" height="276" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1583348873079" />
-    <state width="756" height="276" key="GridCell.Tab.1.left" timestamp="1583348873079">
+    <state width="756" height="276" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1587933800305" />
+    <state width="756" height="276" key="GridCell.Tab.1.left" timestamp="1587933800305">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="756" height="276" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1583348873079" />
-    <state width="756" height="276" key="GridCell.Tab.1.right" timestamp="1583348873079">
+    <state width="756" height="276" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1587933800305" />
+    <state width="756" height="276" key="GridCell.Tab.1.right" timestamp="1587933800305">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="756" height="276" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1583348873079" />
+    <state width="756" height="276" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1587933800305" />
     <state x="277" y="74" key="SettingsEditor" timestamp="1582763022817">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -264,9 +261,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="776" height="440" key="XDebugger.FullValuePopup/0.0.1536.864@0.0.1536.864" timestamp="1582818242616" />
-    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1583343109114">
+    <state x="333" y="161" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1587931855711">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="333" y="161" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.864@0.0.1536.864" timestamp="1587931855711" />
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1588694357088">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/-1280.54.1280.1024@0.0.1536.864" timestamp="1588694357088" />
     <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1583343109114" />
   </component>
   <component name="XDebuggerManager">

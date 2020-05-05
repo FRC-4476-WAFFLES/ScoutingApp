@@ -8,8 +8,8 @@ from statistics import mode
 eventCode = "2020isde1"
 apiKEY = "vMIHZYUhwQtwp5mB7hilezRBShGlfYTSmv8zPkcKxCHlTbmnYlQL7ikgf3YIDHmW"
 
-root = tk.Tk()
-root.title("Scouting Server")
+# root = tk.Tk()
+# root.title("Scouting Server")
 
 def is_connected(hostname):
     try:
