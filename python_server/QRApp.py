@@ -241,26 +241,28 @@ class QRApp():
         self.saveData()
 
     def validate(self):
-        # if len(self.toBEValidated) > 0:
-        # match = self.toBEValidated.pop(0)
-        match = (pd.DataFrame(), "this is test text")
-        ptf = tk.Frame(self.tableFrameChildren)
-        self.pt = pandastable.Table(ptf, dataframe=match[0], showtoolbar=True, showstatusbar=True)
-        f = tk.Frame(self.tableFrameChildren, bg="white")
-        text = tk.Label(f, text=f"Changes Needed: {match[1]}")
-        confirm = tk.Button(f, text="Confirm", bg="yellow", command=lambda:self.confirmed())
-        confirm.pack(side="left")
-        text.pack(side="left")
-        f.pack(side="top")
-        ptf.pack(side="bottom")
-        self.pt.show()
-        # else:
-        #     print("No matches to validate")
+        if len(self.toBEValidated) > 0:
+            match = self.toBEValidated.pop(0)
+            # match = (pd.DataFrame(), "this is test text")
+            ptf = tk.Frame(self.tableFrameChildren)
+            self.pt = pandastable.Table(ptf, dataframe=match[0], showtoolbar=True, showstatusbar=True)
+            f = tk.Frame(self.tableFrameChildren, bg="white")
+            text = tk.Label(f, text=f"Changes Needed: {match[1]}")
+            confirm = tk.Button(f, text="Confirm", bg="yellow", command=lambda:self.confirmed())
+            confirm.pack(side="left")
+            text.pack(side="left")
+            f.pack(side="top")
+            ptf.pack(side="bottom")
+            self.pt.show()
+        else:
+            print("No matches to validate")
 
     def confirmed(self):
         self.df = self.df.append(self.pt.model.df)
         self.pt = None
         self.tableFrameChildren.destroy()
+        self.tableFrameChildren = tk.Frame(self.tableFrame, bg="white")
+        self.tableFrameChildren.pack(side="top")
         self.saveData()
 
 
