@@ -42,3 +42,4 @@ luac.out
 .idea\
 .gradle\
 *.iml
+python_server/.idea/workspace.xml
