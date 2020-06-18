@@ -154,6 +154,9 @@ class QRApp():
         self.submitted_HUD.pack(side="top", anchor="nw")
         self.tableFrameChildren.pack(side="top")
         self.tableFrame.pack(side="right", anchor="ne")
+        # start callbacks
+        self.verifyQueue()
+        self.HUD()
 
     def startScanning(self):
         self.scan = True
@@ -197,7 +200,7 @@ class QRApp():
                     self.communicate()
                     # only read one QRcode at a time (end the search loop)
                     self.found_code = True
-            #			window   text	   loc(l, t) font  size colour(BGR) thckness
+            #			window   text	   loc(l, t)    font  size colour(BGR) thckness
             cv2.putText(frame, str(obj.data), (50, 50), self.font, 3, (255, 0, 0), 3)
             allTrue = all(i for i in self.submitted)
             if allTrue:
@@ -219,7 +222,6 @@ class QRApp():
     def addToVerifyQueue(self):
         self.toBeVerified.append(self.matchdf.to_string())
         self.matchdf = pd.DataFrame(columns=self.header)
-        #################################### make a loop to check these, then add them to the queue to be shown
 
     def verifyNext(self):
         return validate.findErrors(pd.read_csv(StringIO(self.toBeVerified[0])))
@@ -264,6 +266,51 @@ class QRApp():
         self.tableFrameChildren = tk.Frame(self.tableFrame, bg="white")
         self.tableFrameChildren.pack(side="top")
         self.saveData()
+
+    def HUD(self):
+        # R1
+        if self.submitted[0]:
+            self.r1.configure(text="Red 1 Submitted", bg="green", fg="red")
+            self.r1.update()
+        else:
+            self.r1.configure(text="Red 1 Not Submitted", bg="red", fg="white")
+            self.r1.update()
+        # R2
+        if self.submitted[1]:
+            self.r2.configure(text="Red 2 Submitted", bg="green", fg="red")
+            self.r2.update()
+        else:
+            self.r2.configure(text="Red 2 Not Submitted", bg="red", fg="white")
+            self.r2.update()
+        # R3
+        if self.submitted[2]:
+            self.r3.configure(text="Red 3 Submitted", bg="green", fg="red")
+            self.r3.update()
+        else:
+            self.r3.configure(text="Red 3 Not Submitted", bg="red", fg="white")
+            self.r3.update()
+        # B1
+        if self.submitted[3]:
+            self.b1.configure(text="Blue 1 Submitted", bg="green", fg="blue")
+            self.b1.update()
+        else:
+            self.b1.configure(text="Blue 1 Not Submitted", bg="blue", fg="white")
+            self.b1.update()
+        # B2
+        if self.submitted[4]:
+            self.b2.configure(text="Blue 2 Submitted", bg="green", fg="blue")
+            self.b2.update()
+        else:
+            self.b2.configure(text="Blue 2 Not Submitted", bg="blue", fg="white")
+            self.b2.update()
+        # B3
+        if self.submitted[5]:
+            self.b3.configure(text="Blue 3 Submitted", bg="green", fg="blue")
+            self.b3.update()
+        else:
+            self.b3.configure(text="Blue 3 Not Submitted", bg="blue", fg="white")
+            self.b3.update()
+        root.after(10000, self.HUD)
 
 
 
