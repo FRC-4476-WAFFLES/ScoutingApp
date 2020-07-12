@@ -47,3 +47,7 @@ C:\Users\dmies\Documents\GitHub\ScoutingApp\.idea
 *.properties
 *.lock
 python_server/.idea/workspace.xml
+\.gradle\
+C:\Users\dmies\Documents\GitHub\ScoutingApp\g.gradle
+.idea/workspace.xml
+.idea/workspace.xml
