@@ -1,0 +1,1 @@
+py -3 -m nuitka --follow-imports --plugin-enable=tk-inter --plugin-enable=pylint-warnings --plugin-enable=numpy --standalone --prefer-source-code --run --graph QRApp.py
