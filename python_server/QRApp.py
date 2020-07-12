@@ -1,14 +1,17 @@
+from io import StringIO
 import pandas as pd
 import json
 import os
 import cv2
 import pyzbar.pyzbar as pyzbar
-import time
-import subprocess
+# import time
+# import subprocess
 import datavalidation as validate
 import pandastable
 import tkinter as tk
 from PIL import ImageTk, Image
+
+
 class QRApp():
     def __init__(self):
         # load header config from file
@@ -18,6 +21,7 @@ class QRApp():
         # setup data management
         self.df = pd.DataFrame(columns=self.header)  # all competition data
         self.matchdf = pd.DataFrame(columns=self.header)  # most recent match data
+        self.pt=None
         # keep track of which robots data has been submitted.
         self.submitted = [False, False, False, False, False, False]
         self.userID = ["r1", "r2", "r3", "b1", "b2", "b3"]
@@ -36,11 +40,29 @@ class QRApp():
         self.videoFrame = None
         self.scanSwitch = tk.Button(self.root, bg="yellow", text="Start Scanning", font=("CooperFiveOpti Black", 16),
                                     command=lambda: self.startScanning())
+        self.validateNext = tk.Button(self.root, bg="yellow", text="Validate Next (available: 0)",
+                                      font=("CooperFiveOpti Black", 8), command=lambda:self.validate())
+        self.tableFrame = tk.Frame(self.root, bg="white")
+        self.tableFrameChildren = tk.Frame(self.tableFrame, bg="white")
+        # tkinter Heads Up Display
         self.submitted_HUD = tk.Frame(self.root, bg="white")
-        self.SX = "750"
+        self.red = tk.Frame(self.submitted_HUD, bg="white")
+        self.blue = tk.Frame(self.submitted_HUD, bg="white")
+        self.r1 = tk.Label(self.red, text="Red 1 Not Submitted", bg="red", fg="white",
+                           font=("CooperFiveOpti Black", 10))
+        self.r2 = tk.Label(self.red, text="Red 2 Not Submitted", bg="red", fg="white",
+                           font=("CooperFiveOpti Black", 10))
+        self.r3 = tk.Label(self.red, text="Red 3 Not Submitted", bg="red", fg="white",
+                           font=("CooperFiveOpti Black", 10))
+        self.b1 = tk.Label(self.blue, text="Blue 1 Not Submitted", bg="blue", fg="white",
+                           font=("CooperFiveOpti Black", 10))
+        self.b2 = tk.Label(self.blue, text="Blue 2 Not Submitted", bg="blue", fg="white",
+                           font=("CooperFiveOpti Black", 10))
+        self.b3 = tk.Label(self.blue, text="Blue 3 Not Submitted", bg="blue", fg="white",
+                           font=("CooperFiveOpti Black", 10))
+        self.SX = "1000"
         self.SY = "500"
         self.TITLE = "Scouting App Server v2.0"
-
 
         # file save paths
         self.file_path = os.path.join(os.getcwd(), "server_comm.txt")
@@ -119,7 +141,22 @@ class QRApp():
         self.root.title(self.TITLE)
         self.root.resizable(False, False)
         self.videoFeed.pack(side="left", anchor="nw")
-        self.scanSwitch.pack(side="left", anchor="ne")
+        self.scanSwitch.pack(side="top", anchor="nw")
+        self.validateNext.pack(side="top", anchor="nw")
+        self.r1.pack(side="top")
+        self.r2.pack(side="top")
+        self.r3.pack(side="top")
+        self.b1.pack(side="top")
+        self.b2.pack(side="top")
+        self.b3.pack(side="top")
+        self.red.pack(side="left")
+        self.blue.pack(side="left")
+        self.submitted_HUD.pack(side="top", anchor="nw")
+        self.tableFrameChildren.pack(side="top")
+        self.tableFrame.pack(side="right", anchor="ne")
+        # start callbacks
+        self.verifyQueue()
+        self.HUD()
 
     def startScanning(self):
         self.scan = True
@@ -152,7 +189,8 @@ class QRApp():
                     data = data.replace("[", "").replace("]", "").split(",")
                     user = data[-1]
                     data = data[:28]
-                    self.matchdf = self.matchdf.append(pd.DataFrame(data=[data], columns=self.header), ignore_index=True)
+                    self.matchdf = self.matchdf.append(pd.DataFrame(data=[data], columns=self.header),
+                                                       ignore_index=True)
                     self.saveData()
                     # look to see what user just submitted their data
                     for i in range(len(self.userID)):
@@ -162,7 +200,7 @@ class QRApp():
                     self.communicate()
                     # only read one QRcode at a time (end the search loop)
                     self.found_code = True
-            #			window   text	   loc(l, t) font  size colour(BGR) thckness
+            #			window   text	   loc(l, t)    font  size colour(BGR) thckness
             cv2.putText(frame, str(obj.data), (50, 50), self.font, 3, (255, 0, 0), 3)
             allTrue = all(i for i in self.submitted)
             if allTrue:
@@ -173,7 +211,7 @@ class QRApp():
         image = Image.fromarray(image)
         image.thumbnail((500, 500), Image.ANTIALIAS)
         image = ImageTk.PhotoImage(image)
-        if self.videoFrame == None:
+        if self.videoFrame is None:
             self.videoFrame = tk.Label(self.videoFeed, image=image)
             self.videoFrame.image = image
             self.videoFrame.pack(padx=5, pady=5)
@@ -184,7 +222,96 @@ class QRApp():
     def addToVerifyQueue(self):
         self.toBeVerified.append(self.matchdf.to_string())
         self.matchdf = pd.DataFrame(columns=self.header)
-        #################################### make a loop to check these, then add them to the queue to be shown
+
+    def verifyNext(self):
+        return validate.findErrors(pd.read_csv(StringIO(self.toBeVerified[0])))
+
+    def verifyQueue(self):
+        if len(self.toBeVerified) > 0:
+            msg = self.verifyNext()
+            if msg == "NI":
+                print("error in datavalidation.py: No internet or match not available. (will retry)")
+            else:
+                self.toBEValidated.append((self.toBeVerified[0], msg))
+                self.toBeVerified.pop(0)
+                self.updateValidateQueue()
+        self.root.after(10000, self.verifyQueue)
+
+    def updateValidateQueue(self):
+        number = len(self.toBEValidated)
+        self.validateNext.config(text=f"Validate Next (available: {number})")
+        self.saveData()
+
+    def validate(self):
+        if len(self.toBEValidated) > 0:
+            match = self.toBEValidated.pop(0)
+            # match = (pd.DataFrame(), "this is test text")
+            ptf = tk.Frame(self.tableFrameChildren)
+            self.pt = pandastable.Table(ptf, dataframe=match[0], showtoolbar=True, showstatusbar=True)
+            f = tk.Frame(self.tableFrameChildren, bg="white")
+            text = tk.Label(f, text=f"Changes Needed: {match[1]}")
+            confirm = tk.Button(f, text="Confirm", bg="yellow", command=lambda:self.confirmed())
+            confirm.pack(side="left")
+            text.pack(side="left")
+            f.pack(side="top")
+            ptf.pack(side="bottom")
+            self.pt.show()
+        else:
+            print("No matches to validate")
+
+    def confirmed(self):
+        self.df = self.df.append(self.pt.model.df)
+        self.pt = None
+        self.tableFrameChildren.destroy()
+        self.tableFrameChildren = tk.Frame(self.tableFrame, bg="white")
+        self.tableFrameChildren.pack(side="top")
+        self.saveData()
+
+    def HUD(self):
+        # R1
+        if self.submitted[0]:
+            self.r1.configure(text="Red 1 Submitted", bg="green", fg="red")
+            self.r1.update()
+        else:
+            self.r1.configure(text="Red 1 Not Submitted", bg="red", fg="white")
+            self.r1.update()
+        # R2
+        if self.submitted[1]:
+            self.r2.configure(text="Red 2 Submitted", bg="green", fg="red")
+            self.r2.update()
+        else:
+            self.r2.configure(text="Red 2 Not Submitted", bg="red", fg="white")
+            self.r2.update()
+        # R3
+        if self.submitted[2]:
+            self.r3.configure(text="Red 3 Submitted", bg="green", fg="red")
+            self.r3.update()
+        else:
+            self.r3.configure(text="Red 3 Not Submitted", bg="red", fg="white")
+            self.r3.update()
+        # B1
+        if self.submitted[3]:
+            self.b1.configure(text="Blue 1 Submitted", bg="green", fg="blue")
+            self.b1.update()
+        else:
+            self.b1.configure(text="Blue 1 Not Submitted", bg="blue", fg="white")
+            self.b1.update()
+        # B2
+        if self.submitted[4]:
+            self.b2.configure(text="Blue 2 Submitted", bg="green", fg="blue")
+            self.b2.update()
+        else:
+            self.b2.configure(text="Blue 2 Not Submitted", bg="blue", fg="white")
+            self.b2.update()
+        # B3
+        if self.submitted[5]:
+            self.b3.configure(text="Blue 3 Submitted", bg="green", fg="blue")
+            self.b3.update()
+        else:
+            self.b3.configure(text="Blue 3 Not Submitted", bg="blue", fg="white")
+            self.b3.update()
+        root.after(10000, self.HUD)
+
 
 
 

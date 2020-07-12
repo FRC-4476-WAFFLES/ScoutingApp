@@ -53,7 +53,7 @@ def findErrors(df):
         matchNum = f"qm{mode(df['Match'])}"
         match_data = tba.match(f"{eventCode}_{matchNum}")
     except:
-        return "\nNo consensus on match number/no internet connection."
+        return "NI"
 
 
     blueScore = match_data["alliances"]["blue"]["score"]
