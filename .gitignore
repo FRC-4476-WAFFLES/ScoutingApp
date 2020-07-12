@@ -39,6 +39,10 @@ luac.out
 *.x86_64
 *.hex
 
-.idea\
-.gradle\
+\.idea\
+C:\Users\dmies\Documents\GitHub\ScoutingApp\.gradle
+C:\Users\dmies\Documents\GitHub\ScoutingApp\.idea
+\.gradle\
 *.iml
+*.properties
+*.lock
